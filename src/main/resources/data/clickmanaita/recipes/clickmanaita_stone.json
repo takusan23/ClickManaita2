@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "DDD",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "clickmanaita:clickmanaita_wood"
+   },
+    "D": {
+       "item": "minecraft:cobblestone"
+    }
+  },
+  "result": {
+    "item": "clickmanaita:clickmanaita_stone"
+  }
+}

@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
  * */
 public class ClickManaitaCreativeTab extends ItemGroup {
 
-    /** super()の引数は内部的に使う模様。ローカライズはクラス名 */
+    /** super()の引数は内部的に使う模様。ローカライズはクラス名がスネークケースになったものが */
     public ClickManaitaCreativeTab() {
         super("clickmanaita_creative_tab");
     }

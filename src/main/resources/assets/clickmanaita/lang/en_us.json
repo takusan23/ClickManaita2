@@ -1,4 +1,9 @@
 {
+  "itemGroup.clickmanaita_creative_tab": "ClickManaita",
   "item.clickmanaita.clickmanaita_wood": "ClickManaita Wood",
-  "itemGroup.clickmanaita_creative_tab": "ClickManaita"
+  "item.clickmanaita.clickmanaita_stone": "ClickManaita Stone",
+  "item.clickmanaita.clickmanaita_iron": "ClickManaita Iron",
+  "item.clickmanaita.clickmanaita_gold": "ClickManaita Gold",
+  "item.clickmanaita.clickmanaita_diamond": "ClickManaita Diamond",
+  "item.clickmanaita.clickmanaita_emerald": "ClickManaita Emerald"
 }

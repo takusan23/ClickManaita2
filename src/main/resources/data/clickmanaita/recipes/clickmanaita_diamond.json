@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "DDD",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "clickmanaita:clickmanaita_gold"
+   },
+    "D": {
+       "item": "minecraft:diamond_block"
+    }
+  },
+  "result": {
+    "item": "clickmanaita:clickmanaita_diamond"
+  }
+}

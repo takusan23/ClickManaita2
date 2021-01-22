@@ -1,4 +1,9 @@
 {
+  "itemGroup.clickmanaita_creative_tab": "クリックまな板",
   "item.clickmanaita.clickmanaita_wood": "クリックまな板 木製",
-  "itemGroup.clickmanaita_creative_tab": "クリックまな板"
+  "item.clickmanaita.clickmanaita_stone": "クリックまな板 石製",
+  "item.clickmanaita.clickmanaita_iron": "クリックまな板 鉄製",
+  "item.clickmanaita.clickmanaita_gold": "クリックまな板 金製",
+  "item.clickmanaita.clickmanaita_diamond": "クリックまな板 ダイヤモンド製",
+  "item.clickmanaita.clickmanaita_emerald": "クリックまな板 エメラルド製"
 }
