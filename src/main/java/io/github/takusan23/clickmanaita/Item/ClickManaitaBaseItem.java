@@ -1,5 +1,6 @@
 package io.github.takusan23.clickmanaita.Item;
 
+import io.github.takusan23.clickmanaita.Tool.ClickManaitaUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.util.ITooltipFlag;
@@ -10,6 +11,7 @@ import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
+import net.minecraft.item.PickaxeItem;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.math.BlockPos;
@@ -83,26 +85,13 @@ public class ClickManaitaBaseItem extends Item {
 
     /**
      * まな板を右クリックした際の処理。増やす
+     *
+     * チェストの中身も増えるように
      */
     @Override
     public ActionResultType onItemUse(ItemUseContext context) {
-        BlockPos pos = context.getPos();
-        BlockState state = context.getWorld().getBlockState(pos);
-        Block targetBlock = state.getBlock();
-        TileEntity tileEntity = context.getWorld().getTileEntity(pos);
-        IInventory inventory = (IInventory) tileEntity;
-        // 回数分繰り返す
-        for (int i = 0; i < dropSize; i++) {
-            // TileEntity（チェストなどがある場合は中身も複製する）
-            if (targetBlock.hasTileEntity(state)) {
-                for (int dropIndex = 0; dropIndex < inventory.getSizeInventory(); ++dropIndex) {
-                    // copyを呼んで複製する
-                    InventoryHelper.spawnItemStack(context.getWorld(), (double) pos.getX(), (double) pos.getY(), (double) pos.getZ(), inventory.getStackInSlot(dropIndex).copy());
-                }
-            }
-            // 増やす
-            targetBlock.harvestBlock(context.getWorld(), context.getPlayer(), pos, context.getWorld().getBlockState(pos), tileEntity, context.getItem());
-        }
+        // アイテムを増やすメソッドを呼ぶ
+        ClickManaitaUtil.manaita(context.getPos(),context.getWorld(),context.getPlayer(),context.getItem(),dropSize);
         return ActionResultType.SUCCESS;
     }
 
