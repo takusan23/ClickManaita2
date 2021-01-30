@@ -1,6 +1,6 @@
 package io.github.takusan23.clickmanaita.CreativeTab;
 
-import io.github.takusan23.clickmanaita.Item.RegisterItems;
+import io.github.takusan23.clickmanaita.Item.ClickManaitaItems;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 
@@ -19,6 +19,6 @@ public class ClickManaitaCreativeTab extends ItemGroup {
      * */
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(RegisterItems.clickManaitaWood);
+        return new ItemStack(ClickManaitaItems.CLICKMANAITA_WOOD);
     }
 }
