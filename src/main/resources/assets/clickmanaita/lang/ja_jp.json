@@ -6,5 +6,17 @@
   "item.clickmanaita.clickmanaita_gold": "クリックまな板 金製",
   "item.clickmanaita.clickmanaita_diamond": "クリックまな板 ダイヤモンド製",
   "item.clickmanaita.clickmanaita_emerald": "クリックまな板 エメラルド製",
-  "enchantment.clickmanaita.clickmanaita_enchant": "クリックまな板エンチャント"
+  "enchantment.clickmanaita.clickmanaita_enchant": "クリックまな板エンチャント",
+  "item.clickmanaita.clickmanaita_blockitem_emerald": "クリックまな板ブロック エメラルド製",
+  "item.clickmanaita.clickmanaita_blockitem_diamond": "クリックまな板ブロック ダイヤモンド製",
+  "item.clickmanaita.clickmanaita_blockitem_gold": "クリックまな板ブロック 金製",
+  "item.clickmanaita.clickmanaita_blockitem_iron": "クリックまな板ブロック 鉄製",
+  "item.clickmanaita.clickmanaita_blockitem_stone": "クリックまな板ブロック 石製",
+  "item.clickmanaita.clickmanaita_blockitem_wood": "クリックまな板ブロック 木製",
+  "block.clickmanaita.clickmanaita_block_emerald": "クリックまな板ブロック エメラルド製",
+  "block.clickmanaita.clickmanaita_block_diamond": "クリックまな板ブロック ダイヤモンド製",
+  "block.clickmanaita.clickmanaita_block_gold": "クリックまな板ブロック 金製",
+  "block.clickmanaita.clickmanaita_block_iron": "クリックまな板ブロック 鉄製",
+  "block.clickmanaita.clickmanaita_block_stone": "クリックまな板ブロック 石製",
+  "block.clickmanaita.clickmanaita_block_wood": "クリックまな板ブロック 木製"
 }

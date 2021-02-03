@@ -6,5 +6,17 @@
   "item.clickmanaita.clickmanaita_gold": "ClickManaita Gold",
   "item.clickmanaita.clickmanaita_diamond": "ClickManaita Diamond",
   "item.clickmanaita.clickmanaita_emerald": "ClickManaita Emerald",
-  "enchantment.clickmanaita.clickmanaita_enchant": "ClickManaita Enchant"
+  "enchantment.clickmanaita.clickmanaita_enchant": "ClickManaita Enchant",
+  "item.clickmanaita.clickmanaita_blockitem_emerald": "ClickManaitaBlock Emerald",
+  "item.clickmanaita.clickmanaita_blockitem_diamond": "ClickManaitaBlock Diamond",
+  "item.clickmanaita.clickmanaita_blockitem_gold": "ClickManaitaBlock Gold",
+  "item.clickmanaita.clickmanaita_blockitem_iron": "ClickManaitaBlock Iron",
+  "item.clickmanaita.clickmanaita_blockitem_stone": "ClickManaitaBlock Stone",
+  "item.clickmanaita.clickmanaita_blockitem_wood": "ClickManaitaBlock Wood",
+  "block.clickmanaita.clickmanaita_block_emerald": "ClickManaitaBlock Emerald",
+  "block.clickmanaita.clickmanaita_block_diamond": "ClickManaitaBlock Diamond",
+  "block.clickmanaita.clickmanaita_block_gold": "ClickManaitaBlock Gold",
+  "block.clickmanaita.clickmanaita_block_iron": "ClickManaitaBlock Iron",
+  "block.clickmanaita.clickmanaita_block_stone": "ClickManaitaBlock Stone",
+  "block.clickmanaita.clickmanaita_block_wood": "ClickManaitaBlock Wood"
 }
