@@ -1,5 +1,6 @@
 package io.github.takusan23.clickmanaita.Item;
 
+import io.github.takusan23.clickmanaita.Block.ClickManaitaBlockItem;
 import io.github.takusan23.clickmanaita.Block.ClickManaitaBlocks;
 import io.github.takusan23.clickmanaita.ClickManaita;
 import io.github.takusan23.clickmanaita.CreativeTab.ClickManaitaCreativeTab;
@@ -66,37 +67,37 @@ public class ClickManaitaItems {
      * クリックまな板ブロックのBlockItem
      * 木製
      */
-    public static final BlockItem CLICKMANAITA_WOOD_BLOCK_ITEM = new BlockItem(ClickManaitaBlocks.CLICKMANAITA_WOOD_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final ClickManaitaBlockItem CLICKMANAITA_WOOD_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_WOOD_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
 
     /**
      * クリックまな板ブロックのBlockItem
      * 石製
      */
-    public static final BlockItem CLICKMANAITA_STONE_BLOCK_ITEM = new BlockItem(ClickManaitaBlocks.CLICKMANAITA_STONE_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final ClickManaitaBlockItem CLICKMANAITA_STONE_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_STONE_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
 
     /**
      * クリックまな板ブロックのBlockItem
      * 鉄製
      */
-    public static final BlockItem CLICKMANAITA_IRON_BLOCK_ITEM = new BlockItem(ClickManaitaBlocks.CLICKMANAITA_IRON_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final ClickManaitaBlockItem CLICKMANAITA_IRON_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_IRON_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
 
     /**
      * クリックまな板ブロックのBlockItem
      * 金製
      */
-    public static final BlockItem CLICKMANAITA_GOLD_BLOCK_ITEM = new BlockItem(ClickManaitaBlocks.CLICKMANAITA_GOLD_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final ClickManaitaBlockItem CLICKMANAITA_GOLD_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_GOLD_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
 
     /**
      * クリックまな板ブロックのBlockItem
      * ダイヤ製
      */
-    public static final BlockItem CLICKMANAITA_DIAMOND_BLOCK_ITEM = new BlockItem(ClickManaitaBlocks.CLICKMANAITA_DIAMOND_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final ClickManaitaBlockItem CLICKMANAITA_DIAMOND_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_DIAMOND_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
 
     /**
      * クリックまな板ブロックのBlockItem
      * エメラルド製
      */
-    public static final BlockItem CLICKMANAITA_EMERALD_BLOCK_ITEM = new BlockItem(ClickManaitaBlocks.CLICKMANAITA_EMERANLD_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final ClickManaitaBlockItem CLICKMANAITA_EMERALD_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_EMERANLD_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
 
 
     /**
@@ -114,6 +115,21 @@ public class ClickManaitaItems {
         CLICKMANAITA_DIAMOND.setToolTipColor(MaterialColor.MATERIAL_DIAMOND_COLOR);
         CLICKMANAITA_EMERALD.setToolTipColor(MaterialColor.MATERIAL_EMERALD_COLOR);
 
+        // ブロックアイテムにもツールチップ
+        CLICKMANAITA_WOOD_BLOCK_ITEM.setToolTipText("x2");
+        CLICKMANAITA_STONE_BLOCK_ITEM.setToolTipText("x4");
+        CLICKMANAITA_IRON_BLOCK_ITEM.setToolTipText("x8");
+        CLICKMANAITA_GOLD_BLOCK_ITEM.setToolTipText("x16");
+        CLICKMANAITA_DIAMOND_BLOCK_ITEM.setToolTipText("x32");
+        CLICKMANAITA_EMERALD_BLOCK_ITEM.setToolTipText("x64");
+
+        CLICKMANAITA_WOOD_BLOCK_ITEM.setToolTipColor(MaterialColor.MATERIAL_WOOD_COLOR);
+        CLICKMANAITA_STONE_BLOCK_ITEM.setToolTipColor(MaterialColor.MATERIAL_STONE_COLOR);
+        CLICKMANAITA_IRON_BLOCK_ITEM.setToolTipColor(MaterialColor.MATERIAL_IRON_COLOR);
+        CLICKMANAITA_GOLD_BLOCK_ITEM.setToolTipColor(MaterialColor.MATERIAL_GOLD_COLOR);
+        CLICKMANAITA_DIAMOND_BLOCK_ITEM.setToolTipColor(MaterialColor.MATERIAL_DIAMOND_COLOR);
+        CLICKMANAITA_EMERALD_BLOCK_ITEM.setToolTipColor(MaterialColor.MATERIAL_EMERALD_COLOR);
+
         // アイテムIDを付けて登録
         ITEMS.register("clickmanaita_wood", () -> CLICKMANAITA_WOOD);
         ITEMS.register("clickmanaita_stone", () -> CLICKMANAITA_STONE);
@@ -123,12 +139,12 @@ public class ClickManaitaItems {
         ITEMS.register("clickmanaita_emerald", () -> CLICKMANAITA_EMERALD);
 
         // ブロックのアイテムも登録
-        ITEMS.register("clickmanaita_wood_blockitem", () -> CLICKMANAITA_WOOD_BLOCK_ITEM);
-        ITEMS.register("clickmanaita_stone_blockitem", () -> CLICKMANAITA_STONE_BLOCK_ITEM);
-        ITEMS.register("clickmanaita_iron_blockitem", () -> CLICKMANAITA_IRON_BLOCK_ITEM);
-        ITEMS.register("clickmanaita_gold_blockitem", () -> CLICKMANAITA_GOLD_BLOCK_ITEM);
-        ITEMS.register("clickmanaita_diamond_blockitem", () -> CLICKMANAITA_DIAMOND_BLOCK_ITEM);
-        ITEMS.register("clickmanaita_emerald_blockitem", () -> CLICKMANAITA_EMERALD_BLOCK_ITEM);
+        ITEMS.register("clickmanaita_blockitem_wood", () -> CLICKMANAITA_WOOD_BLOCK_ITEM);
+        ITEMS.register("clickmanaita_blockitem_stone", () -> CLICKMANAITA_STONE_BLOCK_ITEM);
+        ITEMS.register("clickmanaita_blockitem_iron", () -> CLICKMANAITA_IRON_BLOCK_ITEM);
+        ITEMS.register("clickmanaita_blockitem_gold", () -> CLICKMANAITA_GOLD_BLOCK_ITEM);
+        ITEMS.register("clickmanaita_blockitem_diamond", () -> CLICKMANAITA_DIAMOND_BLOCK_ITEM);
+        ITEMS.register("clickmanaita_blockitem_emerald", () -> CLICKMANAITA_EMERALD_BLOCK_ITEM);
 
         // 登録
         ITEMS.register(eventBus);

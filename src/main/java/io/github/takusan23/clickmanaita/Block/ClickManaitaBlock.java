@@ -3,7 +3,9 @@ package io.github.takusan23.clickmanaita.Block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -31,7 +33,7 @@ public class ClickManaitaBlock extends Block {
 
     /**
      * @param properties  クリエイティブタブの設定など
-     * @param argDropSize どろっぷすどろっぷするこｓ *
+     * @param argDropSize どろっぷする個数
      */
     public ClickManaitaBlock(Properties properties, int argDropSize) {
         super(properties);
@@ -51,6 +53,8 @@ public class ClickManaitaBlock extends Block {
             for (int i = 0; i < dropSize; i++) {
                 // 現在持ってるアイテムを取得する
                 ItemStack currentItem = player.inventory.getCurrentItem().copy();
+                // 一個だけ
+                currentItem.setCount(1);
                 // アイテムを地面に生成
                 spawnAsEntity(worldIn, pos, currentItem);
             }
