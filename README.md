@@ -1,6 +1,11 @@
 # クリックまな板
 1.12.2にあったクリックまな板が帰ってきました。
 
+![Imgur](https://imgur.com/LdiN0OX.png)
+
+# ダウンロード
+https://www.curseforge.com/minecraft/mc-mods/clickmanaita
+
 # 前作との違い
 - まな板つるはしは廃止されました
     - 代わりにまな板エンチャントを追加しました。普通にエンチャント台で引き当てることができます。
