@@ -10,6 +10,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import javax.crypto.interfaces.PBEKey;
+
 /**
  * 追加するアイテムを記述していくクラス
  * <p>
@@ -99,6 +101,11 @@ public class ClickManaitaItems {
      */
     public static final ClickManaitaBlockItem CLICKMANAITA_EMERALD_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_EMERANLD_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
 
+    /**
+     * 金床で自由にドロップ数を決められるクリックまな板
+     * */
+    public static final ClickManaitaCustomItem CLICKMANAITA_CUSTOM_ITEM = new ClickManaitaCustomItem(new Item.Properties().group(CLICKMANAITA_CREATIVE_TAB), 0);
+
 
     /**
      * アイテムを登録する。
@@ -137,6 +144,7 @@ public class ClickManaitaItems {
         ITEMS.register("clickmanaita_gold", () -> CLICKMANAITA_GOLD);
         ITEMS.register("clickmanaita_diamond", () -> CLICKMANAITA_DIAMOND);
         ITEMS.register("clickmanaita_emerald", () -> CLICKMANAITA_EMERALD);
+        ITEMS.register("clickmanaita_custom", () -> CLICKMANAITA_CUSTOM_ITEM);
 
         // ブロックのアイテムも登録
         ITEMS.register("clickmanaita_blockitem_wood", () -> CLICKMANAITA_WOOD_BLOCK_ITEM);
