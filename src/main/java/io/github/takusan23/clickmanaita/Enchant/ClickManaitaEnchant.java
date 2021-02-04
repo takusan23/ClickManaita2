@@ -5,6 +5,11 @@ import net.minecraft.enchantment.EnchantmentType;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.util.text.ITextComponent;
 
+/**
+ * エンチャントの実装（右クリックした時に増やす）は
+ *
+ * {@link io.github.takusan23.clickmanaita.ClickManaitaPlayerEvent}を見てください
+ * */
 public class ClickManaitaEnchant extends Enchantment {
 
     protected ClickManaitaEnchant(Rarity rarityIn, EquipmentSlotType... slots) {
