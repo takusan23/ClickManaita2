@@ -33,6 +33,10 @@ https://www.curseforge.com/minecraft/mc-mods/clickmanaita
 3.IDEAの右にある`Gradle`から`Tasks > build`と進み、`build`を押します。
 4.`build/libs/`に`Jar`ファイルができてるはずなので、無くさないように避難させておきましょう
 
+## ブランチ
+`master`ブランチは使ってない  
+各マイクラバージョンのブランチ名があるのでそっち参照
+
 # その他メモ
 
 ## IDEA設定
