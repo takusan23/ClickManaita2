@@ -38,6 +38,20 @@ https://www.curseforge.com/minecraft/mc-mods/clickmanaita
 ## IDEA設定
 - `Ctrl`+クリックの時の検索は🔧マーク押して`Scope`を`All Places`にするといいかも
 
+## Gitで他のブランチのフォルダの中身を今のブランチにコピーする
+
+`git checkout ブランチ名 フォルダパス`
+
+例：ブランチ名「1.16.4」の`src/main`フォルダを今のブランチにコピー
+
+`git checkout 1.16.4 src/main`
+
+## 他のバージョンへ対応
+
+`mods.toml`の`versionRange`と`versionRange`と`loaderVersion`を直す？
+
+`Java`もメソッド名が変わってる可能性があるので直す。
+
 ## レシピ登録
 テクスチャ→`resources/assets/clickmanaita/textures`
 

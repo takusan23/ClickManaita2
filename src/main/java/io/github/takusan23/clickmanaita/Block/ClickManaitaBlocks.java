@@ -29,30 +29,30 @@ public class ClickManaitaBlocks {
      * クリックまな板ブロック 石製
      * 4倍
      */
-    public static final Block CLICKMANAITA_STONE_BLOCK = new ClickManaitaBlock(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3.5F), 4);
+    public static final Block CLICKMANAITA_STONE_BLOCK = new ClickManaitaBlock(AbstractBlock.Properties.create(Material.ROCK).func_235861_h_().hardnessAndResistance(3.5F), 4);
 
     /**
      * クリックまな板ブロック 鉄製
      * 8倍
      */
-    public static final Block CLICKMANAITA_IRON_BLOCK = new ClickManaitaBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.IRON).setRequiresTool().hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL), 8);
+    public static final Block CLICKMANAITA_IRON_BLOCK = new ClickManaitaBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.IRON).func_235861_h_().hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL), 8);
 
     /**
      * クリックまな板ブロック 金製
      * 16倍
      */
-    public static final Block CLICKMANAITA_GOLD_BLOCK = new ClickManaitaBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).setRequiresTool().setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.METAL), 16);
+    public static final Block CLICKMANAITA_GOLD_BLOCK = new ClickManaitaBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).func_235861_h_().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.METAL), 16);
     /**
      * クリックまな板ブロック ダイヤ製
      * 32倍
      */
-    public static final Block CLICKMANAITA_DIAMOND_BLOCK = new ClickManaitaBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.DIAMOND).setRequiresTool().setRequiresTool().hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL), 32);
+    public static final Block CLICKMANAITA_DIAMOND_BLOCK = new ClickManaitaBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.DIAMOND).func_235861_h_().hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL), 32);
 
     /**
      * クリックまな板ブロック エメラルド製
      * 64倍
      */
-    public static final Block CLICKMANAITA_EMERANLD_BLOCK = new ClickManaitaBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.EMERALD).setRequiresTool().hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL), 64);
+    public static final Block CLICKMANAITA_EMERANLD_BLOCK = new ClickManaitaBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.EMERALD).func_235861_h_().hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL), 64);
 
 
     /**

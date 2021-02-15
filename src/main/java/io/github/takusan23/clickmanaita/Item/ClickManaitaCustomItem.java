@@ -41,11 +41,10 @@ public class ClickManaitaCustomItem extends ClickManaitaBaseItem {
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         // この方法で色付きツールチップが作成できる
         StringTextComponent comment = new StringTextComponent("x" + getDropSize(stack));
-        comment.setStyle(Style.EMPTY.setColor(Color.fromHex("#ffffff")));
+        comment.func_230530_a_(Style.field_240709_b_.func_240718_a_(Color.func_240745_a_("ffffff")));
         // 金床で設定してねー
         StringTextComponent anvilMessage = new StringTextComponent("金床でこのアイテムの名前を増やしたい数に変更してください");
-        anvilMessage.setStyle(Style.EMPTY.setColor(Color.fromHex("#ffffff")));
-
+        anvilMessage.func_230530_a_(Style.field_240709_b_.func_240718_a_(Color.func_240745_a_("#ffffff")));
         tooltip.add(comment);
         tooltip.add(anvilMessage);
     }

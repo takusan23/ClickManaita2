@@ -64,7 +64,7 @@ public class ClickManaitaUtil {
     public static void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn, String toolTipText, String toolTipColor) {
         // この方法で色付きツールチップが作成できる
         StringTextComponent comment = new StringTextComponent(toolTipText);
-        comment.setStyle(Style.EMPTY.setColor(Color.fromHex(toolTipColor)));
+        comment.func_230530_a_(Style.field_240709_b_.func_240718_a_(Color.func_240745_a_(toolTipColor)));
         tooltip.add(comment);
     }
 
