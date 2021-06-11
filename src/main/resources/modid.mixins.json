@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "io.github.takusan23.clickmanaita.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+    "ExampleMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
