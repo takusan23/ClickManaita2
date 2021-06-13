@@ -26,6 +26,7 @@ class ClickManaitaBaseBlock(settings: Settings?, private val dropSize: Int = 2) 
                 // 今持ってるアイテム
                 val currentItem = player?.inventory?.mainHandStack?.copy()
                 currentItem?.count = 1
+                // アイテムを落とす
                 dropStack(world, pos, currentItem)
             }
             return ActionResult.SUCCESS

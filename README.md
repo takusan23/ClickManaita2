@@ -1,7 +1,25 @@
 # クリックまな板
-1.12.2にあったクリックまな板が1.17にもFabricとして帰って来る予定（時間がなくてできるか怪しい）
+1.12.2にあったクリックまな板が1.17にもFabricとして帰って来る
 
 ![Imgur](https://imgur.com/xsXFHrp.png)
+
+# Mod導入方法 （遊ぶ側、エンドユーザー向け）
+- 多分1.17のバニラを一回起動しておく必要があると思います。
+    - そうなるとJava 16以降が必要
+- Fabricを導入します。
+    - https://fabricmc.net/use/
+    - Windowsならexeの方でいいんじゃね？
+    - exeを起動するとWindows SmartScreenが警戒してきますがそのまま実行
+- modsフォルダに以下のファイルを入れます
+    - ClickManaita-1.17-1.0.0-Fabric.jar
+        - https://www.curseforge.com/minecraft/mc-mods/clickmanaita/files
+    - Fabric API 1.17版
+        - https://www.curseforge.com/minecraft/mc-mods/fabric-api/files
+    - Fabric Language Kotlin 1.17版
+        - このMODはKotlinという言語で書かれているためこのファイルが他のFabric製MODとは違い必要になります。
+        - https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin/files
+- Minecarft Lancherで起動構成ををfabric-loader-1.17に変更します
+- あとは楽しんで
 
 ## 開発者向け
 
@@ -22,3 +40,10 @@ IDEA と Kotlin でできている。
 - 無事終了したら一旦IDEAを終了させます
 - そうしたら再度起動します。すると実行ボタンのところに`Minecraft Client`と書かれているはずです。そしたら再生ボタンを押して起動させます。
 - 以上です。
+
+### Jar生成
+- IDEA右上のGradleを押して、Tasks>build>build です
+
+### JSONとか
+多分Forgeで使ってたJSONがそのまま使えるはず。アイテムID変えてなければ。  
+話変わるけどJSONの生成機能使ってる人いるの？微妙に不便じゃねあれ？
