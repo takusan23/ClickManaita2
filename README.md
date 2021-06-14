@@ -11,7 +11,7 @@
     - Windowsならexeの方でいいんじゃね？
     - exeを起動するとWindows SmartScreenが警戒してきますがそのまま実行
 - modsフォルダに以下のファイルを入れます
-    - ClickManaita-1.17-1.0.0-Fabric.jar
+    - ClickManaita-Fabric-1.17-1.0.0.jar
         - https://www.curseforge.com/minecraft/mc-mods/clickmanaita/files
     - Fabric API 1.17版
         - https://www.curseforge.com/minecraft/mc-mods/fabric-api/files
