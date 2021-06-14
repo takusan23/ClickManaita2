@@ -23,6 +23,9 @@
 
 ## 開発者向け
 
+メモ程度の自作ブログ  
+https://takusan.negitoro.dev/posts/minecraft_fabric_dev_environment/
+
 ### 開発環境
 IDEA と Kotlin でできている。  
 今回はKotlinで書かれています。
