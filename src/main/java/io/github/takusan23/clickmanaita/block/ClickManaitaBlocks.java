@@ -1,11 +1,11 @@
-package io.github.takusan23.clickmanaita.Block;
+package io.github.takusan23.clickmanaita.block;
 
 import io.github.takusan23.clickmanaita.ClickManaita;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -23,36 +23,36 @@ public class ClickManaitaBlocks {
      * クリックまな板ブロック 木製
      * 2倍
      */
-    public static final Block CLICKMANAITA_WOOD_BLOCK = new ClickManaitaBlock(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(2.5F).sound(SoundType.WOOD), 2);
+    public static final Block CLICKMANAITA_WOOD_BLOCK = new ClickManaitaBaseBlock(BlockBehaviour.Properties.of(Material.WOOD).requiresCorrectToolForDrops().strength(2.5F).sound(SoundType.WOOD), 2);
 
     /**
      * クリックまな板ブロック 石製
      * 4倍
      */
-    public static final Block CLICKMANAITA_STONE_BLOCK = new ClickManaitaBlock(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3.5F), 4);
+    public static final Block CLICKMANAITA_STONE_BLOCK = new ClickManaitaBaseBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.5F), 4);
 
     /**
      * クリックまな板ブロック 鉄製
      * 8倍
      */
-    public static final Block CLICKMANAITA_IRON_BLOCK = new ClickManaitaBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.IRON).setRequiresTool().hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL), 8);
+    public static final Block CLICKMANAITA_IRON_BLOCK = new ClickManaitaBaseBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.METAL).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL), 8);
 
     /**
      * クリックまな板ブロック 金製
      * 16倍
      */
-    public static final Block CLICKMANAITA_GOLD_BLOCK = new ClickManaitaBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).setRequiresTool().setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.METAL), 16);
+    public static final Block CLICKMANAITA_GOLD_BLOCK = new ClickManaitaBaseBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.GOLD).requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL), 16);
     /**
      * クリックまな板ブロック ダイヤ製
      * 32倍
      */
-    public static final Block CLICKMANAITA_DIAMOND_BLOCK = new ClickManaitaBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.DIAMOND).setRequiresTool().setRequiresTool().hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL), 32);
+    public static final Block CLICKMANAITA_DIAMOND_BLOCK = new ClickManaitaBaseBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.DIAMOND).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL), 32);
 
     /**
      * クリックまな板ブロック エメラルド製
      * 64倍
      */
-    public static final Block CLICKMANAITA_EMERANLD_BLOCK = new ClickManaitaBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.EMERALD).setRequiresTool().hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL), 64);
+    public static final Block CLICKMANAITA_EMERANLD_BLOCK = new ClickManaitaBaseBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.EMERALD).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL), 64);
 
 
     /**

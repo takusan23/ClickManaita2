@@ -1,8 +1,8 @@
-package io.github.takusan23.clickmanaita.Enchant;
+package io.github.takusan23.clickmanaita.enchant;
 
 import io.github.takusan23.clickmanaita.ClickManaita;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -19,7 +19,7 @@ public class RegisterEnchant {
     /**
      * エンチャントを登録する
      */
-    public static final ClickManaitaEnchant clickManaitaEnchant = new ClickManaitaEnchant(Enchantment.Rarity.COMMON, EquipmentSlotType.MAINHAND);
+    public static final ClickManaitaEnchant clickManaitaEnchant = new ClickManaitaEnchant(Enchantment.Rarity.COMMON, EquipmentSlot.values());
 
     /**
      * Forgeにエンチャントを登録する際に呼ぶメソッド

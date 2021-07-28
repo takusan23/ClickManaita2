@@ -1,8 +1,8 @@
 package io.github.takusan23.clickmanaita;
 
-import io.github.takusan23.clickmanaita.Block.ClickManaitaBlocks;
-import io.github.takusan23.clickmanaita.Enchant.RegisterEnchant;
-import io.github.takusan23.clickmanaita.Item.ClickManaitaItems;
+import io.github.takusan23.clickmanaita.block.ClickManaitaBlocks;
+import io.github.takusan23.clickmanaita.enchant.RegisterEnchant;
+import io.github.takusan23.clickmanaita.item.ClickManaitaItems;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;

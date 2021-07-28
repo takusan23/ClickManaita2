@@ -1,16 +1,13 @@
-package io.github.takusan23.clickmanaita.Item;
+package io.github.takusan23.clickmanaita.item;
 
-import io.github.takusan23.clickmanaita.Block.ClickManaitaBlockItem;
-import io.github.takusan23.clickmanaita.Block.ClickManaitaBlocks;
 import io.github.takusan23.clickmanaita.ClickManaita;
-import io.github.takusan23.clickmanaita.CreativeTab.ClickManaitaCreativeTab;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
+import io.github.takusan23.clickmanaita.block.ClickManaitaBlockItem;
+import io.github.takusan23.clickmanaita.block.ClickManaitaBlocks;
+import io.github.takusan23.clickmanaita.creativetab.ClickManaitaCreativeTab;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import javax.crypto.interfaces.PBEKey;
 
 /**
  * 追加するアイテムを記述していくクラス
@@ -33,78 +30,78 @@ public class ClickManaitaItems {
      * 木製のクリックまな板
      * ２倍化
      */
-    public static final ClickManaitaBaseItem CLICKMANAITA_WOOD = new ClickManaitaBaseItem(new Item.Properties().group(CLICKMANAITA_CREATIVE_TAB).group(CLICKMANAITA_CREATIVE_TAB), 2);
+    public static final ClickManaitaBaseItem CLICKMANAITA_WOOD = new ClickManaitaBaseItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), 2);
 
     /**
      * 石製のクリックまな板
      * ４倍化
      */
-    public static final ClickManaitaBaseItem CLICKMANAITA_STONE = new ClickManaitaBaseItem(new Item.Properties().group(CLICKMANAITA_CREATIVE_TAB), 4);
+    public static final ClickManaitaBaseItem CLICKMANAITA_STONE = new ClickManaitaBaseItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), 4);
 
     /**
      * 鉄のクリックまな板
      * ８倍化
      */
-    public static final ClickManaitaBaseItem CLICKMANAITA_IRON = new ClickManaitaBaseItem(new Item.Properties().group(CLICKMANAITA_CREATIVE_TAB), 8);
+    public static final ClickManaitaBaseItem CLICKMANAITA_IRON = new ClickManaitaBaseItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), 8);
 
     /**
      * 金製のクリックまな板
      * １６倍化
      */
-    public static final ClickManaitaBaseItem CLICKMANAITA_GOLD = new ClickManaitaBaseItem(new Item.Properties().group(CLICKMANAITA_CREATIVE_TAB), 16);
+    public static final ClickManaitaBaseItem CLICKMANAITA_GOLD = new ClickManaitaBaseItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), 16);
 
     /**
      * ダイヤ製のクリックまな板
      * ３２倍化
      */
-    public static final ClickManaitaBaseItem CLICKMANAITA_DIAMOND = new ClickManaitaBaseItem(new Item.Properties().group(CLICKMANAITA_CREATIVE_TAB), 32);
+    public static final ClickManaitaBaseItem CLICKMANAITA_DIAMOND = new ClickManaitaBaseItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), 32);
 
     /**
      * エメラルド製のクリックまな板
      * ６４倍化
      */
-    public static final ClickManaitaBaseItem CLICKMANAITA_EMERALD = new ClickManaitaBaseItem(new Item.Properties().group(CLICKMANAITA_CREATIVE_TAB), 64);
+    public static final ClickManaitaBaseItem CLICKMANAITA_EMERALD = new ClickManaitaBaseItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), 64);
 
     /**
      * クリックまな板ブロックのBlockItem
      * 木製
      */
-    public static final ClickManaitaBlockItem CLICKMANAITA_WOOD_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_WOOD_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final ClickManaitaBlockItem CLICKMANAITA_WOOD_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_WOOD_BLOCK, (new Item.Properties()).tab(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
 
     /**
      * クリックまな板ブロックのBlockItem
      * 石製
      */
-    public static final ClickManaitaBlockItem CLICKMANAITA_STONE_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_STONE_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final ClickManaitaBlockItem CLICKMANAITA_STONE_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_STONE_BLOCK, (new Item.Properties()).tab(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
 
     /**
      * クリックまな板ブロックのBlockItem
      * 鉄製
      */
-    public static final ClickManaitaBlockItem CLICKMANAITA_IRON_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_IRON_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final ClickManaitaBlockItem CLICKMANAITA_IRON_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_IRON_BLOCK, (new Item.Properties()).tab(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
 
     /**
      * クリックまな板ブロックのBlockItem
      * 金製
      */
-    public static final ClickManaitaBlockItem CLICKMANAITA_GOLD_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_GOLD_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final ClickManaitaBlockItem CLICKMANAITA_GOLD_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_GOLD_BLOCK, (new Item.Properties()).tab(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
 
     /**
      * クリックまな板ブロックのBlockItem
      * ダイヤ製
      */
-    public static final ClickManaitaBlockItem CLICKMANAITA_DIAMOND_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_DIAMOND_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final ClickManaitaBlockItem CLICKMANAITA_DIAMOND_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_DIAMOND_BLOCK, (new Item.Properties()).tab(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
 
     /**
      * クリックまな板ブロックのBlockItem
      * エメラルド製
      */
-    public static final ClickManaitaBlockItem CLICKMANAITA_EMERALD_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_EMERANLD_BLOCK.getBlock(), new Item.Properties().group(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final ClickManaitaBlockItem CLICKMANAITA_EMERALD_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_EMERANLD_BLOCK, (new Item.Properties()).tab(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
 
     /**
      * 金床で自由にドロップ数を決められるクリックまな板
-     * */
-    public static final ClickManaitaCustomItem CLICKMANAITA_CUSTOM_ITEM = new ClickManaitaCustomItem(new Item.Properties().group(CLICKMANAITA_CREATIVE_TAB), 0);
+     */
+    public static final ClickManaitaCustomItem CLICKMANAITA_CUSTOM_ITEM = new ClickManaitaCustomItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), 0);
 
 
     /**

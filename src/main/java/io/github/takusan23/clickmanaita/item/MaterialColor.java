@@ -1,6 +1,4 @@
-package io.github.takusan23.clickmanaita.Item;
-
-import net.minecraft.block.material.Material;
+package io.github.takusan23.clickmanaita.item;
 
 /**
  * ツールチップの色の設定用カラーコード定義
