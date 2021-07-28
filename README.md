@@ -39,7 +39,10 @@ IDEA と Kotlin でできている。
 - IDEA右上のFileからProject Structureを選択して、JDKのバージョンを16にします。
    - これでできるはずなんだけど、できない場合は下も試して
 - IDEAの設定を開き、Build,Execution,Deployment > Build Tools > Gradle へ進み、Gradle JVMを16にします。
-- できたら`Load Gradle Changes`ボタンを探して押します。🐘さんのアイコン
+- できたら`IDEA`の右上？にいる`Gradle`を押して、`Sync`ボタンを押します。これ
+
+![Imgur](https://imgur.com/0ra6jbW.png)  
+
 - 無事終了したら一旦IDEAを終了させます
 - そうしたら再度起動します。すると実行ボタンのところに`Minecraft Client`と書かれているはずです。そしたら再生ボタンを押して起動させます。
 - 以上です。
