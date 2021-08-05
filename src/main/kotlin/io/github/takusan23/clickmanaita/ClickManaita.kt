@@ -1,6 +1,8 @@
 package io.github.takusan23.clickmanaita
 
 import io.github.takusan23.clickmanaita.block.ClickManaitaBlock
+import io.github.takusan23.clickmanaita.enchant.ClickManaitaEnchant
+import io.github.takusan23.clickmanaita.enchant.ClickManaitaEnchantCallback
 import io.github.takusan23.clickmanaita.item.ClickManaitaItem
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
@@ -31,5 +33,8 @@ fun init() {
     Registry.register(Registry.ITEM, Identifier("clickmanaita", "clickmanaita_block_gold"), ClickManaitaItem.CLICKMANAITA_GOLD_BLOCK_ITEM)
     Registry.register(Registry.ITEM, Identifier("clickmanaita", "clickmanaita_block_diamond"), ClickManaitaItem.CLICKMANAITA_DIAMOND_BLOCK_ITEM)
     Registry.register(Registry.ITEM, Identifier("clickmanaita", "clickmanaita_block_emerald"), ClickManaitaItem.CLICKMANAITA_EMERALD_BLOCK_ITEM)
+    // エンチャント追加とコールバック登録
+    Registry.register(Registry.ENCHANTMENT, Identifier("clickmanaita", "clickmanaita_enchant"), ClickManaitaEnchant.CLICKMANAITA_ENCHANT)
+    ClickManaitaEnchantCallback.registerClickManaitaEnchantCallback()
 }
 
