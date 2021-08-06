@@ -26,6 +26,9 @@ object ClickManaitaItem {
     /** エメラルド製。64個増える */
     val CLICKMANAITA_EMERALD = ClickManaitaBaseItem(settings = FabricItemSettings().group(ClickManaitaItemGroup.CREATIVE_TAB), dropSize = 64)
 
+    /** クリックまな板カスタム */
+    val CLICKMANAITA_CUSTOM = ClickManaitaCustomItem(settings = FabricItemSettings().group(ClickManaitaItemGroup.CREATIVE_TAB))
+
     /** クリックまな板ブロック木製のアイテム */
     val CLICKMANAITA_WOOD_BLOCK_ITEM = BlockItem(ClickManaitaBlock.CLICKMANAITA_WOOD_BLOCK, FabricItemSettings().group(ClickManaitaItemGroup.CREATIVE_TAB))
 

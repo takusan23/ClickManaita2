@@ -1,37 +1,40 @@
 package io.github.takusan23.clickmanaita.item
 
-import com.ibm.icu.impl.Utility
 import net.minecraft.block.Block
 import net.minecraft.client.item.TooltipContext
-import net.minecraft.entity.boss.BossBar
 import net.minecraft.inventory.Inventory
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.item.ItemUsageContext
-import net.minecraft.text.*
+import net.minecraft.text.LiteralText
+import net.minecraft.text.Style
+import net.minecraft.text.Text
 import net.minecraft.util.ActionResult
 import net.minecraft.util.Formatting
-import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 
 /**
- * 右クリックしたらアイテムが増えるアイテムを追加する
- *
- * @param settings クリエタブとか
- * @param dropSize 増える数
+ * 金床で変えた値だけ増えるまな板
  * */
-open class ClickManaitaBaseItem(settings: Settings?, private val dropSize: Int = 2) : Item(settings) {
+class ClickManaitaCustomItem(settings: Settings?) : Item(settings) {
+
+    /** ドロップ数を返す。失敗したら0 */
+    private fun getDropSize(itemStack: ItemStack) = itemStack.name.asString().toIntOrNull() ?: 0
 
     /**
      * ブロックを右クリックしたときに呼ばれる関数
      * */
     override fun useOnBlock(context: ItemUsageContext?): ActionResult {
-        val world = context?.world
-        val blockPos = context?.blockPos
+
+        context ?: return ActionResult.PASS
+
+        val world = context.world
+        val itemStack = context.stack
+        val blockPos = context.blockPos
         val state = world?.getBlockState(blockPos)
         val copyBlock = state?.block
         val blockEntity = world?.getBlockEntity(blockPos)
-        repeat(dropSize) {
+        repeat(getDropSize(itemStack)) {
             // チェストの中身も増やす
             if (blockEntity is Inventory) {
                 repeat(blockEntity.size()) { invIndex ->
@@ -49,7 +52,8 @@ open class ClickManaitaBaseItem(settings: Settings?, private val dropSize: Int =
      * */
     override fun appendTooltip(stack: ItemStack?, world: World?, tooltip: MutableList<Text>?, context: TooltipContext?) {
         super.appendTooltip(stack, world, tooltip, context)
-        tooltip?.add(LiteralText("x$dropSize").apply { style = Style.EMPTY.withColor(Formatting.AQUA) })
+        if (stack != null) {
+            tooltip?.add(LiteralText("x${getDropSize(stack)}").apply { style = Style.EMPTY.withColor(Formatting.AQUA) })
+        }
     }
-
 }

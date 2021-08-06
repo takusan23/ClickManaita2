@@ -19,6 +19,7 @@ fun init() {
     Registry.register(Registry.ITEM, Identifier("clickmanaita", "clickmanaita_gold"), ClickManaitaItem.CLICKMANAITA_GOLD)
     Registry.register(Registry.ITEM, Identifier("clickmanaita", "clickmanaita_diamond"), ClickManaitaItem.CLICKMANAITA_DIAMOND)
     Registry.register(Registry.ITEM, Identifier("clickmanaita", "clickmanaita_emerald"), ClickManaitaItem.CLICKMANAITA_EMERALD)
+    Registry.register(Registry.ITEM, Identifier("clickmanaita", "clickmanaita_custom"), ClickManaitaItem.CLICKMANAITA_CUSTOM)
     // ブロック追加
     Registry.register(Registry.BLOCK, Identifier("clickmanaita", "clickmanaita_block_wood"), ClickManaitaBlock.CLICKMANAITA_WOOD_BLOCK)
     Registry.register(Registry.BLOCK, Identifier("clickmanaita", "clickmanaita_block_stone"), ClickManaitaBlock.CLICKMANAITA_STONE_BLOCK)
