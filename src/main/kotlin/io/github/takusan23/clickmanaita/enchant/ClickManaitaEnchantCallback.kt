@@ -57,7 +57,7 @@ object ClickManaitaEnchantCallback {
                     }
                 }
                 // ブロックを増やす
-                copyBlock?.afterBreak(world, playerEntity, blockPos, state, blockEntity, ItemStack.EMPTY)
+                copyBlock?.afterBreak(world, playerEntity, blockPos, state, blockEntity, playerEntity.mainHandStack)
             }
             ActionResult.SUCCESS // クリックイベントを消費した
         }

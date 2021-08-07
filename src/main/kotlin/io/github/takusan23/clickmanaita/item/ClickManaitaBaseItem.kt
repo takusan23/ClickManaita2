@@ -39,7 +39,7 @@ open class ClickManaitaBaseItem(settings: Settings?, private val dropSize: Int =
                 }
             }
             // ブロックを増やす
-            copyBlock?.afterBreak(world, context.player, blockPos, state, blockEntity, context.stack)
+            copyBlock?.afterBreak(world, context.player, blockPos, state, blockEntity, context.player?.mainHandStack)
         }
         return ActionResult.SUCCESS
     }
