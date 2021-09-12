@@ -19,8 +19,8 @@ class ClickManaitaBaseBlock(settings: Settings?, private val dropSize: Int = 2) 
 
     /** ブロックを右クリックしたら呼ばれる */
     override fun onUse(state: BlockState?, world: World?, pos: BlockPos?, player: PlayerEntity?, hand: Hand?, hit: BlockHitResult?): ActionResult {
-        if (world!!.isClient) {
-            return ActionResult.CONSUME
+        return if (world!!.isClient) {
+            ActionResult.CONSUME
         } else {
             repeat(dropSize) {
                 // 今持ってるアイテム
@@ -29,7 +29,7 @@ class ClickManaitaBaseBlock(settings: Settings?, private val dropSize: Int = 2) 
                 // アイテムを落とす
                 dropStack(world, pos, currentItem)
             }
-            return ActionResult.SUCCESS
+            ActionResult.SUCCESS
         }
     }
 }

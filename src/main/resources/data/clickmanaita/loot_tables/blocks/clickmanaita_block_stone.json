@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "clickmanaita:clickmanaita_blockitem_stone"
+          "name": "clickmanaita:clickmanaita_block_stone"
         }
       ],
       "conditions": [

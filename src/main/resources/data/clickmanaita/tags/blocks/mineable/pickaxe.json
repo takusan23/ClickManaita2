@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "clickmanaita:clickmanaita_block_stone",
+    "clickmanaita:clickmanaita_block_iron",
+    "clickmanaita:clickmanaita_block_gold",
+    "clickmanaita:clickmanaita_block_diamond",
+    "clickmanaita:clickmanaita_block_emerald"
+  ]
+}

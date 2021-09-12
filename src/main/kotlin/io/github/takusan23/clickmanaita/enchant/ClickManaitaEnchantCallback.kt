@@ -11,6 +11,8 @@ import net.minecraft.enchantment.EnchantmentHelper
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.inventory.Inventory
 import net.minecraft.item.ItemStack
+import net.minecraft.loot.LootTables
+import net.minecraft.nbt.NbtCompound
 import net.minecraft.util.ActionResult
 import net.minecraft.util.Hand
 import net.minecraft.util.TypedActionResult
@@ -44,12 +46,24 @@ object ClickManaitaEnchantCallback {
             val state = world.getBlockState(blockPos)
             val copyBlock = state?.block
             val blockEntity = world.getBlockEntity(blockPos)
+            // アイテム化するかどうか
+            val isNotItemDrop = copyBlock?.getPickStack(world, blockPos, state) == ItemStack.EMPTY || copyBlock?.lootTableId == LootTables.EMPTY
 
             if (dropSize == 0 || (state.hasBlockEntity() && !playerEntity.isSneaking)) {
                 return@register ActionResult.PASS // エンチャントついてないとき または スニークしてないでチェストクリック時 は即return（クリックイベントを消費せずに）
             }
 
             repeat(dropSize) {
+                if (isNotItemDrop) {
+                    // アイテムを落とさない場合（スポナーなど
+                    val copyItem = ItemStack(copyBlock?.asItem())
+                    // NBTタグを移す
+                    val nbtCompound = blockEntity?.writeNbt(NbtCompound())
+                    if (nbtCompound?.isEmpty == false) {
+                        copyItem.setSubNbt("BlockEntityTag", nbtCompound.copy())
+                    }
+                    Block.dropStack(world, blockPos, copyItem)
+                }
                 // チェストの中身も増やす
                 if (blockEntity is Inventory) {
                     repeat(blockEntity.size()) { invIndex ->

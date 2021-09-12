@@ -10,18 +10,18 @@ object ClickManaitaBlock {
     val CLICKMANAITA_WOOD_BLOCK = ClickManaitaBaseBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F), 2)
 
     /** 石製。4個増える */
-    val CLICKMANAITA_STONE_BLOCK = ClickManaitaBaseBlock(FabricBlockSettings.of(Material.STONE).strength(3.5F), 4)
+    val CLICKMANAITA_STONE_BLOCK = ClickManaitaBaseBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.5F), 4)
 
     /** 鉄製。8個増える */
-    val CLICKMANAITA_IRON_BLOCK = ClickManaitaBaseBlock(FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F), 8)
+    val CLICKMANAITA_IRON_BLOCK = ClickManaitaBaseBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(5.0F, 6.0F), 8)
 
     /** 金製。16個増える */
-    val CLICKMANAITA_GOLD_BLOCK = ClickManaitaBaseBlock(FabricBlockSettings.of(Material.METAL).strength(3.0F, 6.0F), 16)
+    val CLICKMANAITA_GOLD_BLOCK = ClickManaitaBaseBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(3.0F, 6.0F), 16)
 
     /** ダイヤ製。32個増える */
-    val CLICKMANAITA_DIAMOND_BLOCK = ClickManaitaBaseBlock(FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F), 32)
+    val CLICKMANAITA_DIAMOND_BLOCK = ClickManaitaBaseBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(5.0F, 6.0F), 32)
 
     /** エメラルド製。64個増える */
-    val CLICKMANAITA_EMERALD_BLOCK = ClickManaitaBaseBlock(FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F), 64)
+    val CLICKMANAITA_EMERALD_BLOCK = ClickManaitaBaseBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(5.0F, 6.0F), 64)
 
 }

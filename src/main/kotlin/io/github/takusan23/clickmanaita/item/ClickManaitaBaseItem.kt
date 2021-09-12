@@ -2,12 +2,16 @@ package io.github.takusan23.clickmanaita.item
 
 import com.ibm.icu.impl.Utility
 import net.minecraft.block.Block
+import net.minecraft.block.Blocks
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.boss.BossBar
 import net.minecraft.inventory.Inventory
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.item.ItemUsageContext
+import net.minecraft.item.Items
+import net.minecraft.loot.LootTables
+import net.minecraft.nbt.NbtCompound
 import net.minecraft.text.*
 import net.minecraft.util.ActionResult
 import net.minecraft.util.Formatting
@@ -31,7 +35,21 @@ open class ClickManaitaBaseItem(settings: Settings?, private val dropSize: Int =
         val state = world?.getBlockState(blockPos)
         val copyBlock = state?.block
         val blockEntity = world?.getBlockEntity(blockPos)
+        // アイテム化するかどうか
+        val isNotItemDrop = copyBlock?.getPickStack(world, blockPos, state) == ItemStack.EMPTY || copyBlock?.lootTableId == LootTables.EMPTY
+//        context?.player?.sendMessage(Text.of("ドロップしない：$isNotItemDrop"),false)
+
         repeat(dropSize) {
+            if (isNotItemDrop) {
+                // アイテムを落とさない場合（スポナーなど
+                val copyItem = ItemStack(copyBlock?.asItem())
+                // NBTタグを移す
+                val nbtCompound = blockEntity?.writeNbt(NbtCompound())
+                if (nbtCompound?.isEmpty == false) {
+                    copyItem.setSubNbt("BlockEntityTag", nbtCompound.copy())
+                }
+                Block.dropStack(world, blockPos, copyItem)
+            }
             // チェストの中身も増やす
             if (blockEntity is Inventory) {
                 repeat(blockEntity.size()) { invIndex ->

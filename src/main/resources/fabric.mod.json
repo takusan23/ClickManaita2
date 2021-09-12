@@ -10,7 +10,7 @@
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/clickmanaita",
-    "sources": "https://github.com/takusan23/ClickManaita2/tree/1.17-fabric"
+    "sources": "https://github.com/takusan23/ClickManaita2/tree/1.17.1-fabric"
   },
 
   "license": "Apache-2.0 License",
