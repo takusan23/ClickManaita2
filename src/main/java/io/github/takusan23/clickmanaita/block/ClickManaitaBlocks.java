@@ -23,7 +23,7 @@ public class ClickManaitaBlocks {
      * クリックまな板ブロック 木製
      * 2倍
      */
-    public static final Block CLICKMANAITA_WOOD_BLOCK = new ClickManaitaBaseBlock(BlockBehaviour.Properties.of(Material.WOOD).requiresCorrectToolForDrops().strength(2.5F).sound(SoundType.WOOD), 2);
+    public static final Block CLICKMANAITA_WOOD_BLOCK = new ClickManaitaBaseBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.5F).sound(SoundType.WOOD), 2);
 
     /**
      * クリックまな板ブロック 石製

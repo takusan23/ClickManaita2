@@ -1,5 +1,6 @@
 package io.github.takusan23.clickmanaita;
 
+import io.github.takusan23.clickmanaita.block.ClickManaitaBaseBlock;
 import io.github.takusan23.clickmanaita.block.ClickManaitaBlocks;
 import io.github.takusan23.clickmanaita.enchant.RegisterEnchant;
 import io.github.takusan23.clickmanaita.item.ClickManaitaItems;

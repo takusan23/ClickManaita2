@@ -144,12 +144,12 @@ public class ClickManaitaItems {
         ITEMS.register("clickmanaita_custom", () -> CLICKMANAITA_CUSTOM_ITEM);
 
         // ブロックのアイテムも登録
-        ITEMS.register("clickmanaita_blockitem_wood", () -> CLICKMANAITA_WOOD_BLOCK_ITEM);
-        ITEMS.register("clickmanaita_blockitem_stone", () -> CLICKMANAITA_STONE_BLOCK_ITEM);
-        ITEMS.register("clickmanaita_blockitem_iron", () -> CLICKMANAITA_IRON_BLOCK_ITEM);
-        ITEMS.register("clickmanaita_blockitem_gold", () -> CLICKMANAITA_GOLD_BLOCK_ITEM);
-        ITEMS.register("clickmanaita_blockitem_diamond", () -> CLICKMANAITA_DIAMOND_BLOCK_ITEM);
-        ITEMS.register("clickmanaita_blockitem_emerald", () -> CLICKMANAITA_EMERALD_BLOCK_ITEM);
+        ITEMS.register("clickmanaita_block_wood", () -> CLICKMANAITA_WOOD_BLOCK_ITEM);
+        ITEMS.register("clickmanaita_block_stone", () -> CLICKMANAITA_STONE_BLOCK_ITEM);
+        ITEMS.register("clickmanaita_block_iron", () -> CLICKMANAITA_IRON_BLOCK_ITEM);
+        ITEMS.register("clickmanaita_block_gold", () -> CLICKMANAITA_GOLD_BLOCK_ITEM);
+        ITEMS.register("clickmanaita_block_diamond", () -> CLICKMANAITA_DIAMOND_BLOCK_ITEM);
+        ITEMS.register("clickmanaita_block_emerald", () -> CLICKMANAITA_EMERALD_BLOCK_ITEM);
 
         // 登録
         ITEMS.register(eventBus);

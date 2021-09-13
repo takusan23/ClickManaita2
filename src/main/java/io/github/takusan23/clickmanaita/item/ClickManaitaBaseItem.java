@@ -1,20 +1,24 @@
 package io.github.takusan23.clickmanaita.item;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.Style;
-import net.minecraft.network.chat.TextColor;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.*;
 import net.minecraft.world.Container;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.LootTables;
+import net.minecraft.world.phys.HitResult;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -91,8 +95,23 @@ public class ClickManaitaBaseItem extends Item {
         BlockPos blockPos = p_41427_.getClickedPos();
         BlockState blockState = level.getBlockState(blockPos);
         BlockEntity blockEntity = level.getBlockEntity(blockPos);
-
+        Block copyBlock = blockState.getBlock();
+        // アイテム化するかどうか
+        boolean isNotItemDrop = copyBlock.getLootTable() == BuiltInLootTables.EMPTY || copyBlock.getCloneItemStack(level, blockPos, blockState) == ItemStack.EMPTY;
         for (int i = 0; i < dropSize; i++) {
+            // アイテム化しない場合
+            if (isNotItemDrop) {
+                ItemStack copyItem = new ItemStack(copyBlock.asItem());
+                // NBTタグを移す
+                if (blockEntity != null) {
+                    CompoundTag compoundTag = blockEntity.serializeNBT();
+                    if (!compoundTag.isEmpty()) {
+                        copyItem.addTagElement("BlockEntityTag", compoundTag.copy());
+                    }
+                }
+                // アイテムを地面に生成
+                Block.popResource(level, blockPos, copyItem);
+            }
             // チェストの中身も増やす
             if (blockEntity instanceof Container) {
                 for (int l = 0; l < ((Container) blockEntity).getContainerSize(); l++) {
@@ -100,10 +119,10 @@ public class ClickManaitaBaseItem extends Item {
                 }
             }
             // ブロック複製
-            Block.dropResources(blockState, level, blockPos, null, p_41427_.getPlayer(), p_41427_.getItemInHand());
+            Block.dropResources(blockState, level, blockPos, blockEntity, p_41427_.getPlayer(), p_41427_.getItemInHand());
         }
 
-        return InteractionResult.CONSUME;
+        return InteractionResult.SUCCESS;
     }
 
     @Override

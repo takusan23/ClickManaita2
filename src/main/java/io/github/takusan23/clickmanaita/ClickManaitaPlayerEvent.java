@@ -2,14 +2,17 @@ package io.github.takusan23.clickmanaita;
 
 import io.github.takusan23.clickmanaita.enchant.RegisterEnchant;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.EnderEyeItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -54,7 +57,24 @@ public class ClickManaitaPlayerEvent {
             BlockState blockState = level.getBlockState(blockPos);
             BlockEntity blockEntity = level.getBlockEntity(blockPos);
             Player player = event.getPlayer();
+            Block copyBlock = blockState.getBlock();
+
+            // アイテム化するかどうか
+            boolean isNotItemDrop = copyBlock.getLootTable() == BuiltInLootTables.EMPTY || copyBlock.getCloneItemStack(level, blockPos, blockState) == ItemStack.EMPTY;
             for (int i = 0; i < dropSize; i++) {
+                // アイテム化しない場合
+                if (isNotItemDrop) {
+                    ItemStack copyItem = new ItemStack(copyBlock.asItem());
+                    // NBTタグを移す
+                    if (blockEntity != null) {
+                        CompoundTag compoundTag = blockEntity.serializeNBT();
+                        if (!compoundTag.isEmpty()) {
+                            copyItem.addTagElement("BlockEntityTag", compoundTag.copy());
+                        }
+                    }
+                    // アイテムを地面に生成
+                    Block.popResource(level, blockPos, copyItem);
+                }
                 // チェストの中身も増やす
                 if (blockEntity instanceof Container) {
                     for (int l = 0; l < ((Container) blockEntity).getContainerSize(); l++) {
@@ -62,7 +82,7 @@ public class ClickManaitaPlayerEvent {
                     }
                 }
                 // ブロック複製
-                Block.dropResources(blockState, level, blockPos, null, player, player.getMainHandItem());
+                Block.dropResources(blockState, level, blockPos, blockEntity, player, player.getMainHandItem());
             }
         }
     }

@@ -43,7 +43,8 @@ Forgeで他に入れたいMODがある場合（Optifine入れてシェーダー�
 なんか`なんちゃらProxy`みたいなのは書かなくてよくなったみたい。
 
 ## Fabric版の違い
-Fabric版はKotlinで書かれてますが、Forge版はJavaです。
+Fabric版はKotlinで書かれてますが、Forge版はJavaです。  
+アイテムID、ブロックIDは多分変更してないので、Fabric環境 / Forge環境 を行ったり来たり出来ます（他MODは知らんけど）
 
 ## 開発環境構築
 
@@ -64,6 +65,10 @@ Fabric版はKotlinで書かれてますが、Forge版はJavaです。
     - ここでJava 16が指定できてないとコケると思う
     - あとインターネットが遅い？と`Tag mismatch!`でコケると思う。これ意味不明すぎで草
     - 私の環境では10分ぐらいかかった。`BUILD SUCCESSFUL in 9m 33s`とかでればおｋ
+- Gradle Syncします。`IDEA`の右上？にいる`Gradle`を押して、`Sync`ボタンを押します。これ
+
+![Imgur](https://imgur.com/0ra6jbW.png)
+
 - IDEA右上にある`Gradle`から、`Tasks > forgegradle runs > genIntellijRuns`をダブルクリックしてまた待つ
 - 終わったら、再生ボタンの隣りにあるドロップダウンメニューから`runClient`が選択可能になってます。`runClient`を選択して再生ボタンを押せば起動できます。
 - お疲れさまでした
