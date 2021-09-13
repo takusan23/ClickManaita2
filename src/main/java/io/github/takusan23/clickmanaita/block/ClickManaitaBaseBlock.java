@@ -48,7 +48,7 @@ public class ClickManaitaBaseBlock extends Block {
     public InteractionResult use(BlockState p_60503_, Level p_60504_, BlockPos p_60505_, Player p_60506_, InteractionHand p_60507_, BlockHitResult p_60508_) {
         for (int i = 0; i < dropSize; i++) {
             // 現在持ってるアイテムを取得する
-            ItemStack currentItem = p_60506_.getMainHandItem();
+            ItemStack currentItem = p_60506_.getMainHandItem().copy();
             // 一個だけ
             currentItem.setCount(1);
             // アイテムを地面に生成

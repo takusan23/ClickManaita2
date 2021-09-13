@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "clickmanaita:clickmanaita_blockitem_emerald"
+          "name": "clickmanaita:clickmanaita_block_emerald"
         }
       ],
       "conditions": [

@@ -68,6 +68,23 @@ Fabric版はKotlinで書かれてますが、Forge版はJavaです。
 - 終わったら、再生ボタンの隣りにあるドロップダウンメニューから`runClient`が選択可能になってます。`runClient`を選択して再生ボタンを押せば起動できます。
 - お疲れさまでした
 
+### Forgeアップデート方法
+多分、`build.gradle`の以下の部分を最新のForgeのバージョンにして、`Gradle Sync (IDEA右上のGradle押して、更新ボタンみたいなやつ押す)`して、`genIntellijRuns`を再度実行すれば、Forgeの更新は完了。
+
+```gradle
+dependencies {
+    // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
+    // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
+    // The userdev artifact is a special name and will get all sorts of transformations applied to it.
+    minecraft 'net.minecraftforge:forge:1.17.1-37.0.59' // ここを最新Varに
+
+    // 以下省略
+
+```
+
+#### なんかうまく行かない
+Fabric版の環境構築中にブランチを切り替えると多分だめ？  
+切り替えたら一度プロジェクトを閉じて、また読み込めばいいと思う。
 
 # トラブルシューティング
 - `runClient`が押せない（なんかバツマーク）
