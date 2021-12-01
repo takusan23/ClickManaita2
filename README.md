@@ -32,7 +32,8 @@ IDEA と Kotlin でできている。
 
 ### 必要なもの
 - IDEA
-- AdoptOpenJDK 16
+- Eclipse Adoptium 17
+  - Java 17 以降が必要です
 
 ### 実行方法
 - このリポジトリをクローンして、ブランチ：1.17-fabricをチェックアウトします。
