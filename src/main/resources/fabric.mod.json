@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "clickmanaita",
   "version": "${version}",
-
   "name": "ClickManaita",
   "description": "CheatMod",
   "authors": [
@@ -10,26 +9,28 @@
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/clickmanaita",
-    "sources": "https://github.com/takusan23/ClickManaita2/tree/1.17.1-fabric"
+    "sources": "https://github.com/takusan23/ClickManaita2/tree/1.18-fabric"
   },
-
   "license": "Apache-2.0 License",
   "icon": "assets/clickmanaita/textures/item/clickmanaita_wood.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
-      "io.github.takusan23.clickmanaita.ClickManaitaKt::init"
+      {
+        "adapter": "kotlin",
+        "value": "io.github.takusan23.clickmanaita.ClickManaitaKt::init"
+      }
     ]
   },
   "mixins": [
     "modid.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.8.7",
+    "fabricloader": ">=0.12.8",
     "fabric": "*",
     "fabric-language-kotlin": "*",
-    "minecraft": "1.17.x"
+    "minecraft": "1.18.x",
+    "java": ">=17"
   },
   "suggests": {
     "flamingo": "*"

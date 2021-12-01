@@ -58,7 +58,7 @@ object ClickManaitaEnchantCallback {
                     // アイテムを落とさない場合（スポナーなど
                     val copyItem = ItemStack(copyBlock?.asItem())
                     // NBTタグを移す
-                    val nbtCompound = blockEntity?.writeNbt(NbtCompound())
+                    val nbtCompound = blockEntity?.createNbt()
                     if (nbtCompound?.isEmpty == false) {
                         copyItem.setSubNbt("BlockEntityTag", nbtCompound.copy())
                     }

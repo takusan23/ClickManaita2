@@ -1,7 +1,7 @@
 {
   "required": true,
   "package": "io.github.takusan23.clickmanaita.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_17",
   "mixins": [
   ],
   "client": [
