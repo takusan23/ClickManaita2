@@ -28,6 +28,11 @@ Y座標がマイナスって何！？
 メモ程度の自作ブログ  
 https://takusan.negitoro.dev/posts/minecraft_fabric_dev_environment/
 
+### Gitのブランチ
+forgeとfabricがあります。  
+切り替えたあとは一度`IDEA`を閉じて、開き直さないとうまく起動しないと思います！！！。  
+あとなんかあったらとりあえず`.idea`を消してみて下さい。
+
 ### 開発環境
 IDEA と Kotlin でできている。  
 今回はKotlinで書かれています。
