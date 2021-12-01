@@ -3,6 +3,7 @@ package io.github.takusan23.clickmanaita.creativetab;
 import io.github.takusan23.clickmanaita.item.ClickManaitaItems;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * クリエイティブタブを作成する
@@ -20,7 +21,7 @@ public class ClickManaitaCreativeTab extends CreativeModeTab {
      * 表示するアイコンを返す
      */
     @Override
-    public ItemStack makeIcon() {
+    public @NotNull ItemStack makeIcon() {
         return new ItemStack(ClickManaitaItems.CLICKMANAITA_WOOD);
     }
 }

@@ -46,8 +46,9 @@ public class ClickManaitaBaseItem extends Item {
     /**
      * コンストラクタは引数が二個ある方を使ってください
      *
-     * @deprecated 引数が二個ある方を利用してください。
+     * 引数が二個ある方を利用してください。
      */
+    @Deprecated
     public ClickManaitaBaseItem(Item.Properties properties) {
         super(properties);
     }

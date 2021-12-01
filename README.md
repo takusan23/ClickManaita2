@@ -1,26 +1,25 @@
 # クリックまな板
-Forge 1.17.1がリリースされていたので対応しました。
+(まさかの)Forge 1.18がリリースされていたので対応しました。
 
-![Imgur](https://imgur.com/ZMqBqpH.png)
+![Imgur](https://imgur.com/UCcfz1e.png)
 
 # ダウンロード
 https://www.curseforge.com/minecraft/mc-mods/clickmanaita
 
-Fabric/Forge版よく確認してください。
+Fabric/Forge版よく確認してください。  
+Fabric版と違い、Forge版の前提MODはありません。ダウンロードしたらmodsフォルダに入れればいいです。
 
 # Fabric版の違い
-基本的な機能はある。クリックまな板エンチャントとか一部の機能はFabricにはない。  
-Forgeで他に入れたいMODがある場合（Optifine入れてシェーダーパックつかいたい！みたいな）があればForgeだし、  
-逆にFabricで入れたいMODがあればFabricを選べばいいです。
+Fabric / Forge で使いたいMODがあればそれに合わせてダウンロードすればいいと思います。  
+機能的な差はなく、アイテムID等も（このMODでは）同じ値を利用しているので、Fabric・Forgeの環境を行ったり来たり出来ると思います。
 
 # 導入方法
-- Java 16を入れます。
-  - 私は`AdoptOpenJDK`を入れます
-- バニラの1.17.1を起動します
+- Java 17を入れます！！！
+- バニラの1.18を起動します
     - バニラアイスって喉乾くから抹茶のほうが好き
-- Forge 1.17.1を入れます
+- Forge 1.18を入れます
   - https://files.minecraftforge.net/net/minecraftforge/forge/
-- 入れたら、ランチャーからForge 1.17.1を選んで起動します。
+- 入れたら、ランチャーからForge 1.18を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
 - modsフォルダが出来ていると思うのでその中に上記のリンクからダウンロードしたクリックまな板のMODファイルを入れます
@@ -42,27 +41,32 @@ Forgeで他に入れたいMODがある場合（Optifine入れてシェーダー�
 
 なんか`なんちゃらProxy`みたいなのは書かなくてよくなったみたい。
 
-## Fabric版の違い
+## Gitのブランチ
+forgeとfabricがあります。  
+切り替えたあとは一度`IDEA`を閉じて、開き直さないとうまく起動しないと思います！！！。  
+あとなんかあったらとりあえず`.idea`を消してみて下さい。
+
+## Fabric版との違い
 Fabric版はKotlinで書かれてますが、Forge版はJavaです。  
 アイテムID、ブロックIDは多分変更してないので、Fabric環境 / Forge環境 を行ったり来たり出来ます（他MODは知らんけど）
 
 ## 開発環境構築
 
 ### 必要なもの
-- Java 16
-    - Gradleのバージョンが7になったので多分必要
-    - 私はAdoptOpenJDKを使った
+- Java 17
+    - 私はEclipse Adoptiumを使った
+    - JDKのディストリビューションにこだわりがある場合は別にこれじゃなくてもいいです
 - IDEA
     - Eclipseはよくわからん
     
 ### 実行方法
-- 環境変数の設定から、システム環境変数の`JAVA_HOME`が入れた`AdoptOpenJDK`のパスになっているか確認する。
-- ついでに`javac -version`して16が返ってくるか確認
+- 環境変数の設定から、システム環境変数の`JAVA_HOME`が入れた`Eclipse Adoptium`のパスになっているか確認する。
+- ついでに`javac -version`して17が返ってくるか確認
 - このリポジトリをクローンするなり、zipをDLするなりしてソースコードを手に入れます。
-    - git cloneした場合はブランチ`1.17.1-forge`に切り替えてください。
+    - git cloneした場合はブランチ`1.18-forge`に切り替えてください。
 - IDEAでこのリポジトリを開いてください
 - しばらく待ちます
-    - ここでJava 16が指定できてないとコケると思う
+    - ここでJava 17が指定できてないとコケると思う
     - あとインターネットが遅い？と`Tag mismatch!`でコケると思う。これ意味不明すぎで草
     - 私の環境では10分ぐらいかかった。`BUILD SUCCESSFUL in 9m 33s`とかでればおｋ
 - Gradle Syncします。`IDEA`の右上？にいる`Gradle`を押して、`Sync`ボタンを押します。これ
@@ -86,10 +90,6 @@ dependencies {
     // 以下省略
 
 ```
-
-#### なんかうまく行かない
-Fabric版の環境構築中にブランチを切り替えると多分だめ？  
-切り替えたら一度プロジェクトを閉じて、また読み込めばいいと思う。
 
 # トラブルシューティング
 - `runClient`が押せない（なんかバツマーク）

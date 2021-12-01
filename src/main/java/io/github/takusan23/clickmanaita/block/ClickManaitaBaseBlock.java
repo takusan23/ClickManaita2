@@ -24,8 +24,9 @@ public class ClickManaitaBaseBlock extends Block {
     private int dropSize = 2;
 
     /**
-     * @deprecated 引数が二個ある方を利用してね
+     * 引数が二個ある方を利用してね
      */
+    @Deprecated
     public ClickManaitaBaseBlock(BlockBehaviour.Properties properties) {
         super(properties);
     }
