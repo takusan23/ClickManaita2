@@ -6,6 +6,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -89,9 +90,15 @@ public class ClickManaitaCustomItem extends ClickManaitaBaseItem {
                 }
             }
             // ブロック複製
-            Block.dropResources(blockState, level, blockPos, blockEntity, p_41427_.getPlayer(), p_41427_.getItemInHand());
+            if (player != null) {
+                copyBlock.playerDestroy(level, player, blockPos, blockState, blockEntity, player.getMainHandItem());
+                // なんか経験値を吐き出す実装がなくなった？ので自前で用意
+                if (level instanceof ServerLevel) {
+                    int exp = blockState.getExpDrop(level, blockPos, 0, 0);
+                    copyBlock.popExperience((ServerLevel) level, blockPos, exp);
+                }
+            }
         }
-
         return InteractionResult.SUCCESS;
     }
 

@@ -3,6 +3,7 @@ package io.github.takusan23.clickmanaita;
 import io.github.takusan23.clickmanaita.enchant.RegisterEnchant;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -79,7 +80,14 @@ public class ClickManaitaPlayerEvent {
                     }
                 }
                 // ブロック複製
-                Block.dropResources(blockState, level, blockPos, blockEntity, player, player.getMainHandItem());
+                if (player != null) {
+                    copyBlock.playerDestroy(level, player, blockPos, blockState, blockEntity, player.getMainHandItem());
+                    // なんか経験値を吐き出す実装がなくなった？ので自前で用意
+                    if (level instanceof ServerLevel) {
+                        int exp = blockState.getExpDrop(level, blockPos, 0, 0);
+                        copyBlock.popExperience((ServerLevel) level, blockPos, exp);
+                    }
+                }
             }
         }
     }

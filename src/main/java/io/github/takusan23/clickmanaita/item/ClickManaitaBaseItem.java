@@ -6,6 +6,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -13,6 +15,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -96,10 +99,9 @@ public class ClickManaitaBaseItem extends Item {
         BlockState blockState = level.getBlockState(blockPos);
         BlockEntity blockEntity = level.getBlockEntity(blockPos);
         Player player = p_41427_.getPlayer();
-        Level world = p_41427_.getLevel();
         Block copyBlock = blockState.getBlock();
         // アイテム化するかどうか
-        boolean isNotItemDrop = copyBlock.getLootTable() == BuiltInLootTables.EMPTY || copyBlock.getCloneItemStack(blockState, null, world, blockPos, player) == ItemStack.EMPTY;
+        boolean isNotItemDrop = copyBlock.getLootTable() == BuiltInLootTables.EMPTY || copyBlock.getCloneItemStack(blockState, null, level, blockPos, player) == ItemStack.EMPTY;
         for (int i = 0; i < dropSize; i++) {
             // アイテム化しない場合
             if (isNotItemDrop) {
@@ -121,10 +123,15 @@ public class ClickManaitaBaseItem extends Item {
                 }
             }
             // ブロック複製
-
-            Block.dropResources(blockState, level, blockPos, blockEntity, player, p_41427_.getItemInHand());
+            if (player != null) {
+                copyBlock.playerDestroy(level, player, blockPos, blockState, blockEntity, player.getMainHandItem());
+                // なんか経験値を吐き出す実装がなくなった？ので自前で用意
+                if (level instanceof ServerLevel) {
+                    int exp = blockState.getExpDrop(level, blockPos, 0, 0);
+                    copyBlock.popExperience((ServerLevel) level, blockPos, exp);
+                }
+            }
         }
-
         return InteractionResult.SUCCESS;
     }
 
@@ -143,14 +150,5 @@ public class ClickManaitaBaseItem extends Item {
         text.setStyle(Style.EMPTY.withColor(TextColor.parseColor(toolTipColor)));
         p_41423_.add(text);
     }
-    /*
-    @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        super.addInformation(stack, worldIn, tooltip, flagIn);
-        // この方法で色付きツールチップが作成できる
-        StringTextComponent comment = new StringTextComponent(toolTipText);
-        comment.setStyle(Style.EMPTY.setColor(Color.fromHex(toolTipColor)));
-        tooltip.add(comment);
-    }
-*/
+
 }
