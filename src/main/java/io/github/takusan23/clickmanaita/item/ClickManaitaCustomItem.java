@@ -8,6 +8,7 @@ import net.minecraft.network.chat.TextColor;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.Container;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
@@ -26,10 +27,6 @@ import java.util.List;
  * 金床で好きな数値にしてね
  */
 public class ClickManaitaCustomItem extends ClickManaitaBaseItem {
-
-    public ClickManaitaCustomItem(Properties properties) {
-        super(properties);
-    }
 
     /**
      * クリックまな板 カスタム版のコンストラクタ。
@@ -67,8 +64,10 @@ public class ClickManaitaCustomItem extends ClickManaitaBaseItem {
         BlockState blockState = level.getBlockState(blockPos);
         BlockEntity blockEntity = level.getBlockEntity(blockPos);
         Block copyBlock = blockState.getBlock();
+        Player player = p_41427_.getPlayer();
+        Level world = p_41427_.getLevel();
         // アイテム化するかどうか
-        boolean isNotItemDrop = copyBlock.getLootTable() == BuiltInLootTables.EMPTY || copyBlock.getCloneItemStack(level, blockPos, blockState) == ItemStack.EMPTY;
+        boolean isNotItemDrop = copyBlock.getLootTable() == BuiltInLootTables.EMPTY || copyBlock.getCloneItemStack(blockState, null, world, blockPos, player) == ItemStack.EMPTY;
         for (int i = 0; i < getDropSize(p_41427_.getItemInHand()); i++) {
             // アイテム化しない場合
             if (isNotItemDrop) {

@@ -59,6 +59,9 @@ Fabric版はKotlinで書かれてますが、Forge版はJavaです。
 - IDEA
     - Eclipseはよくわからん
     
+### 移行作業のメモ
+https://takusan.negitoro.dev/posts/minecraft_mod_1_18_migration/
+
 ### 実行方法
 - 環境変数の設定から、システム環境変数の`JAVA_HOME`が入れた`Eclipse Adoptium`のパスになっているか確認する。
 - ついでに`javac -version`して17が返ってくるか確認

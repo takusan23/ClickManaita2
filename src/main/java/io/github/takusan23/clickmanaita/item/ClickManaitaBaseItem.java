@@ -2,23 +2,22 @@ package io.github.takusan23.clickmanaita.item;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.*;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
+import net.minecraft.network.chat.TextColor;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.Container;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
-import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.LootTables;
-import net.minecraft.world.phys.HitResult;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -45,7 +44,7 @@ public class ClickManaitaBaseItem extends Item {
 
     /**
      * コンストラクタは引数が二個ある方を使ってください
-     *
+     * <p>
      * 引数が二個ある方を利用してください。
      */
     @Deprecated
@@ -96,9 +95,11 @@ public class ClickManaitaBaseItem extends Item {
         BlockPos blockPos = p_41427_.getClickedPos();
         BlockState blockState = level.getBlockState(blockPos);
         BlockEntity blockEntity = level.getBlockEntity(blockPos);
+        Player player = p_41427_.getPlayer();
+        Level world = p_41427_.getLevel();
         Block copyBlock = blockState.getBlock();
         // アイテム化するかどうか
-        boolean isNotItemDrop = copyBlock.getLootTable() == BuiltInLootTables.EMPTY || copyBlock.getCloneItemStack(level, blockPos, blockState) == ItemStack.EMPTY;
+        boolean isNotItemDrop = copyBlock.getLootTable() == BuiltInLootTables.EMPTY || copyBlock.getCloneItemStack(blockState, null, world, blockPos, player) == ItemStack.EMPTY;
         for (int i = 0; i < dropSize; i++) {
             // アイテム化しない場合
             if (isNotItemDrop) {
@@ -120,7 +121,8 @@ public class ClickManaitaBaseItem extends Item {
                 }
             }
             // ブロック複製
-            Block.dropResources(blockState, level, blockPos, blockEntity, p_41427_.getPlayer(), p_41427_.getItemInHand());
+
+            Block.dropResources(blockState, level, blockPos, blockEntity, player, p_41427_.getItemInHand());
         }
 
         return InteractionResult.SUCCESS;
