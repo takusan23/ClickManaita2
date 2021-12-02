@@ -29,6 +29,9 @@ Y座標がマイナスって何！？
 メモ程度の自作ブログ  
 https://takusan.negitoro.dev/posts/minecraft_fabric_dev_environment/
 
+移行作業のメモ
+https://takusan.negitoro.dev/posts/minecraft_mod_1_18_migration/
+
 ### Gitのブランチ
 forgeとfabricがあります。  
 切り替えたあとは一度`IDEA`を閉じて、開き直さないとうまく起動しないと思います！！！。  
