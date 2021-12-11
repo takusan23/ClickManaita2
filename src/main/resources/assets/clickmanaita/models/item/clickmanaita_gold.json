@@ -1,6 +1,6 @@
 {
-  "parent": "item/generated",
+  "parent": "item/handheld",
   "textures": {
-    "layer0": "clickmanaita:item/clickmanaita_gold"
+    "layer0": "clickmanaita:items/clickmanaita_gold"
   }
 }

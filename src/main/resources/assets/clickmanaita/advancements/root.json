@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "clickmanaita:clickmanaita_wood"
+    },
+    "title": {
+      "translate": "advancements.clickmanaita.root.title"
+    },
+    "description": {
+      "translate": "advancements.clickmanaita.root.desc"
+    },
+    "background": "minecraft:textures/blocks/crafting_table_top.png",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "has_string": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "clickmanaita:clickmanaita_wood"
+          }
+        ]
+      }
+    }
+    }
+}

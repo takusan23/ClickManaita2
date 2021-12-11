@@ -1,0 +1,14 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:stone_pickaxe"
+    },
+    {
+      "item": "clickmanaita:clickmanaita_stone"
+    }
+  ],
+  "result": {
+    "item": "clickmanaita:clickmanaita_stonepickaxe"
+  }
+}

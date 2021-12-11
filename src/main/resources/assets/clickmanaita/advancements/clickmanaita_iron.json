@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "clickmanaita:clickmanaita_iron"
+    },
+    "title": {
+      "translate": "advancements.clickmanaita_iron.title"
+    },
+    "description": {
+      "translate": "advancements.clickmanaita_iron.desc"
+    }
+  },
+  "parent": "clickmanaita:clickmanaita_stone",
+  "criteria": {
+    "getSlimeSword":{
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "clickmanaita:clickmanaita_iron"
+          }
+        ]
+      }
+    }
+    }
+}

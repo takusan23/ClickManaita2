@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "clickmanaita:blocks/clickmanaita_block_diamond_bottom",
+    "down": "clickmanaita:blocks/clickmanaita_block_diamond_bottom",
+    "up": "clickmanaita:blocks/clickmanaita_block_diamond_top",
+    "north": "clickmanaita:blocks/clickmanaita_block_diamond_side",
+    "east": "clickmanaita:blocks/clickmanaita_block_diamond_side",
+    "south": "clickmanaita:blocks/clickmanaita_block_diamond_side",
+    "west": "clickmanaita:blocks/clickmanaita_block_diamond_side"
+  }
+}

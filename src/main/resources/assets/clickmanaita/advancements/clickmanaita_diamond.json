@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "clickmanaita:clickmanaita_diamond"
+    },
+    "title": {
+      "translate": "advancements.clickmanaita_diamond.title"
+    },
+    "description": {
+      "translate": "advancements.clickmanaita_diamond.desc"
+    },
+     "frame": "challenge"
+  },
+  "parent": "clickmanaita:clickmanaita_gold",
+  "criteria": {
+    "getSlimeSword":{
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "clickmanaita:clickmanaita_diamond"
+          }
+        ]
+      }
+    }
+    }
+}

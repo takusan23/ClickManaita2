@@ -1,0 +1,38 @@
+itemGroup.ClickManaitaTab=クリックまな板
+
+item.ClickManaita Wood.name=クリックまな板 木製
+item.ClickManaita Stone.name=クリックまな板 石製
+item.ClickManaita Iron.name=クリックまな板 鉄製
+item.ClickManaita Gold.name=クリックまな板 金製
+item.ClickManaita Diamond.name=クリックまな板 ダイヤモンド製
+item.ClickManaita Emerald.name=クリックまな板 エメラルド製
+item.ClickManaita Wood Pickaxe.name=クリックまな板 木のつるはし
+item.ClickManaita Stone Pickaxe.name=クリックまな板 石のつるはし
+item.ClickManaita Iron Pickaxe.name=クリックまな板 鉄のつるはし
+item.ClickManaita Gold Pickaxe.name=クリックまな板 金のつるはし
+item.ClickManaita Diamond Pickaxe.name=クリックまな板 ダイヤモンドのつるはし
+
+advancements.clickmanaita.root.title=クリックまな板 はじまりー
+advancements.clickmanaita.root.desc=２倍化
+advancements.clickmanaita_stone.title=石
+advancements.clickmanaita_stone.desc=４倍化
+advancements.clickmanaita_iron.title=鉄
+advancements.clickmanaita_iron.desc=８倍化
+advancements.clickmanaita_gold.title=金
+advancements.clickmanaita_gold.desc=１６倍化
+advancements.clickmanaita_emerald.title=エメラルド
+advancements.clickmanaita_emerald.desc=３２倍化
+advancements.clickmanaita_diamond.title=ダイヤモンド
+advancements.clickmanaita_diamond.desc=６４倍化
+
+advancements.clickmanaita_custom.title=カスタム版
+advancements.clickmanaita_custom.desc=金床で名前を増やしたい量の数字に変更してください。
+
+tile.ClickManaitaBlock Wood.name=クリックまな板ブロック 木製
+tile.ClickManaitaBlock Stone.name=クリックまな板ブロック 石製
+tile.ClickManaitaBlock Iron.name=クリックまな板ブロック 鉄製
+tile.ClickManaitaBlock Gold.name=クリックまな板ブロック 金製
+tile.ClickManaitaBlock Diamond.name=クリックまな板ブロック ダイヤモンド製
+tile.ClickManaitaBlock Emerald.name=クリックまな板ブロック エメラルド製
+
+item.ClickManaita Custom.name=クリックまな板　カスタム

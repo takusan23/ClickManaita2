@@ -1,98 +1,36 @@
 # クリックまな板
-(まさかの)Forge 1.18がリリースされていたので対応しました。
-
-![Imgur](https://imgur.com/UCcfz1e.png)
+1.12.2版のソースコードです（だいたい3年前）。
+メンテするのしんどいから最新のForge要求するように書き換えただけ。それ以外は記念に残しておく  
+最新のForgeを最低条件にすることで、`log4j2`のめっちゃやばい脆弱性による被害を減らせたらなと。
+最新版の`IntelliJ IDEA`で開発環境構築ができるようにしました。
 
 # ダウンロード
 https://www.curseforge.com/minecraft/mc-mods/clickmanaita
 
-Fabric/Forge版よく確認してください。  
-Fabric版と違い、Forge版の前提MODはありません。ダウンロードしたらmodsフォルダに入れればいいです。
+**Forgeは1.12.2のLatestの方を入れて下さい。**  
+（このMODに限らず、過去のバージョンのForgeを導入する際は脆弱性に対して対策が入った`Latest`の方を利用することを強くおすすめします。）
 
-# Fabric版の違い
-Fabric / Forge で使いたいMODがあればそれに合わせてダウンロードすればいいと思います。  
-機能的な差はなく、アイテムID等も（このMODでは）同じ値を利用しているので、Fabric・Forgeの環境を行ったり来たり出来ると思います。
+最新のForgeじゃない場合は以下のエラーが出ます
 
-# 導入方法
-- Java 17を入れます！！！
-- バニラの1.18を起動します
-    - バニラアイスって喉乾くから抹茶のほうが好き
-- Forge 1.18を入れます
-  - https://files.minecraftforge.net/net/minecraftforge/forge/
-- 入れたら、ランチャーからForge 1.18を選んで起動します。
-  - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
-- 起動します
-- modsフォルダが出来ていると思うのでその中に上記のリンクからダウンロードしたクリックまな板のMODファイルを入れます
-- もう一度起動したら多分導入できていると思います
+![Imgur](https://imgur.com/XZfUzXe.png)
 
-# 前作との違い
-- まな板つるはしは廃止されました
-    - 代わりにまな板エンチャントを追加しました。普通にエンチャント台で引き当てることができます。
-  
 # 開発者向け
-## マルチプレイ動作確認
-- EULAに同意する(`eula.txt`)
-- `server.properties`を書き換える
-   - `gamemode=creative`
-     - クリエイティブ
-   - `online-mode=false`
-     - 正規版チェックを無効化
-- できたら`runServer`を実行する
-
-なんか`なんちゃらProxy`みたいなのは書かなくてよくなったみたい。
-
-## Gitのブランチ
-forgeとfabricがあります。  
-切り替えたあとは一度`IDEA`を閉じて、開き直さないとうまく起動しないと思います！！！。  
-あとなんかあったらとりあえず`.idea`を消してみて下さい。
-
-## Fabric版との違い
-Fabric版はKotlinで書かれてますが、Forge版はJavaです。  
-アイテムID、ブロックIDは多分変更してないので、Fabric環境 / Forge環境 を行ったり来たり出来ます（他MODは知らんけど）
-
 ## 開発環境構築
 
 ### 必要なもの
-- Java 17
-    - 私はEclipse Adoptiumを使った
-    - JDKのディストリビューションにこだわりがある場合は別にこれじゃなくてもいいです
+- Java 8
 - IDEA
-    - Eclipseはよくわからん
     
-### 移行作業のメモ
-https://takusan.negitoro.dev/posts/minecraft_mod_1_18_migration/
-
 ### 実行方法
-- 環境変数の設定から、システム環境変数の`JAVA_HOME`が入れた`Eclipse Adoptium`のパスになっているか確認する。
-- ついでに`javac -version`して17が返ってくるか確認
+- JDK 8を入れます
 - このリポジトリをクローンするなり、zipをDLするなりしてソースコードを手に入れます。
-    - git cloneした場合はブランチ`1.18-forge`に切り替えてください。
+    - git cloneした場合はブランチ`1.12.2-forge`に切り替えてください。
 - IDEAでこのリポジトリを開いてください
 - しばらく待ちます
-    - ここでJava 17が指定できてないとコケると思う
-    - あとインターネットが遅い？と`Tag mismatch!`でコケると思う。これ意味不明すぎで草
-    - 私の環境では10分ぐらいかかった。`BUILD SUCCESSFUL in 9m 33s`とかでればおｋ
-- Gradle Syncします。`IDEA`の右上？にいる`Gradle`を押して、`Sync`ボタンを押します。これ
-
-![Imgur](https://imgur.com/0ra6jbW.png)
-
 - IDEA右上にある`Gradle`から、`Tasks > forgegradle runs > genIntellijRuns`をダブルクリックしてまた待つ
+- Gradle Syncします。`IDEA`の右上？にいる`Gradle`を押して、`Sync`ボタンを押します。これ
 - 終わったら、再生ボタンの隣りにあるドロップダウンメニューから`runClient`が選択可能になってます。`runClient`を選択して再生ボタンを押せば起動できます。
 - お疲れさまでした
-
-### Forgeアップデート方法
-多分、`build.gradle`の以下の部分を最新のForgeのバージョンにして、`Gradle Sync (IDEA右上のGradle押して、更新ボタンみたいなやつ押す)`して、`genIntellijRuns`を再度実行すれば、Forgeの更新は完了。
-
-```gradle
-dependencies {
-    // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
-    // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
-    // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.17.1-37.0.59' // ここを最新Varに
-
-    // 以下省略
-
-```
 
 # トラブルシューティング
 - `runClient`が押せない（なんかバツマーク）
@@ -105,32 +43,19 @@ dependencies {
 3.IDEAの右にある`Gradle`から`Tasks > build`と進み、`build`を押します。
 4.`build/libs/`に`Jar`ファイルができてるはずなので、無くさないように避難させておきましょう
 
-## ブランチ
-`master`ブランチは使ってない  
-各マイクラバージョンのブランチ名があるのでそっち参照
-
 # その他メモ
+## 最新版 IntelliJ IDEA？ で resources フォルダ自体がなかったことにされる問題
 
-## IDEA設定
-- `Ctrl`+クリックの時の検索は🔧マーク押して`Scope`を`All Places`にするといいかも
+https://www.tntmodders.com/tutorial/item-1122/
 
-## Gitで他のブランチのフォルダの中身を今のブランチにコピーする
+`build.gradle`の最後に書き足します。
 
-`git checkout ブランチ名 フォルダパス`
-
-例：ブランチ名「1.16.4」の`src/main`フォルダを今のブランチにコピー
-
-`git checkout 1.16.4 src/main`
-
-## 他のバージョンへ対応
-
-`mods.toml`の`versionRange`と`versionRange`と`loaderVersion`を直す？
-
-`Java`もメソッド名が変わってる可能性があるので直す。
-
-## レシピ登録
-テクスチャ→`resources/assets/clickmanaita/textures`
-
-レシピ→`resources/data/clickmanaita/recipes`
-
-保存先が若干違う（なにこのくそ仕様）
+```gradle
+copy {
+    delete {
+        delete "$buildDir/classes/java/main"
+    }
+    into "$buildDir/classes/java/main"
+    from sourceSets.main.resources
+}
+```
