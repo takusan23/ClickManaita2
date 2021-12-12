@@ -20,6 +20,7 @@ Forgeで他に入れたいMODがある場合（Optifine入れてシェーダー�
     - バニラアイスって喉乾くから抹茶のほうが好き
 - Forge 1.17.1を入れます
   - https://files.minecraftforge.net/net/minecraftforge/forge/
+    - Forgeは`1.17.1 - 37.1.1`以上が必要です。
 - 入れたら、ランチャーからForge 1.17.1を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
@@ -47,6 +48,11 @@ Fabric版はKotlinで書かれてますが、Forge版はJavaです。
 アイテムID、ブロックIDは多分変更してないので、Fabric環境 / Forge環境 を行ったり来たり出来ます（他MODは知らんけど）
 
 ## 開発環境構築
+
+## ForgeによるLog4j2の脆弱性に対する対応
+
+https://gist.github.com/TheCurle/f15a6b63ceee3be58bff5e7a97c3a4e6
+
 
 ### 必要なもの
 - Java 16
