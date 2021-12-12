@@ -3,8 +3,10 @@ package io.github.takusan23.clickmanaita.item;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.*;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -96,6 +98,8 @@ public class ClickManaitaBaseItem extends Item {
         BlockState blockState = level.getBlockState(blockPos);
         BlockEntity blockEntity = level.getBlockEntity(blockPos);
         Block copyBlock = blockState.getBlock();
+        Player player = p_41427_.getPlayer();
+
         // アイテム化するかどうか
         boolean isNotItemDrop = copyBlock.getLootTable() == BuiltInLootTables.EMPTY || copyBlock.getCloneItemStack(level, blockPos, blockState) == ItemStack.EMPTY;
         for (int i = 0; i < dropSize; i++) {
@@ -119,7 +123,14 @@ public class ClickManaitaBaseItem extends Item {
                 }
             }
             // ブロック複製
-            Block.dropResources(blockState, level, blockPos, blockEntity, p_41427_.getPlayer(), p_41427_.getItemInHand());
+            if (player != null) {
+                Block.dropResources(blockState, level, blockPos, blockEntity, player, p_41427_.getItemInHand());
+                // 経験値も増やす処理
+                if (level instanceof ServerLevel) {
+                    int exp = blockState.getExpDrop(level, blockPos, 0, 0);
+                    copyBlock.popExperience((ServerLevel) level, blockPos, exp);
+                }
+            }
         }
 
         return InteractionResult.SUCCESS;

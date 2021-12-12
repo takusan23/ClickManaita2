@@ -3,9 +3,9 @@ package io.github.takusan23.clickmanaita;
 import io.github.takusan23.clickmanaita.enchant.RegisterEnchant;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.EnderEyeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
@@ -15,8 +15,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-
-import java.text.BreakIterator;
 
 /**
  * プレイヤーがアイテムを拾ったなど、イベントを受け取るクラス
@@ -29,7 +27,7 @@ public class ClickManaitaPlayerEvent {
 
     /**
      * 右クリックイベントを取る
-     *
+     * <p>
      * todo なんでか知らんけど右クリックイベントがclient/server共に２回呼ばれるんだけど？
      */
     @SubscribeEvent
@@ -82,7 +80,14 @@ public class ClickManaitaPlayerEvent {
                     }
                 }
                 // ブロック複製
-                Block.dropResources(blockState, level, blockPos, blockEntity, player, player.getMainHandItem());
+                if (player != null) {
+                    Block.dropResources(blockState, level, blockPos, blockEntity, player, player.getMainHandItem());
+                    // 経験値も増やす処理
+                    if (level instanceof ServerLevel) {
+                        int exp = blockState.getExpDrop(level, blockPos, 0, 0);
+                        copyBlock.popExperience((ServerLevel) level, blockPos, exp);
+                    }
+                }
             }
         }
     }
