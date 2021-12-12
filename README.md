@@ -39,6 +39,10 @@ https://www.curseforge.com/minecraft/mc-mods/clickmanaita
 
 # その他メモ
 
+## ForgeによるLog4j2の脆弱性に対する対応
+
+https://gist.github.com/TheCurle/f15a6b63ceee3be58bff5e7a97c3a4e6
+
 ## IDEA設定
 - `Ctrl`+クリックの時の検索は🔧マーク押して`Scope`を`All Places`にするといいかも
 

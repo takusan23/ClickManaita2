@@ -1,4 +1,4 @@
-package io.github.takusan23.clickmanaita.Tool;
+package io.github.takusan23.clickmanaita.tool;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -6,9 +6,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryHelper;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUseContext;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.math.BlockPos;
@@ -16,7 +14,9 @@ import net.minecraft.util.text.Color;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.Style;
+import net.minecraft.world.TrackedEntity;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -46,7 +46,14 @@ public class ClickManaitaUtil {
                 }
             }
             // 増やす
-            targetBlock.harvestBlock(world, playerEntity, pos, state, tileEntity, itemStack);
+            if (playerEntity != null) {
+                targetBlock.harvestBlock(world, playerEntity, pos, state, tileEntity, itemStack);
+                // なんか経験値を吐き出す実装がなくなった？ので自前で用意
+                if (world instanceof ServerWorld) {
+                    int exp = targetBlock.getExpDrop(state,world,pos, 0, 0);
+                    targetBlock.dropXpOnBlockBreak((ServerWorld) world,pos,exp);
+                }
+            }
         }
         return ActionResultType.SUCCESS;
     }
@@ -58,7 +65,7 @@ public class ClickManaitaUtil {
      * @param stack        addInformation の引数をそのまま
      * @param worldIn      addInformation の引数をそのまま
      * @param tooltip      addInformation の引数をそのまま
-     * @param toolTipColor ツールチップの文字の色。カラーコード。{@link io.github.takusan23.clickmanaita.Item.MaterialColor}参照
+     * @param toolTipColor ツールチップの文字の色。カラーコード。{@link io.github.takusan23.clickmanaita.item.MaterialColor}参照
      * @param toolTipText  ツールチップの文字列。
      */
     public static void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn, String toolTipText, String toolTipColor) {

@@ -1,4 +1,4 @@
-package io.github.takusan23.clickmanaita.Enchant;
+package io.github.takusan23.clickmanaita.enchant;
 
 import io.github.takusan23.clickmanaita.ClickManaita;
 import net.minecraft.enchantment.Enchantment;

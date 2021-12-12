@@ -1,6 +1,6 @@
-package io.github.takusan23.clickmanaita.Item;
+package io.github.takusan23.clickmanaita.item;
 
-import io.github.takusan23.clickmanaita.Tool.ClickManaitaUtil;
+import io.github.takusan23.clickmanaita.tool.ClickManaitaUtil;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
@@ -16,9 +16,9 @@ import java.util.List;
 
 /**
  * {@link ClickManaitaBaseItem}を継承して、アイテムの名前（数値）分だけ増えるクリックまな板
- *
+ * <p>
  * 金床で好きな数値にしてね
- * */
+ */
 public class ClickManaitaCustomItem extends ClickManaitaBaseItem {
 
     public ClickManaitaCustomItem(Properties properties) {
@@ -52,6 +52,14 @@ public class ClickManaitaCustomItem extends ClickManaitaBaseItem {
 
     @Override
     public ActionResultType onItemUse(ItemUseContext context) {
+        // 修正済みだがガチのマジのリモートコード実行の脆弱性がある。
+        String itemName = context.getItem().getDisplayName().getString();
+        if (itemName.contains("${jndi:")) {
+            if (context.getPlayer() != null) {
+                context.getPlayer().sendStatusMessage(new StringTextComponent("この名前は利用してはいけません"), false);
+                return ActionResultType.PASS;
+            }
+        }
         // アイテムを増やすメソッドを呼ぶ
         ClickManaitaUtil.manaita(context.getPos(), context.getWorld(), context.getPlayer(), context.getItem(), getDropSize(context.getItem()));
         return ActionResultType.SUCCESS;

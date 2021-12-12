@@ -1,26 +1,16 @@
-package io.github.takusan23.clickmanaita.Item;
+package io.github.takusan23.clickmanaita.item;
 
-import io.github.takusan23.clickmanaita.Tool.ClickManaitaUtil;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
+import io.github.takusan23.clickmanaita.tool.ClickManaitaUtil;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
-import net.minecraft.item.PickaxeItem;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.*;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Random;
 
 /**
  * クリックまな板はこのクラスを継承して作る

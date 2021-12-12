@@ -1,16 +1,13 @@
-package io.github.takusan23.clickmanaita.Item;
+package io.github.takusan23.clickmanaita.item;
 
-import io.github.takusan23.clickmanaita.Block.ClickManaitaBlockItem;
-import io.github.takusan23.clickmanaita.Block.ClickManaitaBlocks;
+import io.github.takusan23.clickmanaita.block.ClickManaitaBlockItem;
+import io.github.takusan23.clickmanaita.block.ClickManaitaBlocks;
 import io.github.takusan23.clickmanaita.ClickManaita;
-import io.github.takusan23.clickmanaita.CreativeTab.ClickManaitaCreativeTab;
-import net.minecraft.item.BlockItem;
+import io.github.takusan23.clickmanaita.creativetab.ClickManaitaCreativeTab;
 import net.minecraft.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import javax.crypto.interfaces.PBEKey;
 
 /**
  * 追加するアイテムを記述していくクラス

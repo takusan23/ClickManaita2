@@ -1,9 +1,8 @@
-package io.github.takusan23.clickmanaita.Enchant;
+package io.github.takusan23.clickmanaita.enchant;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentType;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.util.text.ITextComponent;
 
 /**
  * エンチャントの実装（右クリックした時に増やす）は

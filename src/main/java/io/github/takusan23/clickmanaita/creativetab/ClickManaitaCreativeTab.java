@@ -1,6 +1,6 @@
-package io.github.takusan23.clickmanaita.CreativeTab;
+package io.github.takusan23.clickmanaita.creativetab;
 
-import io.github.takusan23.clickmanaita.Item.ClickManaitaItems;
+import io.github.takusan23.clickmanaita.item.ClickManaitaItems;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 

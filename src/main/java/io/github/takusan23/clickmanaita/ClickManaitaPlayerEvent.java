@@ -1,7 +1,7 @@
 package io.github.takusan23.clickmanaita;
 
-import io.github.takusan23.clickmanaita.Enchant.RegisterEnchant;
-import io.github.takusan23.clickmanaita.Tool.ClickManaitaUtil;
+import io.github.takusan23.clickmanaita.enchant.RegisterEnchant;
+import io.github.takusan23.clickmanaita.tool.ClickManaitaUtil;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

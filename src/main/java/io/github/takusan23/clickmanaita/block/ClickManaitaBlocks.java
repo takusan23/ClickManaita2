@@ -1,4 +1,4 @@
-package io.github.takusan23.clickmanaita.Block;
+package io.github.takusan23.clickmanaita.block;
 
 import io.github.takusan23.clickmanaita.ClickManaita;
 import net.minecraft.block.AbstractBlock;
