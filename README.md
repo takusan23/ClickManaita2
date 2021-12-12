@@ -15,6 +15,11 @@ https://www.curseforge.com/minecraft/mc-mods/clickmanaita
 ![Imgur](https://imgur.com/XZfUzXe.png)
 
 # 開発者向け
+
+## ForgeによるLog4j2の脆弱性に対する対応
+
+https://gist.github.com/TheCurle/f15a6b63ceee3be58bff5e7a97c3a4e6
+
 ## 開発環境構築
 
 ### 必要なもの
