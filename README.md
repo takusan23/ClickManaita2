@@ -19,6 +19,7 @@ Fabric / Forge で使いたいMODがあればそれに合わせてダウンロ�
     - バニラアイスって喉乾くから抹茶のほうが好き
 - Forge 1.18を入れます
   - https://files.minecraftforge.net/net/minecraftforge/forge/
+    - Forgeは`1.18 - 38.0.17`以上が必要です。
 - 入れたら、ランチャーからForge 1.18を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
