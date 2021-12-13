@@ -35,7 +35,7 @@ https://takusan.negitoro.dev/posts/minecraft_mod_1_18_migration/
 ### Gitのブランチ
 forgeとfabricがあります。  
 切り替えたあとは一度`IDEA`を閉じて、開き直さないとうまく起動しないと思います！！！。  
-あとなんかあったらとりあえず`.idea`を消してみて下さい。
+あとなんかあったらとりあえず`.idea`、`build`、`run`フォルダを消してみて下さい。
 
 ### 開発環境
 IDEA と Kotlin でできている。  
