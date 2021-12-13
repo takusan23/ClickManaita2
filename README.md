@@ -8,6 +8,7 @@
     - そうなるとJava 16以降が必要
 - Fabricを導入します。
     - https://fabricmc.net/use/
+      - FabricLoader のバージョンは`0.12.11`以上が必要です。（くっっそやばい脆弱性への対策のため）
     - Windowsならexeの方でいいんじゃね？
     - exeを起動するとWindows SmartScreenが警戒してきますがそのまま実行
 - modsフォルダに以下のファイルを入れます
