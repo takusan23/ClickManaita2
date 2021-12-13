@@ -9,7 +9,7 @@ Y座標がマイナスって何！？
 - 多分1.18のバニラを一回起動しておく必要があると思います。
 - Fabricを導入します。
     - https://fabricmc.net/use/
-    - loaderのバージョンは`0.12.8`以降にしてください。
+      - FabricLoaderのバージョンは`0.12.11`以降にしてください。
     - Windowsならexeの方でいいんじゃね？
     - exeを起動するとWindows SmartScreenが警戒してきますがそのまま実行
 - modsフォルダに以下のファイルを入れます
