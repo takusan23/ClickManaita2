@@ -13,7 +13,7 @@ Y座標がマイナスって何！？
     - Windowsならexeの方でいいんじゃね？
     - exeを起動するとWindows SmartScreenが警戒してきますがそのまま実行
 - modsフォルダに以下のファイルを入れます
-    - ClickManaita-Fabric-1.18-1.0.0.jar
+    - ClickManaita-Fabric 本体
         - https://www.curseforge.com/minecraft/mc-mods/clickmanaita/files
     - Fabric API 1.18版
         - https://www.curseforge.com/minecraft/mc-mods/fabric-api/files
