@@ -20,7 +20,6 @@ Y座標がマイナスって何！？
     - Fabric Language Kotlin 1.18版
         - このMODはKotlinという言語で書かれているためこのファイルが他のFabric製MODとは違い必要になります。
         - https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin/files
-          - `Fabric Language Kotlin 1.7.0+kotlin.1.6.0`
 - Minecarft Lancherで起動構成ををfabric-loader-1.18に変更します
 - あとは楽しんで
 
