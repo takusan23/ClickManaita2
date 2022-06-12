@@ -1,15 +1,15 @@
 # クリックまな板
-1.18のFabricがリリースされたのでクリックまな板対応しました。  
-Y座標がマイナスって何！？
+1.19のFabricがリリースされたのでクリックまな板対応しました。  
+粘土が無限資源になったってマジですか？
 
-![Imgur](https://imgur.com/0Ys4rZu.png)
+![Imgur](https://imgur.com/govHTrL.png)
 
 # Mod導入方法 （遊ぶ側、エンドユーザー向け）
 - Java 17 以降が必要です！！！
-- 多分1.18のバニラを一回起動しておく必要があると思います。
+- 多分1.19のバニラを一回起動しておく必要があると思います。
 - Fabricを導入します。
     - https://fabricmc.net/use/
-      - FabricLoaderのバージョンは`0.12.11`以降にしてください。
+      - FabricLoaderのバージョンは`0.14.6`以降にしてください。
     - Windowsならexeの方でいいんじゃね？
     - exeを起動するとWindows SmartScreenが警戒してきますがそのまま実行
 - modsフォルダに以下のファイルを入れます
@@ -17,11 +17,12 @@ Y座標がマイナスって何！？
         - https://www.curseforge.com/minecraft/mc-mods/clickmanaita/files
     - Fabric API 1.18版
         - https://www.curseforge.com/minecraft/mc-mods/fabric-api/files
+          - `fabric-api-0.55.3+1.19` 以降
     - Fabric Language Kotlin 1.18版
         - このMODはKotlinという言語で書かれているためこのファイルが他のFabric製MODとは違い必要になります。
         - https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin/files
-          - `Fabric Language Kotlin 1.7.0+kotlin.1.6.0`
-- Minecarft Lancherで起動構成ををfabric-loader-1.18に変更します
+          - `fabric-language-kotlin-1.8.0+kotlin.1.7.0` 以降
+- Minecarft Lancherで起動構成ををfabric-loader-1.19に変更します
 - あとは楽しんで
 
 ## 開発者向け
@@ -30,7 +31,7 @@ Y座標がマイナスって何！？
 https://takusan.negitoro.dev/posts/minecraft_fabric_dev_environment/
 
 移行作業のメモ
-https://takusan.negitoro.dev/posts/minecraft_mod_1_18_migration/
+https://takusan.negitoro.dev/posts/minecraft_mod_1_19_migration/
 
 ### Gitのブランチ
 forgeとfabricがあります。  
@@ -48,7 +49,7 @@ IDEA と Kotlin でできている。
   - JDKのディストリビューションにこだわりがある場合は別にこれじゃなくてもいいです
 
 ### 実行方法
-- このリポジトリをクローンして、ブランチ：1.18-fabricをチェックアウトします。
+- このリポジトリをクローンして、ブランチ：1.19-fabricをチェックアウトします。
 - IDEA右上のFileからProject Structureを選択して、JDKのバージョンを17にします。
    - これでできるはずなんだけど、できない場合は下も試して
 - IDEAの設定を開き、Build,Execution,Deployment > Build Tools > Gradle へ進み、Gradle JVMを17にします。
