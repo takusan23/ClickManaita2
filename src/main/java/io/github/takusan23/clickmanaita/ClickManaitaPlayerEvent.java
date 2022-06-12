@@ -27,13 +27,13 @@ public class ClickManaitaPlayerEvent {
 
     /**
      * 右クリックイベントを取る
-     *
+     * <p>
      * todo なんでか知らんけど右クリックイベントがclient/server共に２回呼ばれるんだけど？
      */
     @SubscribeEvent
     public void onBlockRightClickEvent(PlayerInteractEvent.RightClickBlock event) {
         // エンチャントレベル取得
-        int enchantLevel = EnchantmentHelper.getEnchantmentLevel(RegisterEnchant.clickManaitaEnchant, event.getPlayer());
+        int enchantLevel = EnchantmentHelper.getEnchantmentLevel(RegisterEnchant.CLICKMANAITA_ENCHANT.get(), event.getPlayer());
         // チェスト等インベントリを持つアイテムででスニーク状態じゃない場合はreturn
         if (event.getWorld().getBlockState(event.getPos()).hasBlockEntity() && !event.getPlayer().isShiftKeyDown()) {
             return;
@@ -84,7 +84,7 @@ public class ClickManaitaPlayerEvent {
                     copyBlock.playerDestroy(level, player, blockPos, blockState, blockEntity, player.getMainHandItem());
                     // なんか経験値を吐き出す実装がなくなった？ので自前で用意
                     if (level instanceof ServerLevel) {
-                        int exp = blockState.getExpDrop(level, blockPos, 0, 0);
+                        int exp = blockState.getExpDrop(level, level.random, blockPos, 0, 0);
                         copyBlock.popExperience((ServerLevel) level, blockPos, exp);
                     }
                 }

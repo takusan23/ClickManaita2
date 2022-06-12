@@ -22,6 +22,6 @@ public class ClickManaitaCreativeTab extends CreativeModeTab {
      */
     @Override
     public @NotNull ItemStack makeIcon() {
-        return new ItemStack(ClickManaitaItems.CLICKMANAITA_WOOD);
+        return new ItemStack(ClickManaitaItems.CLICKMANAITA_WOOD.get());
     }
 }

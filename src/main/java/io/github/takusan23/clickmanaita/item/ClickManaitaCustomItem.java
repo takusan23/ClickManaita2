@@ -3,9 +3,9 @@ package io.github.takusan23.clickmanaita.item;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
 import net.minecraft.world.InteractionResult;
@@ -19,7 +19,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 
-import javax.annotation.Nullable;
 import java.util.List;
 
 /**
@@ -41,12 +40,14 @@ public class ClickManaitaCustomItem extends ClickManaitaBaseItem {
     /**
      * ツールチップを設定する
      */
-    public void appendHoverText(ItemStack p_41421_, @Nullable Level p_41422_, List<Component> p_41423_, TooltipFlag p_41424_) {
-        TextComponent text = new TextComponent("x" + getDropSize(p_41421_, null));
+    @Override
+    public void appendHoverText(ItemStack p_41421_, @org.jetbrains.annotations.Nullable Level p_41422_, List<Component> p_41423_, TooltipFlag p_41424_) {
+        // super.appendHoverText(p_41421_, p_41422_, p_41423_, p_41424_);
+        MutableComponent text = Component.literal("x" + getDropSize(p_41421_));
         text.setStyle(Style.EMPTY.withColor(TextColor.parseColor("#ffffff")));
 
         // 金床で設定してねー
-        TextComponent anvilMessage = new TextComponent("金床でこのアイテムの名前を増やしたい数に変更してください");
+        MutableComponent anvilMessage = Component.literal("金床でこのアイテムの名前を増やしたい数に変更してください");
         anvilMessage.setStyle(Style.EMPTY.withColor(TextColor.parseColor("#ffffff")));
 
         p_41423_.add(text);
@@ -69,7 +70,7 @@ public class ClickManaitaCustomItem extends ClickManaitaBaseItem {
         Level world = p_41427_.getLevel();
         // アイテム化するかどうか
         boolean isNotItemDrop = copyBlock.getLootTable() == BuiltInLootTables.EMPTY || copyBlock.getCloneItemStack(blockState, null, world, blockPos, player) == ItemStack.EMPTY;
-        for (int i = 0; i < getDropSize(p_41427_.getItemInHand(), player); i++) {
+        for (int i = 0; i < getDropSize(p_41427_.getItemInHand()); i++) {
             // アイテム化しない場合
             if (isNotItemDrop) {
                 ItemStack copyItem = new ItemStack(copyBlock.asItem());
@@ -94,7 +95,7 @@ public class ClickManaitaCustomItem extends ClickManaitaBaseItem {
                 copyBlock.playerDestroy(level, player, blockPos, blockState, blockEntity, player.getMainHandItem());
                 // なんか経験値を吐き出す実装がなくなった？ので自前で用意
                 if (level instanceof ServerLevel) {
-                    int exp = blockState.getExpDrop(level, blockPos, 0, 0);
+                    int exp = blockState.getExpDrop(level, level.random, blockPos, 0, 0);
                     copyBlock.popExperience((ServerLevel) level, blockPos, exp);
                 }
             }
@@ -108,17 +109,9 @@ public class ClickManaitaCustomItem extends ClickManaitaBaseItem {
      * 現在のアイテム名を数字に変換する
      *
      * @param itemStack 取得したいアイテム
-     * @param player    変換できないときに警告をチャット欄に出します
      */
-    private int getDropSize(ItemStack itemStack, @Nullable Player player) {
+    private int getDropSize(ItemStack itemStack) {
         String itemName = itemStack.getHoverName().getString();
-        // 修正済みだがガチのマジのリモートコード実行の脆弱性がある。
-        if (itemName.contains("${jndi:")) {
-            if (player != null) {
-                player.displayClientMessage(new TextComponent("この名前は利用してはいけません"), false);
-            }
-            return 1;
-        }
         try {
             // 変換を試みる
             int dropSize = Integer.parseInt(itemName);

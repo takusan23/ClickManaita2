@@ -3,11 +3,10 @@ package io.github.takusan23.clickmanaita.item;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -15,7 +14,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -127,7 +125,7 @@ public class ClickManaitaBaseItem extends Item {
                 copyBlock.playerDestroy(level, player, blockPos, blockState, blockEntity, player.getMainHandItem());
                 // なんか経験値を吐き出す実装がなくなった？ので自前で用意
                 if (level instanceof ServerLevel) {
-                    int exp = blockState.getExpDrop(level, blockPos, 0, 0);
+                    int exp = blockState.getExpDrop(level, level.random, blockPos, 0, 0);
                     copyBlock.popExperience((ServerLevel) level, blockPos, exp);
                 }
             }
@@ -146,7 +144,7 @@ public class ClickManaitaBaseItem extends Item {
     @Override
     public void appendHoverText(ItemStack p_41421_, @Nullable Level p_41422_, List<Component> p_41423_, TooltipFlag p_41424_) {
         super.appendHoverText(p_41421_, p_41422_, p_41423_, p_41424_);
-        TextComponent text = new TextComponent(toolTipText);
+        MutableComponent text = Component.literal(toolTipText);
         text.setStyle(Style.EMPTY.withColor(TextColor.parseColor(toolTipColor)));
         p_41423_.add(text);
     }

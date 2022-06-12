@@ -1,5 +1,5 @@
 # クリックまな板
-Forge 1.18.1がリリースされていたので対応する予定。
+Forge 1.19 がリリースされていたので対応した。
 
 ![Imgur](https://imgur.com/UCcfz1e.png)
 
@@ -15,12 +15,12 @@ Fabric / Forge で使いたいMODがあればそれに合わせてダウンロ�
 
 # 導入方法
 - Java 17を入れます！！！
-- バニラの1.18.1を起動します
+- バニラの1.19を起動します
     - バニラアイスって喉乾くから抹茶のほうが好き
-- Forge 1.18.1を入れます
+- Forge 1.19を入れます
   - https://files.minecraftforge.net/net/minecraftforge/forge/
-    - Forgeは`1.18.1 - 39.0.0`以上が必要です。
-- 入れたら、ランチャーからForge 1.18を選んで起動します。
+    - Forgeは`1.19 - 41.0.17`以上が必要です。
+- 入れたら、ランチャーからForge 1.19を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
 - modsフォルダが出来ていると思うのでその中に上記のリンクからダウンロードしたクリックまな板のMODファイルを入れます
@@ -61,19 +61,20 @@ Fabric版はKotlinで書かれてますが、Forge版はJavaです。
     - Eclipseはよくわからん
     
 ### 移行作業のメモ
-https://takusan.negitoro.dev/posts/minecraft_mod_1_18_migration/
+https://takusan.negitoro.dev/posts/minecraft_mod_1_19_migration/
 
 ### 実行方法
 - 環境変数の設定から、システム環境変数の`JAVA_HOME`が入れた`Eclipse Adoptium`のパスになっているか確認する。
 - ついでに`javac -version`して17が返ってくるか確認
 - このリポジトリをクローンするなり、zipをDLするなりしてソースコードを手に入れます。
-    - git cloneした場合はブランチ`1.18.1-forge`に切り替えてください。
+    - git cloneした場合はブランチ`1.19-forge`に切り替えてください。
 - IDEAでこのリポジトリを開いてください
 - しばらく待ちます
     - ここでJava 17が指定できてないとコケると思う
     - あとインターネットが遅い？と`Tag mismatch!`でコケると思う。これ意味不明すぎで草
     - 私の環境では10分ぐらいかかった。`BUILD SUCCESSFUL in 9m 33s`とかでればおｋ
 - Gradle Syncします。`IDEA`の右上？にいる`Gradle`を押して、`Sync`ボタンを押します。これ
+  - 失敗したら `C:\Users\ユーザー名\.gradle\caches` を消すと良いかも
 
 ![Imgur](https://imgur.com/0ra6jbW.png)
 
@@ -89,7 +90,7 @@ dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.17.1-37.0.59' // ここを最新Varに
+    minecraft 'net.minecraftforge:forge:1.19-41.0.17' // ここを最新Varに
 
     // 以下省略
 

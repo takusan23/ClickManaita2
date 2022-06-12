@@ -1,17 +1,17 @@
 package io.github.takusan23.clickmanaita.block;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
 import java.util.List;
 
 /**
@@ -56,11 +56,12 @@ public class ClickManaitaBlockItem extends BlockItem {
     /**
      * ツールチップを表示させる
      */
-    public void appendHoverText(ItemStack p_41421_, @Nullable Level p_41422_, List<Component> p_41423_, TooltipFlag p_41424_) {
-        super.appendHoverText(p_41421_, p_41422_, p_41423_, p_41424_);
-        TextComponent text = new TextComponent(toolTipText);
+    @Override
+    public void appendHoverText(ItemStack p_40572_, @Nullable Level p_40573_, List<Component> p_40574_, TooltipFlag p_40575_) {
+        super.appendHoverText(p_40572_, p_40573_, p_40574_, p_40575_);
+        MutableComponent text = Component.literal(toolTipText);
         text.setStyle(Style.EMPTY.withColor(TextColor.parseColor(toolTipColor)));
-        p_41423_.add(text);
+        p_40574_.add(text);
     }
 
 }
