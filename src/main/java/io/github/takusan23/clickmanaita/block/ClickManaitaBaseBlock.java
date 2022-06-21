@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * クリックまな板ブロック
@@ -46,16 +45,18 @@ public class ClickManaitaBaseBlock extends Block {
      * <p>
      * なんか非推奨になってるんだけど何？
      */
+
     @Override
-    public @NotNull InteractionResult use(BlockState p_57450_, Level p_57451_, BlockPos p_57452_, Player p_57453_, InteractionHand p_57454_, BlockHitResult p_57455_) {
+    public InteractionResult use(BlockState p_60503_, Level p_60504_, BlockPos p_60505_, Player p_60506_, InteractionHand p_60507_, BlockHitResult p_60508_) {
         for (int i = 0; i < dropSize; i++) {
             // 現在持ってるアイテムをコピーする
-            ItemStack currentItem = p_57453_.getMainHandItem().copy();
+            ItemStack currentItem = p_60506_.getMainHandItem().copy();
             // 一個だけ
             currentItem.setCount(1);
             // アイテムを地面に生成
-            Block.popResource(p_57451_, p_57452_, currentItem);
+            Block.popResource(p_60504_, p_60505_, currentItem);
         }
         return InteractionResult.SUCCESS;
+
     }
 }

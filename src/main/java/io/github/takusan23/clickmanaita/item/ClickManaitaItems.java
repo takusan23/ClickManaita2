@@ -5,9 +5,11 @@ import io.github.takusan23.clickmanaita.block.ClickManaitaBlockItem;
 import io.github.takusan23.clickmanaita.block.ClickManaitaBlocks;
 import io.github.takusan23.clickmanaita.creativetab.ClickManaitaCreativeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 /**
  * 追加するアイテムを記述していくクラス
@@ -30,79 +32,78 @@ public class ClickManaitaItems {
      * 木製のクリックまな板
      * ２倍化
      */
-    public static final ClickManaitaBaseItem CLICKMANAITA_WOOD = new ClickManaitaBaseItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), 2);
+    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_WOOD = ITEMS.register("clickmanaita_wood", () -> createItem(2, MaterialColor.MATERIAL_WOOD_COLOR));
 
     /**
      * 石製のクリックまな板
      * ４倍化
      */
-    public static final ClickManaitaBaseItem CLICKMANAITA_STONE = new ClickManaitaBaseItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), 4);
+    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_STONE = ITEMS.register("clickmanaita_stone", () -> createItem(4, MaterialColor.MATERIAL_STONE_COLOR));
 
     /**
      * 鉄のクリックまな板
      * ８倍化
      */
-    public static final ClickManaitaBaseItem CLICKMANAITA_IRON = new ClickManaitaBaseItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), 8);
+    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_IRON = ITEMS.register("clickmanaita_iron", () -> createItem(8, MaterialColor.MATERIAL_IRON_COLOR));
 
     /**
      * 金製のクリックまな板
      * １６倍化
      */
-    public static final ClickManaitaBaseItem CLICKMANAITA_GOLD = new ClickManaitaBaseItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), 16);
+    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_GOLD = ITEMS.register("clickmanaita_gold", () -> createItem(16, MaterialColor.MATERIAL_GOLD_COLOR));
 
     /**
      * ダイヤ製のクリックまな板
      * ３２倍化
      */
-    public static final ClickManaitaBaseItem CLICKMANAITA_DIAMOND = new ClickManaitaBaseItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), 32);
+    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_DIAMOND = ITEMS.register("clickmanaita_diamond", () -> createItem(32, MaterialColor.MATERIAL_DIAMOND_COLOR));
 
     /**
      * エメラルド製のクリックまな板
      * ６４倍化
      */
-    public static final ClickManaitaBaseItem CLICKMANAITA_EMERALD = new ClickManaitaBaseItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), 64);
+    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_EMERALD = ITEMS.register("clickmanaita_emerald", () -> createItem(64, MaterialColor.MATERIAL_EMERALD_COLOR));
 
     /**
      * クリックまな板ブロックのBlockItem
      * 木製
      */
-    public static final ClickManaitaBlockItem CLICKMANAITA_WOOD_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_WOOD_BLOCK, (new Item.Properties()).tab(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_WOOD_BLOCK_ITEM = ITEMS.register("clickmanaita_block_wood", () -> createBlockItem(ClickManaitaBlocks.CLICKMANAITA_WOOD_BLOCK.get(), MaterialColor.MATERIAL_WOOD_COLOR, "x2"));
 
     /**
      * クリックまな板ブロックのBlockItem
      * 石製
      */
-    public static final ClickManaitaBlockItem CLICKMANAITA_STONE_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_STONE_BLOCK, (new Item.Properties()).tab(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_STONE_BLOCK_ITEM = ITEMS.register("clickmanaita_block_stone", () -> createBlockItem(ClickManaitaBlocks.CLICKMANAITA_STONE_BLOCK.get(), MaterialColor.MATERIAL_STONE_COLOR, "x4"));
 
     /**
      * クリックまな板ブロックのBlockItem
      * 鉄製
      */
-    public static final ClickManaitaBlockItem CLICKMANAITA_IRON_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_IRON_BLOCK, (new Item.Properties()).tab(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_IRON_BLOCK_ITEM = ITEMS.register("clickmanaita_block_iron", () -> createBlockItem(ClickManaitaBlocks.CLICKMANAITA_IRON_BLOCK.get(), MaterialColor.MATERIAL_IRON_COLOR, "x8"));
 
     /**
      * クリックまな板ブロックのBlockItem
      * 金製
      */
-    public static final ClickManaitaBlockItem CLICKMANAITA_GOLD_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_GOLD_BLOCK, (new Item.Properties()).tab(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_GOLD_BLOCK_ITEM = ITEMS.register("clickmanaita_block_gold", () -> createBlockItem(ClickManaitaBlocks.CLICKMANAITA_GOLD_BLOCK.get(), MaterialColor.MATERIAL_GOLD_COLOR, "x16"));
 
     /**
      * クリックまな板ブロックのBlockItem
      * ダイヤ製
      */
-    public static final ClickManaitaBlockItem CLICKMANAITA_DIAMOND_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_DIAMOND_BLOCK, (new Item.Properties()).tab(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_DIAMOND_BLOCK_ITEM = ITEMS.register("clickmanaita_block_diamond", () -> createBlockItem(ClickManaitaBlocks.CLICKMANAITA_DIAMOND_BLOCK.get(), MaterialColor.MATERIAL_DIAMOND_COLOR, "x32"));
 
     /**
      * クリックまな板ブロックのBlockItem
      * エメラルド製
      */
-    public static final ClickManaitaBlockItem CLICKMANAITA_EMERALD_BLOCK_ITEM = new ClickManaitaBlockItem(ClickManaitaBlocks.CLICKMANAITA_EMERANLD_BLOCK, (new Item.Properties()).tab(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_EMERALD_BLOCK_ITEM = ITEMS.register("clickmanaita_block_emerald", () -> createBlockItem(ClickManaitaBlocks.CLICKMANAITA_EMERANLD_BLOCK.get(), MaterialColor.MATERIAL_EMERALD_COLOR, "x64"));
 
     /**
      * 金床で自由にドロップ数を決められるクリックまな板
      */
-    public static final ClickManaitaCustomItem CLICKMANAITA_CUSTOM_ITEM = new ClickManaitaCustomItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), 0);
-
+    public static final RegistryObject<ClickManaitaCustomItem> CLICKMANAITA_CUSTOM_ITEM = ITEMS.register("clickmanaita_custom", () -> new ClickManaitaCustomItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), 0));
 
     /**
      * アイテムを登録する。
@@ -110,49 +111,36 @@ public class ClickManaitaItems {
      * {@link ClickManaita}のコンストラクタ内でで呼んで使う
      */
     public static void register(IEventBus eventBus) {
-
-        // ツールチップに色を付ける
-        CLICKMANAITA_WOOD.setToolTipColor(MaterialColor.MATERIAL_WOOD_COLOR);
-        CLICKMANAITA_STONE.setToolTipColor(MaterialColor.MATERIAL_STONE_COLOR);
-        CLICKMANAITA_IRON.setToolTipColor(MaterialColor.MATERIAL_IRON_COLOR);
-        CLICKMANAITA_GOLD.setToolTipColor(MaterialColor.MATERIAL_GOLD_COLOR);
-        CLICKMANAITA_DIAMOND.setToolTipColor(MaterialColor.MATERIAL_DIAMOND_COLOR);
-        CLICKMANAITA_EMERALD.setToolTipColor(MaterialColor.MATERIAL_EMERALD_COLOR);
-
-        // ブロックアイテムにもツールチップ
-        CLICKMANAITA_WOOD_BLOCK_ITEM.setToolTipText("x2");
-        CLICKMANAITA_STONE_BLOCK_ITEM.setToolTipText("x4");
-        CLICKMANAITA_IRON_BLOCK_ITEM.setToolTipText("x8");
-        CLICKMANAITA_GOLD_BLOCK_ITEM.setToolTipText("x16");
-        CLICKMANAITA_DIAMOND_BLOCK_ITEM.setToolTipText("x32");
-        CLICKMANAITA_EMERALD_BLOCK_ITEM.setToolTipText("x64");
-
-        CLICKMANAITA_WOOD_BLOCK_ITEM.setToolTipColor(MaterialColor.MATERIAL_WOOD_COLOR);
-        CLICKMANAITA_STONE_BLOCK_ITEM.setToolTipColor(MaterialColor.MATERIAL_STONE_COLOR);
-        CLICKMANAITA_IRON_BLOCK_ITEM.setToolTipColor(MaterialColor.MATERIAL_IRON_COLOR);
-        CLICKMANAITA_GOLD_BLOCK_ITEM.setToolTipColor(MaterialColor.MATERIAL_GOLD_COLOR);
-        CLICKMANAITA_DIAMOND_BLOCK_ITEM.setToolTipColor(MaterialColor.MATERIAL_DIAMOND_COLOR);
-        CLICKMANAITA_EMERALD_BLOCK_ITEM.setToolTipColor(MaterialColor.MATERIAL_EMERALD_COLOR);
-
-        // アイテムIDを付けて登録
-        ITEMS.register("clickmanaita_wood", () -> CLICKMANAITA_WOOD);
-        ITEMS.register("clickmanaita_stone", () -> CLICKMANAITA_STONE);
-        ITEMS.register("clickmanaita_iron", () -> CLICKMANAITA_IRON);
-        ITEMS.register("clickmanaita_gold", () -> CLICKMANAITA_GOLD);
-        ITEMS.register("clickmanaita_diamond", () -> CLICKMANAITA_DIAMOND);
-        ITEMS.register("clickmanaita_emerald", () -> CLICKMANAITA_EMERALD);
-        ITEMS.register("clickmanaita_custom", () -> CLICKMANAITA_CUSTOM_ITEM);
-
-        // ブロックのアイテムも登録
-        ITEMS.register("clickmanaita_block_wood", () -> CLICKMANAITA_WOOD_BLOCK_ITEM);
-        ITEMS.register("clickmanaita_block_stone", () -> CLICKMANAITA_STONE_BLOCK_ITEM);
-        ITEMS.register("clickmanaita_block_iron", () -> CLICKMANAITA_IRON_BLOCK_ITEM);
-        ITEMS.register("clickmanaita_block_gold", () -> CLICKMANAITA_GOLD_BLOCK_ITEM);
-        ITEMS.register("clickmanaita_block_diamond", () -> CLICKMANAITA_DIAMOND_BLOCK_ITEM);
-        ITEMS.register("clickmanaita_block_emerald", () -> CLICKMANAITA_EMERALD_BLOCK_ITEM);
-
         // 登録
         ITEMS.register(eventBus);
+    }
+
+    /**
+     * ClickManaitaBaseItem を作成する
+     *
+     * @param dropSize     ドロップ数
+     * @param tooltipColor ツールチップの色
+     * @return ClickManaitaBaseItem
+     */
+    private static ClickManaitaBaseItem createItem(int dropSize, String tooltipColor) {
+        ClickManaitaBaseItem item = new ClickManaitaBaseItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), dropSize);
+        item.setToolTipColor(tooltipColor);
+        return item;
+    }
+
+    /**
+     * ClickManaitaBlockItem を作成する
+     *
+     * @param block        対応するブロック
+     * @param tooltipColor ツールチップの色
+     * @param tooltipText  ツールチップに表示するテキスト
+     * @return ClickManaitaBlockItem
+     */
+    private static ClickManaitaBlockItem createBlockItem(Block block, String tooltipColor, String tooltipText) {
+        ClickManaitaBlockItem blockItem = new ClickManaitaBlockItem(block, (new Item.Properties()).tab(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+        blockItem.setToolTipColor(tooltipColor);
+        blockItem.setToolTipText(tooltipText);
+        return blockItem;
     }
 
 }
