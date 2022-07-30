@@ -15,11 +15,11 @@ Fabric / Forge で使いたいMODがあればそれに合わせてダウンロ�
 
 # 導入方法
 - Java 17を入れます！！！
-- バニラの1.19を起動します
+- バニラの1.19.1を起動します
     - バニラアイスって喉乾くから抹茶のほうが好き
-- Forge 1.19を入れます
+- Forge 1.19.1を入れます
   - https://files.minecraftforge.net/net/minecraftforge/forge/
-    - Forgeは`1.19 - 41.0.17`以上が必要です。
+    - Forgeは`1.19.1-42.0.1`以上が必要です。
 - 入れたら、ランチャーからForge 1.19を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
@@ -67,7 +67,7 @@ https://takusan.negitoro.dev/posts/minecraft_mod_1_19_migration/
 - 環境変数の設定から、システム環境変数の`JAVA_HOME`が入れた`Eclipse Adoptium`のパスになっているか確認する。
 - ついでに`javac -version`して17が返ってくるか確認
 - このリポジトリをクローンするなり、zipをDLするなりしてソースコードを手に入れます。
-    - git cloneした場合はブランチ`1.19-forge`に切り替えてください。
+    - git cloneした場合はブランチ`1.19.1-forge`に切り替えてください。
 - IDEAでこのリポジトリを開いてください
 - しばらく待ちます
     - ここでJava 17が指定できてないとコケると思う

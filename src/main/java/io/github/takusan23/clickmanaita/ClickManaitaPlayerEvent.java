@@ -33,9 +33,9 @@ public class ClickManaitaPlayerEvent {
     @SubscribeEvent
     public void onBlockRightClickEvent(PlayerInteractEvent.RightClickBlock event) {
         // エンチャントレベル取得
-        int enchantLevel = EnchantmentHelper.getEnchantmentLevel(RegisterEnchant.CLICKMANAITA_ENCHANT.get(), event.getPlayer());
+        int enchantLevel = EnchantmentHelper.getEnchantmentLevel(RegisterEnchant.CLICKMANAITA_ENCHANT.get(), event.getEntity());
         // チェスト等インベントリを持つアイテムででスニーク状態じゃない場合はreturn
-        if (event.getWorld().getBlockState(event.getPos()).hasBlockEntity() && !event.getPlayer().isShiftKeyDown()) {
+        if (event.getLevel().getBlockState(event.getPos()).hasBlockEntity() && !event.getEntity().isShiftKeyDown()) {
             return;
         }
         if (enchantLevel > 0) {
@@ -50,11 +50,11 @@ public class ClickManaitaPlayerEvent {
             };
 
             // まな板発動
-            Level level = event.getWorld();
+            Level level = event.getLevel();
             BlockPos blockPos = event.getPos();
             BlockState blockState = level.getBlockState(blockPos);
             BlockEntity blockEntity = level.getBlockEntity(blockPos);
-            Player player = event.getPlayer();
+            Player player = event.getEntity();
             Block copyBlock = blockState.getBlock();
 
             // アイテム化するかどうか
