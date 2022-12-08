@@ -1,6 +1,7 @@
 package io.github.takusan23.clickmanaita;
 
 import io.github.takusan23.clickmanaita.block.ClickManaitaBlocks;
+import io.github.takusan23.clickmanaita.creativetab.ClickManaitaCreativeTab;
 import io.github.takusan23.clickmanaita.enchant.RegisterEnchant;
 import io.github.takusan23.clickmanaita.item.ClickManaitaItems;
 import net.minecraftforge.common.MinecraftForge;
@@ -25,6 +26,8 @@ public class ClickManaita {
         ClickManaitaBlocks.register(modEventBus);
         // アイテム（ブロックのアイテム）登録
         ClickManaitaItems.register(modEventBus);
+        // クリエイティブタブ登録
+        ClickManaitaCreativeTab.registerCreativeTab(modEventBus);
         // エンチャントを登録
         RegisterEnchant.register(modEventBus);
         // プレイヤーイベント

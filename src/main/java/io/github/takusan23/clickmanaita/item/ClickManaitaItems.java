@@ -3,7 +3,6 @@ package io.github.takusan23.clickmanaita.item;
 import io.github.takusan23.clickmanaita.ClickManaita;
 import io.github.takusan23.clickmanaita.block.ClickManaitaBlockItem;
 import io.github.takusan23.clickmanaita.block.ClickManaitaBlocks;
-import io.github.takusan23.clickmanaita.creativetab.ClickManaitaCreativeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,12 +20,6 @@ import net.minecraftforge.registries.RegistryObject;
 public class ClickManaitaItems {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ClickManaita.MOD_ID);
-
-    /**
-     * クリエイティブタブ
-     * ここでインスタンス化したものを使いまわしてください。
-     */
-    public static final ClickManaitaCreativeTab CLICKMANAITA_CREATIVE_TAB = new ClickManaitaCreativeTab();
 
     /**
      * 木製のクリックまな板
@@ -103,7 +96,7 @@ public class ClickManaitaItems {
     /**
      * 金床で自由にドロップ数を決められるクリックまな板
      */
-    public static final RegistryObject<ClickManaitaCustomItem> CLICKMANAITA_CUSTOM_ITEM = ITEMS.register("clickmanaita_custom", () -> new ClickManaitaCustomItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), 0));
+    public static final RegistryObject<ClickManaitaCustomItem> CLICKMANAITA_CUSTOM_ITEM = ITEMS.register("clickmanaita_custom", () -> new ClickManaitaCustomItem((new Item.Properties()), 0));
 
     /**
      * アイテムを登録する。
@@ -123,7 +116,7 @@ public class ClickManaitaItems {
      * @return ClickManaitaBaseItem
      */
     private static ClickManaitaBaseItem createItem(int dropSize, String tooltipColor) {
-        ClickManaitaBaseItem item = new ClickManaitaBaseItem((new Item.Properties()).tab(CLICKMANAITA_CREATIVE_TAB), dropSize);
+        ClickManaitaBaseItem item = new ClickManaitaBaseItem((new Item.Properties()), dropSize);
         item.setToolTipColor(tooltipColor);
         return item;
     }
@@ -137,7 +130,7 @@ public class ClickManaitaItems {
      * @return ClickManaitaBlockItem
      */
     private static ClickManaitaBlockItem createBlockItem(Block block, String tooltipColor, String tooltipText) {
-        ClickManaitaBlockItem blockItem = new ClickManaitaBlockItem(block, (new Item.Properties()).tab(ClickManaitaItems.CLICKMANAITA_CREATIVE_TAB));
+        ClickManaitaBlockItem blockItem = new ClickManaitaBlockItem(block, (new Item.Properties()));
         blockItem.setToolTipColor(tooltipColor);
         blockItem.setToolTipText(tooltipText);
         return blockItem;
