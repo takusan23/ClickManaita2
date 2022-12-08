@@ -1,12 +1,12 @@
 # クリックまな板
-1.19.2のFabricがリリースされたのでクリックまな板対応しました。  
+1.19.3のFabricがリリースされたのでクリックまな板対応しました。  
 粘土が無限資源になったってマジですか？
 
 ![Imgur](https://imgur.com/govHTrL.png)
 
 # Mod導入方法 （遊ぶ側、エンドユーザー向け）
 - Java 17 以降が必要です！！！
-- 多分 1.19.2 のバニラを一回起動しておく必要があると思います。
+- 多分 1.19.3 のバニラを一回起動しておく必要があると思います。
 - Fabricを導入します。
     - https://fabricmc.net/use/
       - FabricLoaderのバージョンは`0.14.11`以降にしてください。
@@ -17,7 +17,7 @@
         - https://www.curseforge.com/minecraft/mc-mods/clickmanaita/files
     - Fabric API
         - https://www.curseforge.com/minecraft/mc-mods/fabric-api/files
-          - `fabric-api-0.68.0+1.19.2` 以降
+          - `fabric-api-0.68.1+1.19.3` 以降
     - Fabric Language Kotlin 1.18版
         - このMODはKotlinという言語で書かれているためこのファイルが他のFabric製MODとは違い必要になります。
         - https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin/files
@@ -49,7 +49,7 @@ IDEA と Kotlin でできている。
   - JDKのディストリビューションにこだわりがある場合は別にこれじゃなくてもいいです
 
 ### 実行方法
-- このリポジトリをクローンして、ブランチ：1.19.2-fabricをチェックアウトします。
+- このリポジトリをクローンして、ブランチ：1.19.3-fabricをチェックアウトします。
 - IDEA右上のFileからProject Structureを選択して、JDKのバージョンを17にします。
    - これでできるはずなんだけど、できない場合は下も試して
 - IDEAの設定を開き、Build,Execution,Deployment > Build Tools > Gradle へ進み、Gradle JVMを17にします。
