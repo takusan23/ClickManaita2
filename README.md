@@ -1,15 +1,15 @@
 # クリックまな板
-1.19.3のFabricがリリースされたのでクリックまな板対応しました。  
+1.19.4のFabricがリリースされたのでクリックまな板対応しました。  
 粘土が無限資源になったってマジですか？
 
 ![Imgur](https://imgur.com/govHTrL.png)
 
 # Mod導入方法 （遊ぶ側、エンドユーザー向け）
 - Java 17 以降が必要です！！！
-- 多分 1.19.3 のバニラを一回起動しておく必要があると思います。
+- 多分 1.19.4 のバニラを一回起動しておく必要があると思います。
 - Fabricを導入します。
     - https://fabricmc.net/use/
-      - FabricLoaderのバージョンは`0.14.11`以降にしてください。
+      - FabricLoaderのバージョンは`0.14.17`以降にしてください。
     - Windowsならexeの方でいいんじゃね？
     - exeを起動するとWindows SmartScreenが警戒してきますがそのまま実行
 - modsフォルダに以下のファイルを入れます
@@ -17,12 +17,12 @@
         - https://www.curseforge.com/minecraft/mc-mods/clickmanaita/files
     - Fabric API
         - https://www.curseforge.com/minecraft/mc-mods/fabric-api/files
-          - `fabric-api-0.68.1+1.19.3` 以降
+          - `fabric-api-0.76.0+1.19.4` 以降
     - Fabric Language Kotlin 1.18版
         - このMODはKotlinという言語で書かれているためこのファイルが他のFabric製MODとは違い必要になります。
         - https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin/files
-          - `fabric-language-kotlin-1.8.7+kotlin.1.7.22` 以降
-- Minecarft Lancherで起動構成をを fabric-loader-1.19.2 に変更します
+          - `fabric-language-kotlin-1.9.2+kotlin.1.8.10` 以降
+- Minecarft Lancherで起動構成をを fabric-loader-1.19.4 に変更します
 - あとは楽しんで
 
 ## 開発者向け

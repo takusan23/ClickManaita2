@@ -12,7 +12,7 @@ object ClickManaitaItemGroup {
     fun registerCreativeTab() {
         FabricItemGroup.builder(Identifier("clickmanaita", "clickmanaita_creative_tab"))
             .icon { ItemStack(ClickManaitaItem.CLICKMANAITA_WOOD) }
-            .entries { _, entries, _ ->
+            .entries { _, entries ->
                 // アイテムを登録する
                 entries.add(ClickManaitaItem.CLICKMANAITA_WOOD)
                 entries.add(ClickManaitaItem.CLICKMANAITA_STONE)
