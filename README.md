@@ -1,5 +1,5 @@
 # クリックまな板
-Forge 1.19.3 がリリースされていたので対応した。
+Forge 1.19.4 がリリースされていたので対応した。
 
 ![Imgur](https://imgur.com/UCcfz1e.png)
 
@@ -15,12 +15,12 @@ Fabric / Forge で使いたいMODがあればそれに合わせてダウンロ�
 
 # 導入方法
 - Java 17を入れます！！！
-- バニラの1.19.3を起動します
+- バニラの1.19.4を起動します
     - バニラアイスって喉乾くから抹茶のほうが好き
-- Forge 1.19.2を入れます
+- Forge 1.19.4を入れます
   - https://files.minecraftforge.net/net/minecraftforge/forge/
-    - Forgeは`1.19.3 - 44.0.0`以上が必要です。
-- 入れたら、ランチャーからForge 1.19.3を選んで起動します。
+    - Forgeは`1.19.4-45.0.9`以上が必要です。
+- 入れたら、ランチャーからForge 1.19.4を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
 - modsフォルダが出来ていると思うのでその中に上記のリンクからダウンロードしたクリックまな板のMODファイルを入れます
@@ -99,7 +99,9 @@ dependencies {
 # トラブルシューティング
 - `runClient`が押せない（なんかバツマーク）
     - `gradlew genIntellijRuns`を再度実行
-    
+- `java.lang.module.FindException: Module cpw.mods.securejarhandler not found, required by cpw.mods.bootstraplauncher`
+    - `genIntellijRuns`を再度実行
+
 ## Jar書き出し
 
 1.`build.gradle`を開きます。  

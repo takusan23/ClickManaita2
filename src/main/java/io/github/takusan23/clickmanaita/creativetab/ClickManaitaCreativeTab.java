@@ -21,7 +21,7 @@ public class ClickManaitaCreativeTab {
             event.registerCreativeModeTab(new ResourceLocation(ClickManaita.MOD_ID, "clickmanaita_creative_tab"), (builder -> {
                 builder.title(Component.translatable("itemGroup.clickmanaita_creative_tab"))
                         .icon(() -> new ItemStack(ClickManaitaItems.CLICKMANAITA_WOOD.get()))
-                        .displayItems((enabledFeatures, entries, operatorEnabled) -> {
+                        .displayItems((enabledFeatures, entries) -> {
                             // アイテムを登録する
                             entries.accept(ClickManaitaItems.CLICKMANAITA_WOOD.get());
                             entries.accept(ClickManaitaItems.CLICKMANAITA_STONE.get());
