@@ -38,7 +38,7 @@ fun init() {
     Registry.register(Registries.ITEM, Identifier("clickmanaita", "clickmanaita_block_emerald"), ClickManaitaItem.CLICKMANAITA_EMERALD_BLOCK_ITEM)
 
     // クリエタブ
-    ClickManaitaItemGroup.registerCreativeTab()
+    Registry.register(Registries.ITEM_GROUP, Identifier("clickmanaita", "clickmanaita_creative_tab"), ClickManaitaItemGroup.CLICKMANAITA_ITEMGROUP)
 
     // エンチャント追加とコールバック登録
     Registry.register(Registries.ENCHANTMENT, Identifier("clickmanaita", "clickmanaita_enchant"), ClickManaitaEnchant.CLICKMANAITA_ENCHANT)

@@ -1,15 +1,14 @@
 # クリックまな板
-1.19.4のFabricがリリースされたのでクリックまな板対応しました。  
-粘土が無限資源になったってマジですか？
+1.20のFabricがリリースされたのでクリックまな板対応しました。  
+さくら！！！
 
-![Imgur](https://imgur.com/govHTrL.png)
 
 # Mod導入方法 （遊ぶ側、エンドユーザー向け）
 - Java 17 以降が必要です！！！
-- 多分 1.19.4 のバニラを一回起動しておく必要があると思います。
+- 多分 1.20 のバニラを一回起動しておく必要があると思います。
 - Fabricを導入します。
     - https://fabricmc.net/use/
-      - FabricLoaderのバージョンは`0.14.17`以降にしてください。
+      - FabricLoaderのバージョンは`0.14.21`以降にしてください。
     - Windowsならexeの方でいいんじゃね？
     - exeを起動するとWindows SmartScreenが警戒してきますがそのまま実行
 - modsフォルダに以下のファイルを入れます
@@ -17,11 +16,11 @@
         - https://www.curseforge.com/minecraft/mc-mods/clickmanaita/files
     - Fabric API
         - https://www.curseforge.com/minecraft/mc-mods/fabric-api/files
-          - `fabric-api-0.76.0+1.19.4` 以降
-    - Fabric Language Kotlin 1.18版
+          - `fabric-api-0.83.0+1.20` 以降
+    - Fabric Language Kotlin 1.20版
         - このMODはKotlinという言語で書かれているためこのファイルが他のFabric製MODとは違い必要になります。
         - https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin/files
-          - `fabric-language-kotlin-1.9.2+kotlin.1.8.10` 以降
+          - `fabric-language-kotlin-1.9.5+kotlin.1.8.22` 以降
 - Minecarft Lancherで起動構成をを fabric-loader-1.19.4 に変更します
 - あとは楽しんで
 
@@ -29,9 +28,6 @@
 
 メモ程度の自作ブログ  
 https://takusan.negitoro.dev/posts/minecraft_fabric_dev_environment/
-
-移行作業のメモ
-https://takusan.negitoro.dev/posts/minecraft_mod_1_19_migration/
 
 ### Gitのブランチ
 forgeとfabricがあります。  
@@ -84,6 +80,10 @@ Failed to read accessWidener file from mod fabric-content-registries-v0
 
 - メモリ不足です
   - Cドライブ不足だったかもしれない
+
+そのほか
+
+- `.idea` `build` `run` フォルダを消して開き直してみる
 
 ### Jar生成
 - IDEA右上のGradleを押して、Tasks>build>build です  
