@@ -27,7 +27,7 @@ public class ClickManaita {
         // アイテム（ブロックのアイテム）登録
         ClickManaitaItems.register(modEventBus);
         // クリエイティブタブ登録
-        ClickManaitaCreativeTab.registerCreativeTab(modEventBus);
+        ClickManaitaCreativeTab.register(modEventBus);
         // エンチャントを登録
         RegisterEnchant.register(modEventBus);
         // プレイヤーイベント

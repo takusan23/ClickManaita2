@@ -1,7 +1,6 @@
 # クリックまな板
-Forge 1.19.4 がリリースされていたので対応した。
+Forge 1.120 がリリースされていたので対応した。
 
-![Imgur](https://imgur.com/UCcfz1e.png)
 
 # ダウンロード
 https://www.curseforge.com/minecraft/mc-mods/clickmanaita
@@ -15,11 +14,11 @@ Fabric / Forge で使いたいMODがあればそれに合わせてダウンロ�
 
 # 導入方法
 - Java 17を入れます！！！
-- バニラの1.19.4を起動します
+- バニラの 1.20 を起動します
     - バニラアイスって喉乾くから抹茶のほうが好き
-- Forge 1.19.4を入れます
+- Forge 1.20 を入れます
   - https://files.minecraftforge.net/net/minecraftforge/forge/
-    - Forgeは`1.19.4-45.0.9`以上が必要です。
+    - Forgeは`1.20 - 46.0.14`以上が必要です。
 - 入れたら、ランチャーからForge 1.19.4を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
@@ -59,15 +58,12 @@ Fabric版はKotlinで書かれてますが、Forge版はJavaです。
     - JDKのディストリビューションにこだわりがある場合は別にこれじゃなくてもいいです
 - IDEA
     - Eclipseはよくわからん
-    
-### 移行作業のメモ
-https://takusan.negitoro.dev/posts/minecraft_mod_1_19_migration/
 
 ### 実行方法
 - 環境変数の設定から、システム環境変数の`JAVA_HOME`が入れた`Eclipse Adoptium`のパスになっているか確認する。
 - ついでに`javac -version`して17が返ってくるか確認
 - このリポジトリをクローンするなり、zipをDLするなりしてソースコードを手に入れます。
-    - git cloneした場合はブランチ`1.19.3-forge`に切り替えてください。
+    - git cloneした場合はブランチ`1.20-forge`に切り替えてください。
 - IDEAでこのリポジトリを開いてください
 - しばらく待ちます
     - ここでJava 17が指定できてないとコケると思う
@@ -101,6 +97,8 @@ dependencies {
     - `gradlew genIntellijRuns`を再度実行
 - `java.lang.module.FindException: Module cpw.mods.securejarhandler not found, required by cpw.mods.bootstraplauncher`
     - `genIntellijRuns`を再度実行
+- `FMLClientLaunchHandler has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 60.0`
+  -  IDEA の `File > Project Structure > Project > SDK`を 17 にする
 
 ## Jar書き出し
 
