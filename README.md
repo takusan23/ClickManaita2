@@ -1,6 +1,7 @@
 # クリックまな板
 Forge 1.120 がリリースされていたので対応した。
 
+![Imgur](https://imgur.com/H9CuN8I.png)
 
 # ダウンロード
 https://www.curseforge.com/minecraft/mc-mods/clickmanaita
@@ -19,7 +20,7 @@ Fabric / Forge で使いたいMODがあればそれに合わせてダウンロ�
 - Forge 1.20 を入れます
   - https://files.minecraftforge.net/net/minecraftforge/forge/
     - Forgeは`1.20 - 46.0.14`以上が必要です。
-- 入れたら、ランチャーからForge 1.19.4を選んで起動します。
+- 入れたら、ランチャーからForge 1.20を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
 - modsフォルダが出来ていると思うのでその中に上記のリンクからダウンロードしたクリックまな板のMODファイルを入れます
