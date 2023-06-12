@@ -1,5 +1,5 @@
 # クリックまな板
-Forge 1.120 がリリースされていたので対応した。
+Forge 1.20 がリリースされていたので対応した。
 
 ![Imgur](https://imgur.com/H9CuN8I.png)
 
