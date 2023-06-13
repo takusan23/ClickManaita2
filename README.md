@@ -1,12 +1,12 @@
 # クリックまな板
-1.20のFabricがリリースされたのでクリックまな板対応しました。  
+1.20.1のFabricがリリースされたのでクリックまな板対応しました。  
 さくら！！！
 
 ![Imgur](https://imgur.com/aVBfsrL.png)
 
 # Mod導入方法 （遊ぶ側、エンドユーザー向け）
 - Java 17 以降が必要です！！！
-- 多分 1.20 のバニラを一回起動しておく必要があると思います。
+- 多分 1.20.1 のバニラを一回起動しておく必要があると思います。
 - Fabricを導入します。
     - https://fabricmc.net/use/
       - FabricLoaderのバージョンは`0.14.21`以降にしてください。
@@ -17,12 +17,12 @@
         - https://www.curseforge.com/minecraft/mc-mods/clickmanaita/files
     - Fabric API
         - https://www.curseforge.com/minecraft/mc-mods/fabric-api/files
-          - `fabric-api-0.83.0+1.20` 以降
+          - `fabric-api-0.83.1+1.20.1` 以降
     - Fabric Language Kotlin 1.20版
         - このMODはKotlinという言語で書かれているためこのファイルが他のFabric製MODとは違い必要になります。
         - https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin/files
           - `fabric-language-kotlin-1.9.5+kotlin.1.8.22` 以降
-- Minecarft Lancherで起動構成をを fabric-loader-1.20 に変更します
+- Minecarft Lancherで起動構成をを fabric-loader-1.20.1 に変更します
 - あとは楽しんで
 
 ## 開発者向け
