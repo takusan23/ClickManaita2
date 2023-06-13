@@ -1,0 +1,40 @@
+name: Make Publish Jar File
+
+# 起動条件。手動起動
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    # JDK導入
+    - name: set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+
+    # gradle-wrapper.jar が改ざんされていない事を確認する
+    - name: Validate gradle-wrapper.jar
+      uses: gradle/wrapper-validation-action@v1
+
+    # 権限を与える
+    - name: Grant permission gradlew
+      run: chmod +x gradlew
+
+    # 配布する jarファイル を作成する
+    - name: Make publish jar file
+      run: ./gradlew build
+
+    # ハッシュ値を計算して、GITHUB_STEP_SUMMARY に表示させる
+    - name: Calc hash
+      run: |
+        echo "|Name|Value|" >> $GITHUB_STEP_SUMMARY
+        echo "|---|---|" >> $GITHUB_STEP_SUMMARY
+        # jarファイルを探して、 ハッシュ値 を出して、echo で文字列連結した状態の文字を GITHUB_STEP_SUMMARY へ出力する
+        find ./build/libs/ -type f | xargs md5sum | xargs -I{} echo "| MD5 |{}|" >> $GITHUB_STEP_SUMMARY
+        find ./build/libs/ -type f | xargs sha1sum | xargs -I{} echo "| SHA-1 |{}|" >> $GITHUB_STEP_SUMMARY
