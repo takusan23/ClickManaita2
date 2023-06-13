@@ -31,10 +31,17 @@ jobs:
       run: ./gradlew build
 
     # ハッシュ値を計算して、GITHUB_STEP_SUMMARY に表示させる
+    # jarファイルを探して、ハッシュ値を出して、echo で文字列連結した状態の文字を GITHUB_STEP_SUMMARY へ出力する
     - name: Calc hash
       run: |
         echo "|Name|Value|" >> $GITHUB_STEP_SUMMARY
         echo "|---|---|" >> $GITHUB_STEP_SUMMARY
-        # jarファイルを探して、 ハッシュ値 を出して、echo で文字列連結した状態の文字を GITHUB_STEP_SUMMARY へ出力する
         find ./build/libs/ -type f | xargs md5sum | xargs -I{} echo "| MD5 |{}|" >> $GITHUB_STEP_SUMMARY
         find ./build/libs/ -type f | xargs sha1sum | xargs -I{} echo "| SHA-1 |{}|" >> $GITHUB_STEP_SUMMARY
+
+    # 作成した jarファイル を artifact に保存
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: publish-jar
+        path: ./build/libs/
