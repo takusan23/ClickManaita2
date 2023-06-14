@@ -1,4 +1,4 @@
-name: Make Publish Jar File
+name: Make Publish Forge Mod Jar File
 
 # 起動条件。手動起動
 on:
