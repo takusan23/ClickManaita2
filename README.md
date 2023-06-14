@@ -22,7 +22,7 @@
         - このMODはKotlinという言語で書かれているためこのファイルが他のFabric製MODとは違い必要になります。
         - https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin/files
           - `fabric-language-kotlin-1.9.5+kotlin.1.8.22` 以降
-- Minecarft Lancherで起動構成をを fabric-loader-1.19.4 に変更します
+- Minecarft Lancherで起動構成をを fabric-loader-1.20 に変更します
 - あとは楽しんで
 
 ## 開発者向け

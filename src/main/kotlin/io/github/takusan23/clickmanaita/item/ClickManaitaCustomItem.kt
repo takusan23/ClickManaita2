@@ -60,7 +60,7 @@ class ClickManaitaCustomItem(settings: Settings?) : Item(settings) {
             // チェストの中身も増やす
             if (blockEntity is Inventory) {
                 repeat(blockEntity.size()) { invIndex ->
-                    Block.dropStack(world, blockPos, blockEntity.getStack(invIndex))
+                    Block.dropStack(world, blockPos, blockEntity.getStack(invIndex).copy())
                 }
             }
             // ブロックを増やす
