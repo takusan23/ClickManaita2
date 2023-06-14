@@ -1,4 +1,5 @@
-name: Make Publish Fabric Mod Jar File
+# Fabric / Forge どちらでも使えるはず
+name: Make Publish Jar File
 
 # 起動条件。手動起動
 on:
