@@ -44,4 +44,5 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        path: ./build/libs/*.jar
+        name: ${{ github.ref_name }}-artifact
+        path: ./build/libs/
