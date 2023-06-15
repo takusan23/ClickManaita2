@@ -58,6 +58,28 @@ IDEA と Kotlin でできている。
 - そうしたら再度起動します。すると実行ボタンのところに`Minecraft Client`と書かれているはずです。そしたら再生ボタンを押して起動させます。
 - 以上です。初回実行時はなんかナレーターが喋りだすのでびっくりしないようにしてください・・・
 
+### Jar生成（配布するMODのファイル生成）
+MinecraftのMOD利用者/開発者？を狙ったウィルスから身を守るため、このMODでは配布するMODファイル（jarファイル）を`GitHub Actions (CI/CD)`で作っています。  
+が、今のところMODファイルの生成までしかしないので、ローカルに落として配布サイトへアップロードするとあんまり意味がないかもしれないです・・・。
+また、MODファイルのハッシュ値をついでに出すようにしています。改ざんされていない事を確認できます。
+
+#### GitHub Actions で作成
+`1.20-fabric`、`1.20-forge`以降は`GitHub Actions`でMODファイルを作成できます。  
+ブランチを選んで手動実行ボタンを押せばいいです。  
+![image](https://github.com/takusan23/ClickManaita2/assets/32033405/ac87cda2-ec4d-42aa-a239-42107c2ce101)
+
+また、GitHubにログインすることでハッシュ値も確認できます。  
+![image](https://github.com/takusan23/ClickManaita2/assets/32033405/860dfc63-141b-4960-b04d-f01a62728026)
+
+Windowsの場合は`PowerShell`を使うことでハッシュ値が同じかどうか確認できます。  
+（`Get-FileHash`コマンドだとアルファベットが大文字になってしまいますが、16進数は大文字小文字は区別されないので問題ないです。）  
+![image](https://github.com/takusan23/ClickManaita2/assets/32033405/7af7c31a-caa9-43ee-b393-88758082af9e)
+
+
+#### 手動でJar作成
+- IDEA右上のGradleを押して、Tasks>build>build です  
+- `build/libs`の中にあります
+
 ### トラブルシューティング
 ```
 Exception in thread "main" java.lang.NoClassDefFoundError: joptsimple/OptionSpec
@@ -85,10 +107,6 @@ Failed to read accessWidener file from mod fabric-content-registries-v0
 そのほか
 
 - `.idea` `build` `run` フォルダを消して開き直してみる
-
-### Jar生成
-- IDEA右上のGradleを押して、Tasks>build>build です  
-- `build/libs`の中にあります
 
 ### JSONとか
 多分Forgeで使ってたJSONがそのまま使えるはず。アイテムID変えてなければ。  
