@@ -7,8 +7,8 @@ import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.item.ItemUsageContext
 import net.minecraft.loot.LootTables
-import net.minecraft.text.LiteralTextContent
 import net.minecraft.text.MutableText
+import net.minecraft.text.PlainTextContent
 import net.minecraft.text.Style
 import net.minecraft.text.Text
 import net.minecraft.util.ActionResult
@@ -75,7 +75,7 @@ class ClickManaitaCustomItem(settings: Settings?) : Item(settings) {
     override fun appendTooltip(stack: ItemStack?, world: World?, tooltip: MutableList<Text>?, context: TooltipContext?) {
         super.appendTooltip(stack, world, tooltip, context)
         if (stack != null) {
-            tooltip?.add(MutableText.of(LiteralTextContent("x${getDropSize(stack)}")).setStyle(Style.EMPTY.withColor(Formatting.AQUA)))
+            tooltip?.add(MutableText.of(PlainTextContent.of("x${getDropSize(stack)}")).setStyle(Style.EMPTY.withColor(Formatting.AQUA)))
         }
     }
 }
