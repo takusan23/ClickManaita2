@@ -58,6 +58,20 @@ IDEA と Kotlin でできている。
 - そうしたら再度起動します。すると実行ボタンのところに`Minecraft Client`と書かれているはずです。そしたら再生ボタンを押して起動させます。
 - 以上です。初回実行時はなんかナレーターが喋りだすのでびっくりしないようにしてください・・・
 
+### Minecraft 最新版への追従方法
+
+- Fabric の場合、新しいバージョンが出るたびに内部の変更点をわかりやすく書いてくれるので、目を通す
+  - https://fabricmc.net/blog/
+- gradle.properties を最新の値にする
+  - 以下のリンクから、それぞれの値を最新にする
+    - https://fabricmc.net/develop/
+  - fabric-language-kotlin だけは別
+    - https://github.com/FabricMC/fabric-language-kotlin
+- Gradle の更新もあればそれも更新
+- fabric.mod.json も更新する
+- 実行方法を参照して Gradle sync 等する
+- README も更新する
+
 ### Jar生成（配布するMODのファイル生成）
 MinecraftのMOD利用者/開発者？を狙ったウィルスから身を守るため、このMODでは配布するMODファイル（jarファイル）を`GitHub Actions (CI/CD)`で作っています。  
 が、今のところMODファイルの生成までしかしないので、ローカルに落として配布サイトへアップロードするとあんまり意味がないかもしれないです・・・。  
