@@ -44,11 +44,11 @@ public class ClickManaitaCustomItem extends ClickManaitaBaseItem {
     public void appendHoverText(ItemStack p_41421_, @org.jetbrains.annotations.Nullable Level p_41422_, List<Component> p_41423_, TooltipFlag p_41424_) {
         // super.appendHoverText(p_41421_, p_41422_, p_41423_, p_41424_);
         MutableComponent text = Component.literal("x" + getDropSize(p_41421_));
-        text.setStyle(Style.EMPTY.withColor(TextColor.parseColor("#ffffff")));
+        text.setStyle(Style.EMPTY.withColor(TextColor.parseColor("#ffffff").get().orThrow()));
 
         // 金床で設定してねー
         MutableComponent anvilMessage = Component.literal("金床でこのアイテムの名前を増やしたい数に変更してください");
-        anvilMessage.setStyle(Style.EMPTY.withColor(TextColor.parseColor("#ffffff")));
+        anvilMessage.setStyle(Style.EMPTY.withColor(TextColor.parseColor("#ffffff").get().orThrow()));
 
         p_41423_.add(text);
         p_41423_.add(anvilMessage);

@@ -1,5 +1,5 @@
 # クリックまな板
-Forge 1.20.2 がリリースされていたので対応した。
+Forge 1.20.3 がリリースされていたので対応した。
 
 ![Imgur](https://imgur.com/H9CuN8I.png)
 
@@ -15,12 +15,12 @@ Fabric / Forge で使いたいMODがあればそれに合わせてダウンロ�
 
 # 導入方法
 - Java 17を入れます！！！
-- バニラの 1.20.2 を起動します
+- バニラの 1.20.3 を起動します
     - バニラアイスって喉乾くから抹茶のほうが好き
-- Forge 1.20.2 を入れます
+- Forge 1.20.3 を入れます
   - https://files.minecraftforge.net/net/minecraftforge/forge/
-    - Forgeは`1.20.2 - 48.0.6`以上が必要です。
-- 入れたら、ランチャーからForge 1.20を選んで起動します。
+    - Forgeは`1.20.3 - 49.0.2`以上が必要です。
+- 入れたら、ランチャーからForge 1.20.3を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
 - modsフォルダが出来ていると思うのでその中に上記のリンクからダウンロードしたクリックまな板のMODファイルを入れます
@@ -64,7 +64,7 @@ Fabric版はKotlinで書かれてますが、Forge版はJavaです。
 - 環境変数の設定から、システム環境変数の`JAVA_HOME`が入れた`Eclipse Adoptium`のパスになっているか確認する。
 - ついでに`javac -version`して17が返ってくるか確認
 - このリポジトリをクローンするなり、zipをDLするなりしてソースコードを手に入れます。
-    - git cloneした場合はブランチ`1.20.2-forge`に切り替えてください。
+    - git cloneした場合はブランチ`1.20.3-forge`に切り替えてください。
 - IDEAでこのリポジトリを開いてください
 - しばらく待ちます
     - ここでJava 17が指定できてないとコケると思う
@@ -78,6 +78,21 @@ Fabric版はKotlinで書かれてますが、Forge版はJavaです。
 - IDEA右上にある`Gradle`から、`Tasks > forgegradle runs > genIntellijRuns`をダブルクリックしてまた待つ
 - 終わったら、再生ボタンの隣りにあるドロップダウンメニューから`runClient`が選択可能になってます。`runClient`を選択して再生ボタンを押せば起動できます。
 - お疲れさまでした
+
+### Minecraft 最新版への追従方法
+もっといい方法があれば知りたい
+
+- 一個前のバージョンの Forge の方のブランチから、最新版のバージョンでブランチを切る
+- 最新版の Minecraft に対応した Forge の Mdk をダウンロードしてくる
+  - https://files.minecraftforge.net/net/minecraftforge/forge/
+- Mdk の zip を解凍する
+- このディレクトリにファイルを移す
+  - gradle / build.gradle / gradle.properties など
+- ファイルを移した後、mod_id / mod_authors などの MOD 固有の値を戻す
+  - git の差分ですぐ戻せるはず
+  - Forge のバージョンとかは mdk そのままにしておく
+- 開発環境構築の手順を元に Gradle の sync 等をやる
+- README を更新する
 
 ### Forgeアップデート方法
 多分、`build.gradle`の以下の部分を最新のForgeのバージョンにして、`Gradle Sync (IDEA右上のGradle押して、更新ボタンみたいなやつ押す)`して、`genIntellijRuns`を再度実行すれば、Forgeの更新は完了。

@@ -60,7 +60,7 @@ public class ClickManaitaBlockItem extends BlockItem {
     public void appendHoverText(ItemStack p_40572_, @Nullable Level p_40573_, List<Component> p_40574_, TooltipFlag p_40575_) {
         super.appendHoverText(p_40572_, p_40573_, p_40574_, p_40575_);
         MutableComponent text = Component.literal(toolTipText);
-        text.setStyle(Style.EMPTY.withColor(TextColor.parseColor(toolTipColor)));
+        text.setStyle(Style.EMPTY.withColor(TextColor.parseColor(toolTipColor).get().orThrow()));
         p_40574_.add(text);
     }
 
