@@ -18,7 +18,7 @@ import net.minecraft.world.World
 class ClickManaitaBaseBlock(settings: Settings?, private val dropSize: Int = 2) : Block(settings) {
 
     /** ブロックを右クリックしたら呼ばれる */
-    override fun onUse(state: BlockState?, world: World?, pos: BlockPos?, player: PlayerEntity?, hand: Hand?, hit: BlockHitResult?): ActionResult {
+    override fun onUse(state: BlockState?, world: World?, pos: BlockPos?, player: PlayerEntity?, hit: BlockHitResult?): ActionResult {
         return if (world!!.isClient) {
             ActionResult.CONSUME
         } else {

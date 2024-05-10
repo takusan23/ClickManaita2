@@ -1,15 +1,15 @@
 # クリックまな板
-1.20.4のFabricがリリースされたのでクリックまな板対応しました。  
+1.20.6 のFabricがリリースされたのでクリックまな板対応しました。  
 さくら！！！
 
 ![Imgur](https://imgur.com/aVBfsrL.png)
 
 # Mod導入方法 （遊ぶ側、エンドユーザー向け）
-- Java 17 以降が必要です！！！
-- 多分 1.20.4 のバニラを一回起動しておく必要があると思います。
+- Java 21 以降が必要です！！！
+- 多分 1.20.6 のバニラを一回起動しておく必要があると思います。
 - Fabricを導入します。
     - https://fabricmc.net/use/
-      - FabricLoaderのバージョンは`0.15.0`以降にしてください。
+      - FabricLoaderのバージョンは`0.15.11`以降にしてください。
     - Windowsならexeの方でいいんじゃね？
     - exeを起動するとWindows SmartScreenが警戒してきますがそのまま実行
 - modsフォルダに以下のファイルを入れます
@@ -17,12 +17,12 @@
         - https://www.curseforge.com/minecraft/mc-mods/clickmanaita/files
     - Fabric API
         - https://www.curseforge.com/minecraft/mc-mods/fabric-api/files
-          - `fabric-api-0.91.1+1.20.4` 以降
-    - Fabric Language Kotlin 1.20.4版
+          - `fabric-api-0.97.8+1.20.6` 以降
+    - Fabric Language Kotlin 1.20.6 版
         - このMODはKotlinという言語で書かれているためこのファイルが他のFabric製MODとは違い必要になります。
         - https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin/files
-          - `fabric-language-kotlin-1.10.16+kotlin.1.9.21` 以降
-- Minecarft Lancherで起動構成をを fabric-loader-1.20.4 に変更します
+          - `fabric-language-kotlin-1.10.19+kotlin.1.9.23` 以降
+- Minecarft Lancher で起動構成を fabric-loader-1.20.6 に変更します
 - あとは楽しんで
 
 ## 開発者向け
@@ -41,20 +41,20 @@ IDEA と Kotlin でできている。
 
 ### 必要なもの
 - IDEA
-- Eclipse Adoptium 17
-  - Java 17 以降が必要です
-  - JDKのディストリビューションにこだわりがある場合は別にこれじゃなくてもいいです
+- Eclipse Adoptium 21
+  - Java 21 以降が必要です
+  - JDK のディストリビューションにこだわりがある場合は別にこれじゃなくてもいいです
 
 ### 実行方法
 - このリポジトリをクローンして、ブランチ：1.20.4-fabricをチェックアウトします。
 - IDEA右上のFileからProject Structureを選択して、JDKのバージョンを17にします。
    - これでできるはずなんだけど、できない場合は下も試して
-- IDEAの設定を開き、Build,Execution,Deployment > Build Tools > Gradle へ進み、Gradle JVMを17にします。
+- IDEAの設定を開き、Build,Execution,Deployment > Build Tools > Gradle へ進み、Gradle JVM を 21 にします。
 - できたら`IDEA`の右上？にいる`Gradle`を押して、`Sync`ボタンを押します。これ
 
 ![Imgur](https://imgur.com/0ra6jbW.png)  
 
-- 無事終了したら一旦IDEAを終了させます
+- 無事終了したら一旦 IDEA を終了させます
 - そうしたら再度起動します。すると実行ボタンのところに`Minecraft Client`と書かれているはずです。そしたら再生ボタンを押して起動させます。
 - 以上です。初回実行時はなんかナレーターが喋りだすのでびっくりしないようにしてください・・・
 
@@ -62,15 +62,33 @@ IDEA と Kotlin でできている。
 
 - Fabric の場合、新しいバージョンが出るたびに内部の変更点をわかりやすく書いてくれるので、目を通す
   - https://fabricmc.net/blog/
+  - サンプルも追従してくれるので、コミット差分を見ると参考になる
+    - https://github.com/FabricMC/fabric-example-mod
 - gradle.properties を最新の値にする
   - 以下のリンクから、それぞれの値を最新にする
     - https://fabricmc.net/develop/
   - fabric-language-kotlin だけは別
     - https://github.com/FabricMC/fabric-language-kotlin
 - Gradle の更新もあればそれも更新
+  - build.gradle もあれば 
 - fabric.mod.json も更新する
 - 実行方法を参照して Gradle sync 等する
 - README も更新する
+
+### Minecraft のソース生成
+https://fabricmc.net/wiki/tutorial:setup
+
+基本的には既存のブロックの処理とにらめっこすることになるので。  
+`gradle`タスクの`genSources`を押すことで生成できます。  
+生成後、適当な`Minecraft`のクラスを開いて（例えば`Blocks.java`）、上の`Choose sources`を押して、`-sources.jar`の方を押せばよいです。
+
+![Imgur](https://imgur.com/Ld1IN4p.png)  
+
+![Imgur](https://imgur.com/yWMzbkH.png)
+
+これで検索機能とかが開放されるはず。
+
+![Imgur](https://imgur.com/kC1SQtx.png)
 
 ### Jar生成（配布するMODのファイル生成）
 MinecraftのMOD利用者/開発者？を狙ったウィルスから身を守るため、このMODでは配布するMODファイル（jarファイル）を`GitHub Actions (CI/CD)`で作っています。  

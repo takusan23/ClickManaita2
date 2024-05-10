@@ -1,25 +1,27 @@
 package io.github.takusan23.clickmanaita.enchant
 
 import net.minecraft.enchantment.Enchantment
-import net.minecraft.enchantment.EnchantmentTarget
+import net.minecraft.enchantment.Enchantment.leveledCost
+import net.minecraft.enchantment.Enchantment.properties
 import net.minecraft.entity.EquipmentSlot
+import net.minecraft.registry.tag.ItemTags
 
 /**
- * クリックまな板エンチャント。
- * */
-class ClickManaitaEnchant : Enchantment(Rarity.COMMON, EnchantmentTarget.BREAKABLE, EquipmentSlot.values()) {
+ * クリックまな板エンチャント一覧
+ */
+object ClickManaitaEnchant {
 
-    companion object {
-
-        /** クリックまな板エンチャント。エンチャント一個なのでエンチャント列挙用クラス作るのもあれなので */
-        val CLICKMANAITA_ENCHANT = ClickManaitaEnchant()
-
-    }
-
-    override fun getMinPower(level: Int): Int = 1 + 10 * (level - 1)
-
-    override fun getMaxPower(level: Int): Int = super.getMinPower(level) + 50
-
-    override fun getMaxLevel(): Int = 5
+    /** クリックまな板エンチャント */
+    val CLICKMANAITA_ENCHANT = Enchantment(
+        properties(
+            /* supportedItems = */ ItemTags.DURABILITY_ENCHANTABLE,
+            /* weight = */ 10,
+            /* maxLevel = */ 5,
+            /* minCost = */ leveledCost(1, 10),
+            /* maxCost = */ leveledCost(51, 10),
+            /* anvilCost = */ 1,
+            /* ...slots = */ EquipmentSlot.MAINHAND
+        )
+    )
 
 }
