@@ -8,12 +8,13 @@
   "key": {
     "S": {
       "item": "clickmanaita:clickmanaita_wood"
-   },
+    },
     "D": {
-       "item": "minecraft:cobblestone"
+      "item": "minecraft:cobblestone"
     }
   },
   "result": {
-    "item": "clickmanaita:clickmanaita_stone"
+    "count": 1,
+    "id": "clickmanaita:clickmanaita_stone"
   }
 }

@@ -1,18 +1,7 @@
 package io.github.takusan23.clickmanaita;
 
 import io.github.takusan23.clickmanaita.enchant.RegisterEnchant;
-import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.Container;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -30,6 +19,7 @@ public class ClickManaitaPlayerEvent {
      * <p>
      * todo なんでか知らんけど右クリックイベントがclient/server共に２回呼ばれるんだけど？
      */
+    @SuppressWarnings("unused")
     @SubscribeEvent
     public void onBlockRightClickEvent(PlayerInteractEvent.RightClickBlock event) {
         // エンチャントレベル取得
@@ -50,45 +40,13 @@ public class ClickManaitaPlayerEvent {
             };
 
             // まな板発動
-            Level level = event.getLevel();
-            BlockPos blockPos = event.getPos();
-            BlockState blockState = level.getBlockState(blockPos);
-            BlockEntity blockEntity = level.getBlockEntity(blockPos);
-            Player player = event.getEntity();
-            Block copyBlock = blockState.getBlock();
-
-            // アイテム化するかどうか
-            boolean isNotItemDrop = copyBlock.getLootTable() == BuiltInLootTables.EMPTY || copyBlock.getCloneItemStack(blockState, null, level, blockPos, player) == ItemStack.EMPTY;
-            for (int i = 0; i < dropSize; i++) {
-                // アイテム化しない場合
-                if (isNotItemDrop) {
-                    ItemStack copyItem = new ItemStack(copyBlock.asItem());
-                    // NBTタグを移す
-                    if (blockEntity != null) {
-                        CompoundTag compoundTag = blockEntity.serializeNBT();
-                        if (!compoundTag.isEmpty()) {
-                            copyItem.addTagElement("BlockEntityTag", compoundTag.copy());
-                        }
-                    }
-                    // アイテムを地面に生成
-                    Block.popResource(level, blockPos, copyItem);
-                }
-                // チェストの中身も増やす
-                if (blockEntity instanceof Container) {
-                    for (int l = 0; l < ((Container) blockEntity).getContainerSize(); l++) {
-                        Block.popResource(level, blockPos, ((Container) blockEntity).getItem(l).copy());
-                    }
-                }
-                // ブロック複製
-                if (player != null) {
-                    copyBlock.playerDestroy(level, player, blockPos, blockState, blockEntity, player.getMainHandItem());
-                    // なんか経験値を吐き出す実装がなくなった？ので自前で用意
-                    if (level instanceof ServerLevel) {
-                        int exp = blockState.getExpDrop(level, level.random, blockPos, 0, 0);
-                        copyBlock.popExperience((ServerLevel) level, blockPos, exp);
-                    }
-                }
-            }
+            // 共通処理を呼び出す
+            ClickManaitaItemTool.manaita(
+                    dropSize,
+                    event.getLevel(),
+                    event.getPos(),
+                    event.getEntity()
+            );
         }
     }
 

@@ -8,12 +8,13 @@
   "key": {
     "S": {
       "item": "clickmanaita:clickmanaita_iron"
-   },
+    },
     "D": {
-       "item": "minecraft:gold_block"
+      "item": "minecraft:gold_block"
     }
   },
   "result": {
-    "item": "clickmanaita:clickmanaita_gold"
+    "count": 1,
+    "id": "clickmanaita:clickmanaita_gold"
   }
 }

@@ -1,5 +1,5 @@
 # クリックまな板
-Forge 1.20.4 がリリースされていたので対応した。
+Forge 1.20.6 がリリースされていたので対応した。
 
 ![Imgur](https://imgur.com/H9CuN8I.png)
 
@@ -14,13 +14,13 @@ Fabric / Forge で使いたいMODがあればそれに合わせてダウンロ�
 機能的な差はなく、アイテムID等も（このMODでは）同じ値を利用しているので、Fabric・Forgeの環境を行ったり来たり出来ると思います。
 
 # 導入方法
-- Java 17を入れます！！！
-- バニラの 1.20.4 を起動します
+- Java 21 を入れます！！！
+- バニラの 1.20.6 を起動します
     - バニラアイスって喉乾くから抹茶のほうが好き
-- Forge 1.20.4 を入れます
+- Forge 1.20.6 を入れます
   - https://files.minecraftforge.net/net/minecraftforge/forge/
-    - Forgeは`1.20.4 - 49.0.2`以上が必要です。
-- 入れたら、ランチャーからForge 1.20.4を選んで起動します。
+    - Forgeは`1.20.6 - 50.0.13`以上が必要です。
+- 入れたら、ランチャーから Forge 1.20.6 を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
 - modsフォルダが出来ていると思うのでその中に上記のリンクからダウンロードしたクリックまな板のMODファイルを入れます
@@ -54,7 +54,7 @@ Fabric版はKotlinで書かれてますが、Forge版はJavaです。
 ## 開発環境構築
 
 ### 必要なもの
-- Java 17
+- Java 21
     - 私はEclipse Adoptiumを使った
     - JDKのディストリビューションにこだわりがある場合は別にこれじゃなくてもいいです
 - IDEA
@@ -62,12 +62,12 @@ Fabric版はKotlinで書かれてますが、Forge版はJavaです。
 
 ### 実行方法
 - 環境変数の設定から、システム環境変数の`JAVA_HOME`が入れた`Eclipse Adoptium`のパスになっているか確認する。
-- ついでに`javac -version`して17が返ってくるか確認
+- ついでに`javac -version`して 21 が返ってくるか確認
 - このリポジトリをクローンするなり、zipをDLするなりしてソースコードを手に入れます。
-    - git cloneした場合はブランチ`1.20.4-forge`に切り替えてください。
+    - git cloneした場合はブランチ`1.20.6-forge`に切り替えてください。
 - IDEAでこのリポジトリを開いてください
 - しばらく待ちます
-    - ここでJava 17が指定できてないとコケると思う
+    - ここで Java 21 が指定できてないとコケると思う
     - あとインターネットが遅い？と`Tag mismatch!`でコケると思う。これ意味不明すぎで草
     - 私の環境では10分ぐらいかかった。`BUILD SUCCESSFUL in 9m 33s`とかでればおｋ
 - Gradle Syncします。`IDEA`の右上？にいる`Gradle`を押して、`Sync`ボタンを押します。これ
@@ -114,7 +114,7 @@ dependencies {
 - `java.lang.module.FindException: Module cpw.mods.securejarhandler not found, required by cpw.mods.bootstraplauncher`
     - `genIntellijRuns`を再度実行
 - `FMLClientLaunchHandler has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 60.0`
-  -  IDEA の `File > Project Structure > Project > SDK`を 17 にする
+  -  IDEA の `File > Project Structure > Project > SDK`を 21 にする
 
 ## Jar書き出し
 
