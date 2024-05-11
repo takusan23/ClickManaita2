@@ -46,8 +46,8 @@ IDEA と Kotlin でできている。
   - JDK のディストリビューションにこだわりがある場合は別にこれじゃなくてもいいです
 
 ### 実行方法
-- このリポジトリをクローンして、ブランチ：1.20.4-fabricをチェックアウトします。
-- IDEA右上のFileからProject Structureを選択して、JDKのバージョンを17にします。
+- このリポジトリをクローンして、ブランチ：1.20.6-fabricをチェックアウトします。
+- IDEA右上のFileからProject Structureを選択して、JDKのバージョンを 21 にします。
    - これでできるはずなんだけど、できない場合は下も試して
 - IDEAの設定を開き、Build,Execution,Deployment > Build Tools > Gradle へ進み、Gradle JVM を 21 にします。
 - できたら`IDEA`の右上？にいる`Gradle`を押して、`Sync`ボタンを押します。これ
