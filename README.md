@@ -1,8 +1,8 @@
 # クリックまな板
 1.20.6 のFabricがリリースされたのでクリックまな板対応しました。  
-さくら！！！
+Java 21 ！！
 
-![Imgur](https://imgur.com/aVBfsrL.png)
+![Imgur](https://imgur.com/wD01PRY.png)
 
 # Mod導入方法 （遊ぶ側、エンドユーザー向け）
 - Java 21 以降が必要です！！！
