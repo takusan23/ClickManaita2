@@ -1,7 +1,8 @@
 # クリックまな板
-Forge 1.20.6 がリリースされていたので対応した。
+Forge 1.20.6 がリリースされていたので対応しました。  
+あるまじろ？
 
-![Imgur](https://imgur.com/H9CuN8I.png)
+![Imgur](https://imgur.com/fFiwzkw.png)
 
 # ダウンロード
 https://www.curseforge.com/minecraft/mc-mods/clickmanaita
