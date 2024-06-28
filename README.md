@@ -1,12 +1,12 @@
 # クリックまな板
-1.20.6 のFabricがリリースされたのでクリックまな板対応しました。  
-Java 21 ！！
+1.21 のFabricがリリースされたのでクリックまな板対応しました。  
+自動作業台！？！？
 
 ![Imgur](https://imgur.com/wD01PRY.png)
 
 # Mod導入方法 （遊ぶ側、エンドユーザー向け）
 - Java 21 以降が必要です！！！
-- 多分 1.20.6 のバニラを一回起動しておく必要があると思います。
+- 多分 1.21 のバニラを一回起動しておく必要があると思います。
 - Fabricを導入します。
     - https://fabricmc.net/use/
       - FabricLoaderのバージョンは`0.15.11`以降にしてください。
@@ -17,12 +17,12 @@ Java 21 ！！
         - https://www.curseforge.com/minecraft/mc-mods/clickmanaita/files
     - Fabric API
         - https://www.curseforge.com/minecraft/mc-mods/fabric-api/files
-          - `fabric-api-0.97.8+1.20.6` 以降
-    - Fabric Language Kotlin 1.20.6 版
+          - `fabric-api-0.100.4+1.21` 以降
+    - Fabric Language Kotlin 1.21 版
         - このMODはKotlinという言語で書かれているためこのファイルが他のFabric製MODとは違い必要になります。
         - https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin/files
-          - `fabric-language-kotlin-1.10.19+kotlin.1.9.23` 以降
-- Minecarft Lancher で起動構成を fabric-loader-1.20.6 に変更します
+          - `fabric-language-kotlin-1.11.0+kotlin.2.0.0` 以降
+- Minecarft Lancher で起動構成を fabric-loader-1.21 に変更します
 - あとは楽しんで
 
 ## 開発者向け
@@ -46,7 +46,7 @@ IDEA と Kotlin でできている。
   - JDK のディストリビューションにこだわりがある場合は別にこれじゃなくてもいいです
 
 ### 実行方法
-- このリポジトリをクローンして、ブランチ：1.20.6-fabricをチェックアウトします。
+- このリポジトリをクローンして、ブランチ：1.21-fabricをチェックアウトします。
 - IDEA右上のFileからProject Structureを選択して、JDKのバージョンを 21 にします。
    - これでできるはずなんだけど、できない場合は下も試して
 - IDEAの設定を開き、Build,Execution,Deployment > Build Tools > Gradle へ進み、Gradle JVM を 21 にします。

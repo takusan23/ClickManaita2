@@ -1,10 +1,10 @@
 package io.github.takusan23.clickmanaita.item
 
 import io.github.takusan23.clickmanaita.ClickManaitaItemTool
-import net.minecraft.client.item.TooltipType
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.item.ItemUsageContext
+import net.minecraft.item.tooltip.TooltipType
 import net.minecraft.text.MutableText
 import net.minecraft.text.PlainTextContent
 import net.minecraft.text.Style

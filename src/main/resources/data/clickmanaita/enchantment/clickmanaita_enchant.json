@@ -1,0 +1,27 @@
+{
+  "anvil_cost": 1,
+  "description": {
+    "translate": "enchantment.clickmanaita.clickmanaita_enchant"
+  },
+  "effects": {
+    "minecraft:attributes": [
+      {
+
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 51,
+    "per_level_above_first": 10
+  },
+  "max_level": 5,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 10
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#minecraft:enchantable/durability",
+  "weight": 10
+}
