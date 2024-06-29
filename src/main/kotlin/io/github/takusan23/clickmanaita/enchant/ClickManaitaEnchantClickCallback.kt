@@ -13,6 +13,7 @@ import net.minecraft.loot.context.LootContextParameterSet
 import net.minecraft.loot.context.LootContextParameters
 import net.minecraft.loot.context.LootContextTypes
 import net.minecraft.server.world.ServerWorld
+import net.minecraft.state.property.Properties
 import net.minecraft.util.ActionResult
 import net.minecraft.util.Hand
 import net.minecraft.util.math.Vec3d
@@ -42,7 +43,13 @@ object ClickManaitaEnchantClickCallback {
             if (world !is ServerWorld) return@register ActionResult.PASS
 
             // スニークしてないでチェストクリック時 は即 return（クリックイベントを消費せずに）
-            if (blockState.hasBlockEntity() && !playerEntity.isSneaking) return@register ActionResult.PASS
+            if (!playerEntity.isSneaking && blockState.hasBlockEntity()) return@register ActionResult.PASS
+
+            // ドア（とその亜種）をクリックした場合、開けるのを優先。でもスニーク状態ならやらない
+            if (!playerEntity.isSneaking && blockState.contains(Properties.OPEN)) return@register ActionResult.PASS
+
+            // SUCCESS にすると腕を振るう
+            var clickResult = ActionResult.PASS
 
             // clickmanaita:block_right_click エフェクトコンポーネントを呼び出す
             // 動作は minecraft:hit_block のそれと同じ、それの右クリック板。
@@ -53,11 +60,14 @@ object ClickManaitaEnchantClickCallback {
                 applyEffects(
                     entries = effectEntries,
                     lootContext = createHitBlockLootContext(world, level, playerEntity, blockPosVec3d, blockState),
-                    onEffect = { effect -> effect.apply(world, level, enchantmentEffectContext, playerEntity, blockPosVec3d) }
+                    onEffect = { effect ->
+                        clickResult = ActionResult.SUCCESS
+                        effect.apply(world, level, enchantmentEffectContext, playerEntity, blockPosVec3d)
+                    }
                 )
             }
 
-            ActionResult.PASS
+            clickResult
         }
     }
 
