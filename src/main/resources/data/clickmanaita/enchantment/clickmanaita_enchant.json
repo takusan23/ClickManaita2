@@ -4,9 +4,25 @@
     "translate": "enchantment.clickmanaita.clickmanaita_enchant"
   },
   "effects": {
-    "minecraft:attributes": [
+    "minecraft:hit_block": [
       {
-
+        "effect": {
+          "type": "clickmanaita:clickmanaita_enchant_effect",
+          "drop_size": {
+            "type": "minecraft:lookup",
+            "values": [
+              2,
+              4,
+              8,
+              16,
+              32,
+              64
+            ],
+            "fallback": 2
+          },
+          "predicate": {
+          }
+        }
       }
     ]
   },

@@ -17,7 +17,7 @@ object ClickManaitaItemTool {
      *
      * - [io.github.takusan23.clickmanaita.item.ClickManaitaBaseItem]
      * - [io.github.takusan23.clickmanaita.item.ClickManaitaCustomItem]
-     * - [io.github.takusan23.clickmanaita.enchant.ClickManaitaEnchant]
+     * - [io.github.takusan23.clickmanaita.enchant.ClickManaitaEnchantEntityEffect]
      *
      * @param dropSize 増やす数
      */

@@ -1,7 +1,7 @@
 package io.github.takusan23.clickmanaita
 
 import io.github.takusan23.clickmanaita.block.ClickManaitaBlock
-import io.github.takusan23.clickmanaita.enchant.ClickManaitaEnchantCallback
+import io.github.takusan23.clickmanaita.enchant.ClickManaitaEnchantEntityEffect
 import io.github.takusan23.clickmanaita.item.ClickManaitaItem
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
@@ -39,8 +39,8 @@ fun init() {
     // クリエタブ
     Registry.register(Registries.ITEM_GROUP, Identifier.of("clickmanaita", "clickmanaita_creative_tab"), ClickManaitaItemGroup.CLICKMANAITA_ITEMGROUP)
 
-    // エンチャント追加とコールバック登録
-    // Registry.register(Registries.ENCHANTMENT, Identifier("clickmanaita", "clickmanaita_enchant"), ClickManaitaEnchant.CLICKMANAITA_ENCHANT)
-    ClickManaitaEnchantCallback.registerClickManaitaEnchantCallback()
+    // エンチャントのカスタムエフェクトを追加
+    Registry.register(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, Identifier.of("clickmanaita", "clickmanaita_enchant_effect"), ClickManaitaEnchantEntityEffect.CODEC)
+    // ClickManaitaEnchantCallback.registerClickManaitaEnchantCallback()
 }
 

@@ -41,7 +41,7 @@ object ClickManaitaEnchantCallback {
 //            )
 //
 //            // クリックイベントを消費した
-            ActionResult.SUCCESS
+            ActionResult.PASS
         }
 
     }
