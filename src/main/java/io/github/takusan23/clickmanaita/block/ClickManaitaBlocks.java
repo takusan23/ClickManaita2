@@ -44,6 +44,7 @@ public class ClickManaitaBlocks {
      * 16倍
      */
     public static final RegistryObject<ClickManaitaBaseBlock> CLICKMANAITA_GOLD_BLOCK = BLOCKS.register("clickmanaita_block_gold", () -> new ClickManaitaBaseBlock(BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).instrument(NoteBlockInstrument.BELL).requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL), 16));
+
     /**
      * クリックまな板ブロック ダイヤ製
      * 32倍

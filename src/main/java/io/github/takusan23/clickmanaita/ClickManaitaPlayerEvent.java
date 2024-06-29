@@ -1,7 +1,5 @@
 package io.github.takusan23.clickmanaita;
 
-import io.github.takusan23.clickmanaita.enchant.RegisterEnchant;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -22,6 +20,8 @@ public class ClickManaitaPlayerEvent {
     @SuppressWarnings("unused")
     @SubscribeEvent
     public void onBlockRightClickEvent(PlayerInteractEvent.RightClickBlock event) {
+        // TODO エンチャント再実装
+/*
         // エンチャントレベル取得
         int enchantLevel = EnchantmentHelper.getEnchantmentLevel(RegisterEnchant.CLICKMANAITA_ENCHANT.get(), event.getEntity());
         // チェスト等インベントリを持つアイテムででスニーク状態じゃない場合はreturn
@@ -48,6 +48,7 @@ public class ClickManaitaPlayerEvent {
                     event.getEntity()
             );
         }
+*/
     }
 
 }
