@@ -19,7 +19,7 @@ import net.minecraft.util.math.Vec3d
  *
  * ```json
  * "effects": {
- *   "minecraft:hit_block": [
+ *   "clickmanaita:block_right_click": [
  *     {
  *       "effect": {
  *         "type": "clickmanaita:clickmanaita_enchant_effect",
@@ -41,7 +41,6 @@ import net.minecraft.util.math.Vec3d
  * },
  *```
  *
- * 上記の例だと、エフェクト発動条件が minecraft:hit_block 、ブロックを叩いたときで、
  * 発動するエフェクトとして、このクラスが指定されている。clickmanaita:clickmanaita_enchant_effect ですね。
  */
 data class ClickManaitaEnchantEntityEffect(

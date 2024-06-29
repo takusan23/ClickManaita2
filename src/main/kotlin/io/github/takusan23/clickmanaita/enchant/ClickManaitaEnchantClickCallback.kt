@@ -1,0 +1,83 @@
+package io.github.takusan23.clickmanaita.enchant
+
+import net.fabricmc.fabric.api.event.player.UseBlockCallback
+import net.minecraft.block.BlockState
+import net.minecraft.component.DataComponentTypes
+import net.minecraft.component.type.ItemEnchantmentsComponent
+import net.minecraft.enchantment.EnchantmentEffectContext
+import net.minecraft.enchantment.effect.EnchantmentEffectEntry
+import net.minecraft.entity.Entity
+import net.minecraft.entity.EquipmentSlot
+import net.minecraft.loot.context.LootContext
+import net.minecraft.loot.context.LootContextParameterSet
+import net.minecraft.loot.context.LootContextParameters
+import net.minecraft.loot.context.LootContextTypes
+import net.minecraft.server.world.ServerWorld
+import net.minecraft.util.ActionResult
+import net.minecraft.util.Hand
+import net.minecraft.util.math.Vec3d
+import java.util.*
+
+/**
+ * イベントを拾う
+ *
+ * クリックまな板エンチャントの実装はここ
+ */
+object ClickManaitaEnchantClickCallback {
+
+    /** クリックイベントを登録する関数 */
+    fun registerClickManaitaEnchantCallback() {
+        UseBlockCallback.EVENT.register { playerEntity, world, hand, blockHitResult ->
+            val blockPos = blockHitResult.blockPos
+            val blockState = world.getBlockState(blockPos)
+            val blockPosVec3d = blockPos.toCenterPos()
+            // 持ち手によって分岐
+            val currentItem = when (hand) {
+                Hand.MAIN_HAND -> playerEntity.mainHandStack
+                Hand.OFF_HAND -> playerEntity.offHandStack
+                else -> return@register ActionResult.PASS
+            }
+
+            // サーバー側
+            if (world !is ServerWorld) return@register ActionResult.PASS
+
+            // スニークしてないでチェストクリック時 は即 return（クリックイベントを消費せずに）
+            if (blockState.hasBlockEntity() && !playerEntity.isSneaking) return@register ActionResult.PASS
+
+            // clickmanaita:block_right_click エフェクトコンポーネントを呼び出す
+            // 動作は minecraft:hit_block のそれと同じ、それの右クリック板。
+            val itemEnchantmentsComponent = currentItem.getOrDefault(DataComponentTypes.ENCHANTMENTS, ItemEnchantmentsComponent.DEFAULT)
+            val enchantmentEffectContext = EnchantmentEffectContext(currentItem, EquipmentSlot.MAINHAND, playerEntity) { playerEntity.sendEquipmentBreakStatus(it, EquipmentSlot.MAINHAND) }
+            itemEnchantmentsComponent.enchantmentEntries.forEach { (enchant, level) ->
+                val effectEntries = enchant.value().getEffect(EnchantRightClickEffectComponent.BLOCK_RIGHT_CLICK_EFFECT_COMPONENT)
+                applyEffects(
+                    entries = effectEntries,
+                    lootContext = createHitBlockLootContext(world, level, playerEntity, blockPosVec3d, blockState),
+                    onEffect = { effect -> effect.apply(world, level, enchantmentEffectContext, playerEntity, blockPosVec3d) }
+                )
+            }
+
+            ActionResult.PASS
+        }
+    }
+
+    private fun createHitBlockLootContext(world: ServerWorld, level: Int, entity: Entity, pos: Vec3d, state: BlockState): LootContext {
+        val lootContextParameterSet = LootContextParameterSet.Builder(world)
+            .add(LootContextParameters.THIS_ENTITY, entity)
+            .add(LootContextParameters.ENCHANTMENT_LEVEL, level)
+            .add(LootContextParameters.ORIGIN, pos)
+            .add(LootContextParameters.BLOCK_STATE, state)
+            .build(LootContextTypes.HIT_BLOCK)
+        return LootContext.Builder(lootContextParameterSet).build(Optional.empty())
+    }
+
+    private fun <T> applyEffects(
+        entries: List<EnchantmentEffectEntry<T>>,
+        lootContext: LootContext,
+        onEffect: (T) -> Unit
+    ) {
+        entries
+            .filter { it.test(lootContext) }
+            .forEach { onEffect(it.effect()) }
+    }
+}

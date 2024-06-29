@@ -4,7 +4,7 @@
     "translate": "enchantment.clickmanaita.clickmanaita_enchant"
   },
   "effects": {
-    "minecraft:hit_block": [
+    "clickmanaita:block_right_click": [
       {
         "effect": {
           "type": "clickmanaita:clickmanaita_enchant_effect",
@@ -19,8 +19,6 @@
               64
             ],
             "fallback": 2
-          },
-          "predicate": {
           }
         }
       }
