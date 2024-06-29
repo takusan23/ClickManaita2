@@ -19,11 +19,7 @@ import net.minecraft.util.Hand
 import net.minecraft.util.math.Vec3d
 import java.util.*
 
-/**
- * イベントを拾う
- *
- * クリックまな板エンチャントの実装はここ
- */
+/** ブロックをクリックしたイベントを拾う */
 object ClickManaitaEnchantClickCallback {
 
     /** クリックイベントを登録する関数 */
