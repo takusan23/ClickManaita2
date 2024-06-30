@@ -2,7 +2,7 @@ package io.github.takusan23.clickmanaita;
 
 import io.github.takusan23.clickmanaita.block.ClickManaitaBlocks;
 import io.github.takusan23.clickmanaita.creativetab.ClickManaitaCreativeTab;
-import io.github.takusan23.clickmanaita.enchant.RegisterEnchant;
+import io.github.takusan23.clickmanaita.enchant.ClickManaitaEnchant;
 import io.github.takusan23.clickmanaita.item.ClickManaitaItems;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -28,8 +28,8 @@ public class ClickManaita {
         ClickManaitaItems.register(modEventBus);
         // クリエイティブタブ登録
         ClickManaitaCreativeTab.register(modEventBus);
-        // エンチャントを登録
-        RegisterEnchant.register(modEventBus);
+        // エンチャント（カスタムエフェクト、エフェクトコンポーネント）を登録
+        ClickManaitaEnchant.register(modEventBus);
         // プレイヤーイベント
         MinecraftForge.EVENT_BUS.register(new ClickManaitaPlayerEvent());
     }

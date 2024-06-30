@@ -1,0 +1,41 @@
+{
+  "anvil_cost": 1,
+  "description": {
+    "translate": "enchantment.clickmanaita.clickmanaita_enchant"
+  },
+  "effects": {
+    "clickmanaita:block_right_click": [
+      {
+        "effect": {
+          "type": "clickmanaita:clickmanaita_enchant_effect",
+          "drop_size": {
+            "type": "minecraft:lookup",
+            "values": [
+              2,
+              4,
+              8,
+              16,
+              32,
+              64
+            ],
+            "fallback": 2
+          }
+        }
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 51,
+    "per_level_above_first": 10
+  },
+  "max_level": 5,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 10
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#minecraft:enchantable/durability",
+  "weight": 10
+}
