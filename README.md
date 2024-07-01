@@ -2,7 +2,7 @@
 1.21 のFabricがリリースされたのでクリックまな板対応しました。  
 自動作業台！？！？
 
-![Imgur](https://imgur.com/wD01PRY.png)
+![Imgur](https://imgur.com/kTfjOYB.png)
 
 # Mod導入方法 （遊ぶ側、エンドユーザー向け）
 - Java 21 以降が必要です！！！
