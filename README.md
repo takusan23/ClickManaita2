@@ -2,7 +2,7 @@
 Forge 1.21 がリリースされていたので対応しました。  
 自動作業台！？！？
 
-![Imgur](https://imgur.com/fFiwzkw.png)
+![Imgur](https://imgur.com/KoqVwLu.png)
 
 # ダウンロード
 https://www.curseforge.com/minecraft/mc-mods/clickmanaita
