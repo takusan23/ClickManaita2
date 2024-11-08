@@ -9,7 +9,7 @@
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/clickmanaita",
-    "sources": "https://github.com/takusan23/ClickManaita2/tree/1.21-fabric"
+    "sources": "https://github.com/takusan23/ClickManaita2/tree/1.21.1-fabric"
   },
   "license": "Apache-2.0 License",
   "icon": "assets/clickmanaita/textures/item/clickmanaita_wood.png",
@@ -26,10 +26,10 @@
     "clickmanaita.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.15.11",
+    "fabricloader": ">=0.16.2",
     "fabric-api": "*",
-    "fabric-language-kotlin": ">=1.11.0+kotlin.2.0.0",
-    "minecraft": "~1.21",
+    "fabric-language-kotlin": ">=1.12.3+kotlin.2.0.21",
+    "minecraft": "~1.21.1",
     "java": ">=21"
   },
   "suggests": {
