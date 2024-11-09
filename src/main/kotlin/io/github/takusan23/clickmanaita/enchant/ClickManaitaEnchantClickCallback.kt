@@ -9,9 +9,9 @@ import net.minecraft.enchantment.effect.EnchantmentEffectEntry
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EquipmentSlot
 import net.minecraft.loot.context.LootContext
-import net.minecraft.loot.context.LootContextParameterSet
 import net.minecraft.loot.context.LootContextParameters
 import net.minecraft.loot.context.LootContextTypes
+import net.minecraft.loot.context.LootWorldContext
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.state.property.Properties
 import net.minecraft.util.ActionResult
@@ -45,7 +45,7 @@ object ClickManaitaEnchantClickCallback {
             if (!playerEntity.isSneaking && blockState.contains(Properties.OPEN)) return@register ActionResult.PASS
 
             // SUCCESS にすると腕を振るう
-            var clickResult = ActionResult.PASS
+            var clickResult:ActionResult = ActionResult.PASS
 
             // clickmanaita:block_right_click エフェクトコンポーネントを呼び出す
             // 動作は minecraft:hit_block のそれと同じ、それの右クリック板。
@@ -68,7 +68,7 @@ object ClickManaitaEnchantClickCallback {
     }
 
     private fun createHitBlockLootContext(world: ServerWorld, level: Int, entity: Entity, pos: Vec3d, state: BlockState): LootContext {
-        val lootContextParameterSet = LootContextParameterSet.Builder(world)
+        val lootContextParameterSet = LootWorldContext.Builder(world)
             .add(LootContextParameters.THIS_ENTITY, entity)
             .add(LootContextParameters.ENCHANTMENT_LEVEL, level)
             .add(LootContextParameters.ORIGIN, pos)

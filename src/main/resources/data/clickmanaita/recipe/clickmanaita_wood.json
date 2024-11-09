@@ -6,9 +6,7 @@
     "DDD"
   ],
   "key": {
-    "D": {
-      "item": "minecraft:crafting_table"
-    }
+    "D": "minecraft:crafting_table"
   },
   "result": {
     "count": 1,

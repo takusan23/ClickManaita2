@@ -6,12 +6,8 @@
     "SSS"
   ],
   "key": {
-    "S": {
-      "item": "clickmanaita:clickmanaita_wood"
-    },
-    "D": {
-      "item": "minecraft:cobblestone"
-    }
+    "S": "clickmanaita:clickmanaita_wood",
+    "D": "minecraft:cobblestone"
   },
   "result": {
     "count": 1,
