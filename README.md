@@ -17,7 +17,7 @@
         - https://www.curseforge.com/minecraft/mc-mods/clickmanaita/files
     - Fabric API
         - https://www.curseforge.com/minecraft/mc-mods/fabric-api/files
-          - `fabric-api-0.106.1+1.21.2` 以降
+          - `fabric-api-0.107.3+1.21.3` 以降
     - Fabric Language Kotlin 1.21.2 版
         - このMODはKotlinという言語で書かれているためこのファイルが他のFabric製MODとは違い必要になります。
         - https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin/files
