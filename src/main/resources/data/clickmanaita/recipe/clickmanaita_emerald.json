@@ -6,12 +6,8 @@
     "SSS"
   ],
   "key": {
-    "S": {
-      "item": "clickmanaita:clickmanaita_diamond"
-    },
-    "D": {
-      "item": "minecraft:emerald_block"
-    }
+    "S": "clickmanaita:clickmanaita_diamond",
+    "D": "minecraft:emerald_block"
   },
   "result": {
     "count": 1,

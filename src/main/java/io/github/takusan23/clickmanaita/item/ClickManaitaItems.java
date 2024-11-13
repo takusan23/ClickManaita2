@@ -3,6 +3,9 @@ package io.github.takusan23.clickmanaita.item;
 import io.github.takusan23.clickmanaita.ClickManaita;
 import io.github.takusan23.clickmanaita.block.ClickManaitaBlockItem;
 import io.github.takusan23.clickmanaita.block.ClickManaitaBlocks;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -19,84 +22,109 @@ import net.minecraftforge.registries.RegistryObject;
  */
 public class ClickManaitaItems {
 
+    // 各 アイテム ID
+    private static final ResourceLocation ID_CLICKMANAITA_WOOD = ResourceLocation.fromNamespaceAndPath(ClickManaita.MOD_ID, "clickmanaita_wood");
+    private static final ResourceLocation ID_CLICKMANAITA_STONE = ResourceLocation.fromNamespaceAndPath(ClickManaita.MOD_ID, "clickmanaita_stone");
+    private static final ResourceLocation ID_CLICKMANAITA_IRON = ResourceLocation.fromNamespaceAndPath(ClickManaita.MOD_ID, "clickmanaita_iron");
+    private static final ResourceLocation ID_CLICKMANAITA_GOLD = ResourceLocation.fromNamespaceAndPath(ClickManaita.MOD_ID, "clickmanaita_gold");
+    private static final ResourceLocation ID_CLICKMANAITA_DIAMOND = ResourceLocation.fromNamespaceAndPath(ClickManaita.MOD_ID, "clickmanaita_diamond");
+    private static final ResourceLocation ID_CLICKMANAITA_EMERALD = ResourceLocation.fromNamespaceAndPath(ClickManaita.MOD_ID, "clickmanaita_emerald");
+    private static final ResourceLocation ID_CLICKMANAITA_CUSTOM = ResourceLocation.fromNamespaceAndPath(ClickManaita.MOD_ID, "clickmanaita_custom");
+
+    // 各 アイテム リソースキー
+    private static final ResourceKey<Item> KEY_CLICKMANAITA_WOOD = ResourceKey.create(Registries.ITEM, ID_CLICKMANAITA_WOOD);
+    private static final ResourceKey<Item> KEY_CLICKMANAITA_STONE = ResourceKey.create(Registries.ITEM, ID_CLICKMANAITA_STONE);
+    private static final ResourceKey<Item> KEY_CLICKMANAITA_IRON = ResourceKey.create(Registries.ITEM, ID_CLICKMANAITA_IRON);
+    private static final ResourceKey<Item> KEY_CLICKMANAITA_GOLD = ResourceKey.create(Registries.ITEM, ID_CLICKMANAITA_GOLD);
+    private static final ResourceKey<Item> KEY_CLICKMANAITA_DIAMOND = ResourceKey.create(Registries.ITEM, ID_CLICKMANAITA_DIAMOND);
+    private static final ResourceKey<Item> KEY_CLICKMANAITA_EMERALD = ResourceKey.create(Registries.ITEM, ID_CLICKMANAITA_EMERALD);
+    private static final ResourceKey<Item> KEY_CLICKMANAITA_CUSTOM = ResourceKey.create(Registries.ITEM, ID_CLICKMANAITA_CUSTOM);
+    // アイテムブロック
+    private static final ResourceKey<Item> KEY_CLICKMANAITA_WOOD_BLOCK = ResourceKey.create(Registries.ITEM, ClickManaitaBlocks.ID_CLICKMANAITA_WOOD_BLOCK);
+    private static final ResourceKey<Item> KEY_CLICKMANAITA_STONE_BLOCK = ResourceKey.create(Registries.ITEM, ClickManaitaBlocks.ID_CLICKMANAITA_STONE_BLOCK);
+    private static final ResourceKey<Item> KEY_CLICKMANAITA_IRON_BLOCK = ResourceKey.create(Registries.ITEM, ClickManaitaBlocks.ID_CLICKMANAITA_IRON_BLOCK);
+    private static final ResourceKey<Item> KEY_CLICKMANAITA_GOLD_BLOCK = ResourceKey.create(Registries.ITEM, ClickManaitaBlocks.ID_CLICKMANAITA_GOLD_BLOCK);
+    private static final ResourceKey<Item> KEY_CLICKMANAITA_DIAMOND_BLOCK = ResourceKey.create(Registries.ITEM, ClickManaitaBlocks.ID_CLICKMANAITA_DIAMOND_BLOCK);
+    private static final ResourceKey<Item> KEY_CLICKMANAITA_EMERALD_BLOCK = ResourceKey.create(Registries.ITEM, ClickManaitaBlocks.ID_CLICKMANAITA_EMERALD_BLOCK);
+
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ClickManaita.MOD_ID);
 
     /**
      * 木製のクリックまな板
      * ２倍化
      */
-    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_WOOD = ITEMS.register("clickmanaita_wood", () -> createItem(2, MaterialColor.MATERIAL_WOOD_COLOR));
+    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_WOOD = ITEMS.register(KEY_CLICKMANAITA_WOOD.location().getPath(), () -> createItem(KEY_CLICKMANAITA_WOOD, 2, MaterialColor.MATERIAL_WOOD_COLOR));
 
     /**
      * 石製のクリックまな板
      * ４倍化
      */
-    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_STONE = ITEMS.register("clickmanaita_stone", () -> createItem(4, MaterialColor.MATERIAL_STONE_COLOR));
+    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_STONE = ITEMS.register(KEY_CLICKMANAITA_STONE.location().getPath(), () -> createItem(KEY_CLICKMANAITA_STONE, 4, MaterialColor.MATERIAL_STONE_COLOR));
 
     /**
      * 鉄のクリックまな板
      * ８倍化
      */
-    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_IRON = ITEMS.register("clickmanaita_iron", () -> createItem(8, MaterialColor.MATERIAL_IRON_COLOR));
+    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_IRON = ITEMS.register(KEY_CLICKMANAITA_IRON.location().getPath(), () -> createItem(KEY_CLICKMANAITA_IRON, 8, MaterialColor.MATERIAL_IRON_COLOR));
 
     /**
      * 金製のクリックまな板
      * １６倍化
      */
-    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_GOLD = ITEMS.register("clickmanaita_gold", () -> createItem(16, MaterialColor.MATERIAL_GOLD_COLOR));
+    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_GOLD = ITEMS.register(KEY_CLICKMANAITA_GOLD.location().getPath(), () -> createItem(KEY_CLICKMANAITA_GOLD, 16, MaterialColor.MATERIAL_GOLD_COLOR));
 
     /**
      * ダイヤ製のクリックまな板
      * ３２倍化
      */
-    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_DIAMOND = ITEMS.register("clickmanaita_diamond", () -> createItem(32, MaterialColor.MATERIAL_DIAMOND_COLOR));
+    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_DIAMOND = ITEMS.register(KEY_CLICKMANAITA_DIAMOND.location().getPath(), () -> createItem(KEY_CLICKMANAITA_DIAMOND, 32, MaterialColor.MATERIAL_DIAMOND_COLOR));
 
     /**
      * エメラルド製のクリックまな板
      * ６４倍化
      */
-    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_EMERALD = ITEMS.register("clickmanaita_emerald", () -> createItem(64, MaterialColor.MATERIAL_EMERALD_COLOR));
+    public static final RegistryObject<ClickManaitaBaseItem> CLICKMANAITA_EMERALD = ITEMS.register(KEY_CLICKMANAITA_EMERALD.location().getPath(), () -> createItem(KEY_CLICKMANAITA_EMERALD, 64, MaterialColor.MATERIAL_EMERALD_COLOR));
 
     /**
      * クリックまな板ブロックのBlockItem
      * 木製
      */
-    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_WOOD_BLOCK_ITEM = ITEMS.register("clickmanaita_block_wood", () -> createBlockItem(ClickManaitaBlocks.CLICKMANAITA_WOOD_BLOCK.get(), MaterialColor.MATERIAL_WOOD_COLOR, "x2"));
+    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_WOOD_BLOCK_ITEM = ITEMS.register(KEY_CLICKMANAITA_WOOD_BLOCK.location().getPath(), () -> createBlockItem(KEY_CLICKMANAITA_WOOD_BLOCK, ClickManaitaBlocks.CLICKMANAITA_WOOD_BLOCK.get(), MaterialColor.MATERIAL_WOOD_COLOR, "x2"));
 
     /**
      * クリックまな板ブロックのBlockItem
      * 石製
      */
-    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_STONE_BLOCK_ITEM = ITEMS.register("clickmanaita_block_stone", () -> createBlockItem(ClickManaitaBlocks.CLICKMANAITA_STONE_BLOCK.get(), MaterialColor.MATERIAL_STONE_COLOR, "x4"));
+    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_STONE_BLOCK_ITEM = ITEMS.register(KEY_CLICKMANAITA_STONE_BLOCK.location().getPath(), () -> createBlockItem(KEY_CLICKMANAITA_STONE_BLOCK, ClickManaitaBlocks.CLICKMANAITA_STONE_BLOCK.get(), MaterialColor.MATERIAL_STONE_COLOR, "x4"));
 
     /**
      * クリックまな板ブロックのBlockItem
      * 鉄製
      */
-    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_IRON_BLOCK_ITEM = ITEMS.register("clickmanaita_block_iron", () -> createBlockItem(ClickManaitaBlocks.CLICKMANAITA_IRON_BLOCK.get(), MaterialColor.MATERIAL_IRON_COLOR, "x8"));
+    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_IRON_BLOCK_ITEM = ITEMS.register(KEY_CLICKMANAITA_IRON_BLOCK.location().getPath(), () -> createBlockItem(KEY_CLICKMANAITA_IRON_BLOCK, ClickManaitaBlocks.CLICKMANAITA_IRON_BLOCK.get(), MaterialColor.MATERIAL_IRON_COLOR, "x8"));
 
     /**
      * クリックまな板ブロックのBlockItem
      * 金製
      */
-    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_GOLD_BLOCK_ITEM = ITEMS.register("clickmanaita_block_gold", () -> createBlockItem(ClickManaitaBlocks.CLICKMANAITA_GOLD_BLOCK.get(), MaterialColor.MATERIAL_GOLD_COLOR, "x16"));
+    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_GOLD_BLOCK_ITEM = ITEMS.register(KEY_CLICKMANAITA_GOLD_BLOCK.location().getPath(), () -> createBlockItem(KEY_CLICKMANAITA_GOLD_BLOCK, ClickManaitaBlocks.CLICKMANAITA_GOLD_BLOCK.get(), MaterialColor.MATERIAL_GOLD_COLOR, "x16"));
 
     /**
      * クリックまな板ブロックのBlockItem
      * ダイヤ製
      */
-    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_DIAMOND_BLOCK_ITEM = ITEMS.register("clickmanaita_block_diamond", () -> createBlockItem(ClickManaitaBlocks.CLICKMANAITA_DIAMOND_BLOCK.get(), MaterialColor.MATERIAL_DIAMOND_COLOR, "x32"));
+    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_DIAMOND_BLOCK_ITEM = ITEMS.register(KEY_CLICKMANAITA_DIAMOND_BLOCK.location().getPath(), () -> createBlockItem(KEY_CLICKMANAITA_DIAMOND_BLOCK, ClickManaitaBlocks.CLICKMANAITA_DIAMOND_BLOCK.get(), MaterialColor.MATERIAL_DIAMOND_COLOR, "x32"));
 
     /**
      * クリックまな板ブロックのBlockItem
      * エメラルド製
      */
-    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_EMERALD_BLOCK_ITEM = ITEMS.register("clickmanaita_block_emerald", () -> createBlockItem(ClickManaitaBlocks.CLICKMANAITA_EMERANLD_BLOCK.get(), MaterialColor.MATERIAL_EMERALD_COLOR, "x64"));
+    public static final RegistryObject<ClickManaitaBlockItem> CLICKMANAITA_EMERALD_BLOCK_ITEM = ITEMS.register(KEY_CLICKMANAITA_EMERALD_BLOCK.location().getPath(), () -> createBlockItem(KEY_CLICKMANAITA_EMERALD_BLOCK, ClickManaitaBlocks.CLICKMANAITA_EMERANLD_BLOCK.get(), MaterialColor.MATERIAL_EMERALD_COLOR, "x64"));
 
     /**
      * 金床で自由にドロップ数を決められるクリックまな板
      */
-    public static final RegistryObject<ClickManaitaCustomItem> CLICKMANAITA_CUSTOM_ITEM = ITEMS.register("clickmanaita_custom", () -> new ClickManaitaCustomItem((new Item.Properties()), 0));
+    public static final RegistryObject<ClickManaitaCustomItem> CLICKMANAITA_CUSTOM_ITEM = ITEMS.register(KEY_CLICKMANAITA_CUSTOM.location().getPath(), () -> new ClickManaitaCustomItem((new Item.Properties().setId(KEY_CLICKMANAITA_CUSTOM)), 0));
 
     /**
      * アイテムを登録する。
@@ -115,8 +143,8 @@ public class ClickManaitaItems {
      * @param tooltipColor ツールチップの色
      * @return ClickManaitaBaseItem
      */
-    private static ClickManaitaBaseItem createItem(int dropSize, String tooltipColor) {
-        ClickManaitaBaseItem item = new ClickManaitaBaseItem((new Item.Properties()), dropSize);
+    private static ClickManaitaBaseItem createItem(ResourceKey<Item> itemId, int dropSize, String tooltipColor) {
+        ClickManaitaBaseItem item = new ClickManaitaBaseItem((new Item.Properties().setId(itemId)), dropSize);
         item.setToolTipColor(tooltipColor);
         return item;
     }
@@ -129,8 +157,8 @@ public class ClickManaitaItems {
      * @param tooltipText  ツールチップに表示するテキスト
      * @return ClickManaitaBlockItem
      */
-    private static ClickManaitaBlockItem createBlockItem(Block block, String tooltipColor, String tooltipText) {
-        ClickManaitaBlockItem blockItem = new ClickManaitaBlockItem(block, (new Item.Properties()));
+    private static ClickManaitaBlockItem createBlockItem(ResourceKey<Item> itemBlockId, Block block, String tooltipColor, String tooltipText) {
+        ClickManaitaBlockItem blockItem = new ClickManaitaBlockItem(block, (new Item.Properties().setId(itemBlockId).useBlockDescriptionPrefix()));
         blockItem.setToolTipColor(tooltipColor);
         blockItem.setToolTipText(tooltipText);
         return blockItem;

@@ -6,9 +6,7 @@
     "DDD"
   ],
   "key": {
-    "D": {
-      "item": "clickmanaita:clickmanaita_block_emerald"
-    }
+    "D": "clickmanaita:clickmanaita_block_emerald"
   },
   "result": {
     "count": 1,

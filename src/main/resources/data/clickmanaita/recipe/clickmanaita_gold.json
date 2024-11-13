@@ -6,12 +6,8 @@
     "SSS"
   ],
   "key": {
-    "S": {
-      "item": "clickmanaita:clickmanaita_iron"
-    },
-    "D": {
-      "item": "minecraft:gold_block"
-    }
+    "S": "clickmanaita:clickmanaita_iron",
+    "D": "minecraft:gold_block"
   },
   "result": {
     "count": 1,

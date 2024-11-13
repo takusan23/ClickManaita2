@@ -6,9 +6,7 @@
     "DDD"
   ],
   "key": {
-    "D": {
-      "item": "clickmanaita:clickmanaita_wood"
-    }
+    "D": "clickmanaita:clickmanaita_wood"
   },
   "result": {
     "count": 1,

@@ -80,9 +80,9 @@ public class ClickManaitaCustomItem extends ClickManaitaBaseItem {
             // 変換を試みる
             int dropSize = Integer.parseInt(itemName);
             return dropSize;
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             // 数値ではなかった
-            e.printStackTrace();
+            // e.printStackTrace();
             return 1;
         }
     }
