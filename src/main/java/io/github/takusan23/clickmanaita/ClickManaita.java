@@ -20,8 +20,8 @@ public class ClickManaita {
     /**
      * コンストラクタ
      */
-    public ClickManaita() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    public ClickManaita(FMLJavaModLoadingContext context) {
+        IEventBus modEventBus = context.getModEventBus();
         // ブロック登録
         ClickManaitaBlocks.register(modEventBus);
         // アイテム（ブロックのアイテム）登録
