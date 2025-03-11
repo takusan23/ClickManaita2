@@ -6,9 +6,9 @@ import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.enchantment.ConditionalEffect;
 import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.List;
 
@@ -31,12 +31,12 @@ public class ClickManaitaEnchant {
     /**
      * クリックまな板 カスタムエフェクト
      */
-    public static final RegistryObject<MapCodec<ClickManaitaEnchantEntityEffect>> CLICKMANAITA_ENCHANT_EFFECT = ENCHANT_EFFECT_TYPE.register("clickmanaita_enchant_effect", () -> ClickManaitaEnchantEntityEffect.CODEC);
+    public static final DeferredHolder<MapCodec<? extends EnchantmentEntityEffect>, MapCodec<ClickManaitaEnchantEntityEffect>> CLICKMANAITA_ENCHANT_EFFECT = ENCHANT_EFFECT_TYPE.register("clickmanaita_enchant_effect", () -> ClickManaitaEnchantEntityEffect.CODEC);
 
     /**
      * 右クリックでトリガーされるエフェクトコンポーネント
      */
-    public static final RegistryObject<DataComponentType<List<ConditionalEffect<EnchantmentEntityEffect>>>> BLOCK_RIGHT_CLICK_EFFECT_COMPONENT = ENCHANT_EFFECT_COMPONENT.register("block_right_click", () -> EnchantRightClickEffectComponent.BLOCK_RIGHT_CLICK_EFFECT_COMPONENT);
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<List<ConditionalEffect<EnchantmentEntityEffect>>>> BLOCK_RIGHT_CLICK_EFFECT_COMPONENT = ENCHANT_EFFECT_COMPONENT.register("block_right_click", () -> EnchantRightClickEffectComponent.BLOCK_RIGHT_CLICK_EFFECT_COMPONENT);
 
     /**
      * Forgeにエンチャントのカスタムエフェクト、エフェクトコンポーネントを登録する際に呼ぶメソッド

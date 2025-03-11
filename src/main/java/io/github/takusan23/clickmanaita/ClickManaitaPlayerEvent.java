@@ -21,8 +21,8 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 import java.util.List;
 import java.util.Optional;
@@ -70,7 +70,7 @@ public class ClickManaitaPlayerEvent {
         ItemEnchantments itemEnchantmentsComponent = currentItem.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
         EnchantedItemInUse enchantedItemInUse = new EnchantedItemInUse(currentItem, EquipmentSlot.MAINHAND, playerEntity, item -> playerEntity.onEquippedItemBroken(item, EquipmentSlot.MAINHAND));
         itemEnchantmentsComponent.entrySet().forEach(holderEntry -> {
-            Enchantment enchantment = holderEntry.getKey().get();
+            Enchantment enchantment = holderEntry.getKey().value();
             int level = holderEntry.getIntValue();
             List<ConditionalEffect<EnchantmentEntityEffect>> effectEntries = enchantment.getEffects(ClickManaitaEnchant.BLOCK_RIGHT_CLICK_EFFECT_COMPONENT.get());
             // エフェクトがトリガーされる
