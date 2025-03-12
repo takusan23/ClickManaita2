@@ -2,8 +2,8 @@ package io.github.takusan23.clickmanaita;
 
 import io.github.takusan23.clickmanaita.enchant.RegisterEnchant;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 /**
  * プレイヤーがアイテムを拾ったなど、イベントを受け取るクラス
