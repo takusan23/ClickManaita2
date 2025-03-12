@@ -4,10 +4,10 @@ import io.github.takusan23.clickmanaita.block.ClickManaitaBlocks;
 import io.github.takusan23.clickmanaita.creativetab.ClickManaitaCreativeTab;
 import io.github.takusan23.clickmanaita.enchant.ClickManaitaEnchant;
 import io.github.takusan23.clickmanaita.item.ClickManaitaItems;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.common.NeoForge;
 
 @Mod("clickmanaita")
 public class ClickManaita {
@@ -20,8 +20,7 @@ public class ClickManaita {
     /**
      * コンストラクタ
      */
-    public ClickManaita() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    public ClickManaita(IEventBus modEventBus, ModContainer modContainer) {
         // ブロック登録
         ClickManaitaBlocks.register(modEventBus);
         // アイテム（ブロックのアイテム）登録
@@ -31,6 +30,6 @@ public class ClickManaita {
         // エンチャント（カスタムエフェクト、エフェクトコンポーネント）を登録
         ClickManaitaEnchant.register(modEventBus);
         // プレイヤーイベント
-        MinecraftForge.EVENT_BUS.register(new ClickManaitaPlayerEvent());
+        NeoForge.EVENT_BUS.register(new ClickManaitaPlayerEvent());
     }
 }
