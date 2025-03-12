@@ -51,7 +51,7 @@ public class ClickManaitaItemTool {
             copyBlock.playerDestroy(world, player, blockPos, blockState, blockEntity, player.getMainHandItem());
 
             // なんか経験値を吐き出す実装がなくなった？ので自前で用意
-            int exp = blockState.getExpDrop(world, world.random, blockPos, 0, 0);
+            int exp = blockState.getExpDrop(world, blockPos, blockEntity, player, player.getMainHandItem());
             copyBlock.popExperience((ServerLevel) world, blockPos, exp);
         }
     }

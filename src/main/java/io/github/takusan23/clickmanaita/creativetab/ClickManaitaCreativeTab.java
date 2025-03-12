@@ -6,9 +6,9 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 /**
  * クリエイティブタブを作成する
@@ -17,7 +17,7 @@ public class ClickManaitaCreativeTab {
 
     public static final DeferredRegister<CreativeModeTab> ITEM_GROUP = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ClickManaita.MOD_ID);
 
-    public static final RegistryObject<CreativeModeTab> CREATIVE_TAB = ITEM_GROUP.register(
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATIVE_TAB = ITEM_GROUP.register(
             "clickmanaita_creative_tab",
             () -> CreativeModeTab
                     .builder()
