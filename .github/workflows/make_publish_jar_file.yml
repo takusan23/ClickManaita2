@@ -21,7 +21,7 @@ jobs:
 
     # gradle-wrapper.jar が改ざんされていない事を確認する
     - name: Validate gradle-wrapper.jar
-      uses: gradle/wrapper-validation-action@v1
+      uses: gradle/actions/wrapper-validation@v4
 
     # 権限を与える
     - name: Grant permission gradlew
