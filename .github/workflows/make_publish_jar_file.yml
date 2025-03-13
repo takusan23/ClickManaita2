@@ -1,4 +1,4 @@
-# Fabric / Forge どちらでも使えるはず
+# Fabric / Forge / NeoForge どちらでも使えるはず
 name: Make Publish Jar File
 
 # 起動条件。手動起動
@@ -42,7 +42,7 @@ jobs:
 
     # 作成した jarファイル を artifact に保存
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: ${{ github.ref_name }}-artifact
         path: ./build/libs/
