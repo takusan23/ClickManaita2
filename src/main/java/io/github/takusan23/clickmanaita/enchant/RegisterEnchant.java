@@ -1,12 +1,12 @@
 package io.github.takusan23.clickmanaita.enchant;
 
 import io.github.takusan23.clickmanaita.ClickManaita;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 /**
  * 登録するエンチャントを定義してForgeに登録してもらう
@@ -15,12 +15,12 @@ import net.minecraftforge.registries.RegistryObject;
  */
 public class RegisterEnchant {
 
-    private static final DeferredRegister<Enchantment> ENCHANTMENT = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, ClickManaita.MOD_ID);
+    private static final DeferredRegister<Enchantment> ENCHANTMENT = DeferredRegister.create(Registries.ENCHANTMENT, ClickManaita.MOD_ID);
 
     /**
      * エンチャントを登録する
      */
-    public static final RegistryObject<ClickManaitaEnchant> CLICKMANAITA_ENCHANT = ENCHANTMENT.register("clickmanaita_enchant", () -> new ClickManaitaEnchant(Enchantment.Rarity.COMMON, EquipmentSlot.values()));
+    public static final DeferredHolder<Enchantment, ClickManaitaEnchant> CLICKMANAITA_ENCHANT = ENCHANTMENT.register("clickmanaita_enchant", () -> new ClickManaitaEnchant(Enchantment.Rarity.COMMON, EquipmentSlot.values()));
 
     /**
      * Forgeにエンチャントを登録する際に呼ぶメソッド
