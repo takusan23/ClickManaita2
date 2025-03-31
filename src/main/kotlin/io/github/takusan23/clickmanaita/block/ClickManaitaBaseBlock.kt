@@ -4,7 +4,6 @@ import net.minecraft.block.Block
 import net.minecraft.block.BlockState
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.util.ActionResult
-import net.minecraft.util.Hand
 import net.minecraft.util.hit.BlockHitResult
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
@@ -24,7 +23,7 @@ class ClickManaitaBaseBlock(settings: Settings?, private val dropSize: Int = 2) 
         } else {
             repeat(dropSize) {
                 // 今持ってるアイテム
-                val currentItem = player?.inventory?.mainHandStack?.copy()
+                val currentItem = player?.mainHandStack?.copy()
                 currentItem?.count = 1
                 // アイテムを落とす
                 dropStack(world, pos, currentItem)

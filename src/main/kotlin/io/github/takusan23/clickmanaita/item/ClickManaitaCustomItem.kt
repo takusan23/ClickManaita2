@@ -1,6 +1,7 @@
 package io.github.takusan23.clickmanaita.item
 
 import io.github.takusan23.clickmanaita.ClickManaitaItemTool
+import net.minecraft.component.type.TooltipDisplayComponent
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.item.ItemUsageContext
@@ -11,6 +12,7 @@ import net.minecraft.text.Style
 import net.minecraft.text.Text
 import net.minecraft.util.ActionResult
 import net.minecraft.util.Formatting
+import java.util.function.Consumer
 
 /**
  * 金床で変えた値だけ増えるまな板
@@ -47,10 +49,10 @@ class ClickManaitaCustomItem(settings: Settings?) : Item(settings) {
     /**
      * ツールチップ追加
      */
-    override fun appendTooltip(stack: ItemStack?, context: TooltipContext?, tooltip: MutableList<Text>?, type: TooltipType?) {
-        super.appendTooltip(stack, context, tooltip, type)
+    override fun appendTooltip(stack: ItemStack?, context: TooltipContext?, displayComponent: TooltipDisplayComponent?, textConsumer: Consumer<Text>?, type: TooltipType?) {
+        super.appendTooltip(stack, context, displayComponent, textConsumer, type)
         if (stack != null) {
-            tooltip?.add(MutableText.of(PlainTextContent.of("x${getDropSize(stack)}")).setStyle(Style.EMPTY.withColor(Formatting.AQUA)))
+            textConsumer?.accept(MutableText.of(PlainTextContent.of("x${getDropSize(stack)}")).setStyle(Style.EMPTY.withColor(Formatting.AQUA)))
         }
     }
 }
