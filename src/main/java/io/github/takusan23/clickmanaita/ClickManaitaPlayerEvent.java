@@ -1,8 +1,12 @@
 package io.github.takusan23.clickmanaita;
 
+import io.github.takusan23.clickmanaita.block.ClickManaitaBlockItem;
 import io.github.takusan23.clickmanaita.enchant.ClickManaitaEnchant;
+import io.github.takusan23.clickmanaita.item.ClickManaitaBaseItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -22,6 +26,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 import java.util.List;
@@ -33,9 +38,28 @@ import java.util.function.Consumer;
  * <p>
  * どうやら、引数のクラス（なんちゃらEvent）ってのが大事らしく、メソッド名はどうでもよいらしい（ただしアクセス修飾子はpublicにする）
  * <p>
- * MinecraftForge.EVENT_BUS.register()で登録できます
+ * NeoForge.EVENT_BUS.register()で登録できます
  */
 public class ClickManaitaPlayerEvent {
+
+    /**
+     * ツールチップを出すメソッドが非推奨になってしまったので
+     */
+    @SuppressWarnings("unused")
+    @SubscribeEvent
+    public void onItemTooltip(ItemTooltipEvent event) {
+        ItemStack itemStack = event.getItemStack();
+        List<Component> toolTip = event.getToolTip();
+
+        MutableComponent text = switch (itemStack.getItem()) {
+            case ClickManaitaBaseItem baseItem -> baseItem.getHoverText(itemStack);
+            case ClickManaitaBlockItem blockItem -> blockItem.getHoverText();
+            default -> null;
+        };
+        if (text != null) {
+            toolTip.add(text);
+        }
+    }
 
     /**
      * 右クリックイベントを購読する

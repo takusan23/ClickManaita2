@@ -6,12 +6,7 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.block.Block;
-
-import java.util.function.Consumer;
 
 /**
  * クリックまな板ブロックのBlockItem。
@@ -53,13 +48,13 @@ public class ClickManaitaBlockItem extends BlockItem {
     }
 
     /**
-     * ツールチップを表示させる
+     * ツールチップで表示する文字を返す
+     *
+     * @return NeoForge.EVENT_BUS でツールチップ表示イベントが購読できるので、返り値を追加する
      */
-    @Override
-    public void appendHoverText(ItemStack p_41421_, TooltipContext p_339594_, TooltipDisplay p_399753_, Consumer<Component> p_399884_, TooltipFlag p_41424_) {
-        super.appendHoverText(p_41421_, p_339594_, p_399753_, p_399884_, p_41424_);
+    public MutableComponent getHoverText() {
         MutableComponent text = Component.literal(toolTipText);
         text.setStyle(Style.EMPTY.withColor(TextColor.parseColor(toolTipColor).getOrThrow()));
-        p_399884_.accept(text);
+        return text;
     }
 }

@@ -7,11 +7,7 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.context.UseOnContext;
-
-import java.util.function.Consumer;
 
 /**
  * {@link ClickManaitaBaseItem}を継承して、アイテムの名前（数値）分だけ増えるクリックまな板
@@ -30,22 +26,24 @@ public class ClickManaitaCustomItem extends ClickManaitaBaseItem {
     }
 
     /**
-     * ツールチップを設定する
+     * ツールチップで表示する文字を返す
+     *
+     * @param itemStack まな板のアイテムスタック
+     * @return NeoForge.EVENT_BUS でツールチップ表示イベントが購読できるので、返り値を追加する
      */
     @Override
-    public void appendHoverText(ItemStack p_41421_, TooltipContext p_339594_, TooltipDisplay p_399753_, Consumer<Component> p_399884_, TooltipFlag p_41424_) {
-        // 継承元は使わないので super はコメントアウト
-        // super.appendHoverText(p_41421_, p_339594_, p_399753_, p_399884_, p_41424_);
-
-        MutableComponent text = Component.literal("x" + getDropSize(p_41421_));
+    public MutableComponent getHoverText(ItemStack itemStack) {
+        MutableComponent text = Component.literal("x" + getDropSize(itemStack));
         text.setStyle(Style.EMPTY.withColor(TextColor.parseColor("#FFFFFF").getOrThrow()));
 
         // 金床で設定してねー
         MutableComponent anvilMessage = Component.literal("金床でこのアイテムの名前を増やしたい数に変更してください");
         anvilMessage.setStyle(Style.EMPTY.withColor(TextColor.parseColor("#FFFFFF").getOrThrow()));
 
-        p_399884_.accept(text);
-        p_399884_.accept(anvilMessage);
+        return Component.empty()
+                .append(text)
+                .append(Component.literal("\n")) // 改行
+                .append(anvilMessage);
     }
 
     /**

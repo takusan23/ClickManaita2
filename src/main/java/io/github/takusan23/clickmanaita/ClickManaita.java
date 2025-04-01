@@ -29,7 +29,7 @@ public class ClickManaita {
         ClickManaitaCreativeTab.register(modEventBus);
         // エンチャント（カスタムエフェクト、エフェクトコンポーネント）を登録
         ClickManaitaEnchant.register(modEventBus);
-        // プレイヤーイベント
+        // プレイヤーイベントとツールチップの処理
         NeoForge.EVENT_BUS.register(new ClickManaitaPlayerEvent());
     }
 }
