@@ -2,7 +2,6 @@ package io.github.takusan23.clickmanaita.item
 
 import io.github.takusan23.clickmanaita.ClickManaitaItemGroup
 import io.github.takusan23.clickmanaita.block.ClickManaitaBlock
-import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
 import net.minecraft.registry.Registries
@@ -101,17 +100,6 @@ object ClickManaitaItem {
         Registry.register(Registries.ITEM, KEY_CLICKMANAITA_GOLD_BLOCK, CLICKMANAITA_GOLD_BLOCK_ITEM)
         Registry.register(Registries.ITEM, KEY_CLICKMANAITA_DIAMOND_BLOCK, CLICKMANAITA_DIAMOND_BLOCK_ITEM)
         Registry.register(Registries.ITEM, KEY_CLICKMANAITA_EMERALD_BLOCK, CLICKMANAITA_EMERALD_BLOCK_ITEM)
-
-        // ツールチップの実装が変わってしまったので対応
-        // https://wiki.fabricmc.net/tutorial:tooltip#adding_tooltips_in_1215
-        ItemTooltipCallback.EVENT.register tooltipCallback@{ itemStack, _, _, list ->
-            val tooltipText = when (val item = itemStack.item) {
-                is ClickManaitaBaseItem -> item.getTooltipText()
-                is ClickManaitaCustomItem -> item.getTooltipText(itemStack)
-                else -> return@tooltipCallback
-            }
-            list.add(tooltipText)
-        }
     }
 
 }
