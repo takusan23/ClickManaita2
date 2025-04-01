@@ -8,10 +8,7 @@ import net.minecraft.network.chat.TextColor;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
-
-import java.util.List;
 
 /**
  * クリックまな板はこのクラスを継承して作る
@@ -76,6 +73,17 @@ public class ClickManaitaBaseItem extends Item {
     }
 
     /**
+     * ツールチップで表示する文字を返す
+     *
+     * @return NeoForge.EVENT_BUS でツールチップ表示イベントが購読できるので、返り値を追加する
+     */
+    public MutableComponent getHoverText(ItemStack itemStack) {
+        MutableComponent text = Component.literal(toolTipText);
+        text.setStyle(Style.EMPTY.withColor(TextColor.parseColor(toolTipColor).getOrThrow()));
+        return text;
+    }
+
+    /**
      * まな板を右クリックした際の処理。増やす
      * <p>
      * チェストの中身も増えるように
@@ -92,16 +100,5 @@ public class ClickManaitaBaseItem extends Item {
         );
 
         return InteractionResult.SUCCESS;
-    }
-
-    /**
-     * ツールチップを表示させる。
-     */
-    @Override
-    public void appendHoverText(ItemStack p_41421_, TooltipContext p_333372_, List<Component> p_41423_, TooltipFlag p_41424_) {
-        super.appendHoverText(p_41421_, p_333372_, p_41423_, p_41424_);
-        MutableComponent text = Component.literal(toolTipText);
-        text.setStyle(Style.EMPTY.withColor(TextColor.parseColor(toolTipColor).getOrThrow()));
-        p_41423_.add(text);
     }
 }

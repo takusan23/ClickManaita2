@@ -1,27 +1,26 @@
 # クリックまな板
-Forge 1.21.4 がリリースされていたので対応しました。  
-自動作業台！？！？
+Forge 1.21.5 がリリースされていたので対応しました。
 
 ![Imgur](https://imgur.com/KoqVwLu.png)
 
 # ダウンロード
 https://www.curseforge.com/minecraft/mc-mods/clickmanaita
 
-Fabric/Forge版よく確認してください。  
-Fabric版と違い、Forge版の前提MODはありません。ダウンロードしたらmodsフォルダに入れればいいです。
+Fabric/NeoForge/Forge版よく確認してください。  
+Fabric版と違い、NeoForge/Forge版の前提MODはありません。ダウンロードしたらmodsフォルダに入れればいいです。
 
-# Fabric版の違い
-Fabric / Forge で使いたいMODがあればそれに合わせてダウンロードすればいいと思います。  
-機能的な差はなく、アイテムID等も（このMODでは）同じ値を利用しているので、Fabric・Forgeの環境を行ったり来たり出来ると思います。
+# Fabric / NeoForge 版の違い
+Fabric / NeoForge / Forge で使いたいMODがあればそれに合わせてダウンロードすればいいと思います。  
+機能的な差はなく、アイテムID等も（このMODでは）同じ値を利用しているので、Fabric・NeoForge・Forgeの環境を行ったり来たり出来ると思います。
 
 # 導入方法
 - Java 21 を入れます！！！
-- バニラの 1.21.4 を起動します
+- バニラの 1.21.5 を起動します
     - バニラアイスって喉乾くから抹茶のほうが好き
-- Forge 1.21.4 を入れます
+- Forge 1.21.5 を入れます
   - https://files.minecraftforge.net/net/minecraftforge/forge/
-    - Forgeは`1.21.4 - 54.0.15`以上が必要です。
-- 入れたら、ランチャーから Forge 1.21.4 を選んで起動します。
+    - Forgeは`1.21.5 - 55.0.3`以上が必要です。
+- 入れたら、ランチャーから Forge 1.21.5 を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
 - modsフォルダが出来ていると思うのでその中に上記のリンクからダウンロードしたクリックまな板のMODファイルを入れます
@@ -65,7 +64,7 @@ Fabric版はKotlinで書かれてますが、Forge版はJavaです。
 - 環境変数の設定から、システム環境変数の`JAVA_HOME`が入れた`Eclipse Adoptium`のパスになっているか確認する。
 - ついでに`javac -version`して 21 が返ってくるか確認
 - このリポジトリをクローンするなり、zipをDLするなりしてソースコードを手に入れます。
-    - git cloneした場合はブランチ`1.21.4-forge`に切り替えてください。
+    - git cloneした場合はブランチ`1.21.5-forge`に切り替えてください。
 - IDEAでこのリポジトリを開いてください
 - しばらく待ちます
     - ここで Java 21 が指定できてないとコケると思う
