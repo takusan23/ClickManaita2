@@ -1,6 +1,5 @@
 # クリックまな板
-Forge 版のコードを下に NeoForge 版も作ってみました。  
-NeoForge 1.21.4 がリリースされていたので対応しました。  
+NeoForge 1.21.5 版クリックまな板です。  
 
 ![Imgur](https://imgur.com/urz7i7s.png)
 
@@ -10,15 +9,15 @@ https://www.curseforge.com/minecraft/mc-mods/clickmanaita
 Fabric/Forge/NeoForge 版よく確認してください。  
 Fabric 版と違い、Forge/NeoForge 版の前提MODはありません。ダウンロードしたらmodsフォルダに入れればいいです。
 
-# Fabric / Forge 版の違い
+# Fabric / NeoForge / Forge 版の違い
 Fabric / Forge / NeoForge で使いたい MOD があればそれに合わせてダウンロードすればいいと思います。  
 機能的な差はなく、アイテムID等も（このMODでは）同じ値を利用しているので、Fabric・Forge・NeoForge の環境を行ったり来たり出来ると思います。
 
 # 導入方法
 - Java 21 を入れます！！！
-- NeoForge 1.21.4 を入れます
+- NeoForge 1.21.5 を入れます
   - https://neoforged.net/
-    - Forgeは`21.4.111-beta`以上が必要です。
+    - NeoForge は`21.5.18-beta`以上が必要です。
 - 入れたら、ランチャーから NeoForge を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
@@ -64,7 +63,7 @@ Fabric版はKotlinで書かれてますが、Forge / NeoForge 版はJavaです�
 - 環境変数の設定から、システム環境変数の`JAVA_HOME`が入れた`Eclipse Adoptium`のパスになっているか確認する。
 - ついでに`javac -version`して 21 が返ってくるか確認
 - このリポジトリをクローンするなり、zipをDLするなりしてソースコードを手に入れます。
-    - git cloneした場合はブランチ`1.21.4-neoforge`に切り替えてください。
+    - git cloneした場合はブランチ`1.21.5-neoforge`に切り替えてください。
 - IDEAでこのリポジトリを開いてください
 - しばらく待ちます
     - ここで Java 21 が指定できてないとコケると思う

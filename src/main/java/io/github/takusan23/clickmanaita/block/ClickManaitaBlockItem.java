@@ -8,9 +8,10 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.block.Block;
 
-import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * クリックまな板ブロックのBlockItem。
@@ -55,10 +56,10 @@ public class ClickManaitaBlockItem extends BlockItem {
      * ツールチップを表示させる
      */
     @Override
-    public void appendHoverText(ItemStack p_40572_, TooltipContext p_327780_, List<Component> p_40574_, TooltipFlag p_40575_) {
-        super.appendHoverText(p_40572_, p_327780_, p_40574_, p_40575_);
+    public void appendHoverText(ItemStack p_41421_, TooltipContext p_339594_, TooltipDisplay p_399753_, Consumer<Component> p_399884_, TooltipFlag p_41424_) {
+        super.appendHoverText(p_41421_, p_339594_, p_399753_, p_399884_, p_41424_);
         MutableComponent text = Component.literal(toolTipText);
         text.setStyle(Style.EMPTY.withColor(TextColor.parseColor(toolTipColor).getOrThrow()));
-        p_40574_.add(text);
+        p_399884_.accept(text);
     }
 }
