@@ -1,7 +1,7 @@
 # クリックまな板
 Forge 1.21.5 がリリースされていたので対応しました。
 
-![Imgur](https://imgur.com/KoqVwLu.png)
+![Imgur](https://imgur.com/r07CH9j.png)
 
 # ダウンロード
 https://www.curseforge.com/minecraft/mc-mods/clickmanaita
