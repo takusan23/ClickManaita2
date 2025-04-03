@@ -1,7 +1,7 @@
 # クリックまな板
 1.21.5 のFabricがリリースされたのでクリックまな板対応しました。  
 
-![Imgur](https://imgur.com/kTfjOYB.png)
+![Imgur](https://imgur.com/YHFDbjG.png)
 
 # Mod導入方法 （遊ぶ側、エンドユーザー向け）
 - Java 21 以降が必要です！！！
