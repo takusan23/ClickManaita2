@@ -1,7 +1,7 @@
 # クリックまな板
 NeoForge 1.21.5 版クリックまな板です。  
 
-![Imgur](https://imgur.com/urz7i7s.png)
+![Imgur](https://imgur.com/I7llaQs.png)
 
 # ダウンロード
 https://www.curseforge.com/minecraft/mc-mods/clickmanaita
