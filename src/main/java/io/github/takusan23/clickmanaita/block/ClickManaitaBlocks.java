@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.bus.BusGroup;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -81,9 +81,9 @@ public class ClickManaitaBlocks {
      * <p>
      * {@link ClickManaita}のコンストラクタ内でで呼んで使う
      */
-    public static void register(IEventBus eventBus) {
+    public static void register(BusGroup busGroup) {
         // ブロック追加
-        BLOCKS.register(eventBus);
+        BLOCKS.register(busGroup);
     }
 
 }

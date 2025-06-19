@@ -6,7 +6,7 @@ import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.enchantment.ConditionalEffect;
 import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect;
-import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.bus.BusGroup;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -41,10 +41,10 @@ public class ClickManaitaEnchant {
     /**
      * Forgeにエンチャントのカスタムエフェクト、エフェクトコンポーネントを登録する際に呼ぶメソッド
      */
-    public static void register(IEventBus iEventBus) {
+    public static void register(BusGroup busGroup) {
         // カスタムエフェクト。クリックまな板の動作をするエフェクトです
-        ENCHANT_EFFECT_TYPE.register(iEventBus);
-        ENCHANT_EFFECT_COMPONENT.register(iEventBus);
+        ENCHANT_EFFECT_TYPE.register(busGroup);
+        ENCHANT_EFFECT_COMPONENT.register(busGroup);
     }
 
 }

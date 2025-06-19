@@ -25,9 +25,10 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.listener.SubscribeEvent;
 
 import java.util.List;
 import java.util.Optional;
@@ -104,6 +105,12 @@ public class ClickManaitaPlayerEvent {
                     effect -> effect.apply((ServerLevel) world, level, enchantedItemInUse, playerEntity, blockPosVec3d)
             );
         });
+    }
+
+    @SuppressWarnings("unused")
+    @SubscribeEvent
+    public void onEntityJoinWorld(EntityJoinLevelEvent event){
+
     }
 
     private static LootContext createHitBlockLootContext(
