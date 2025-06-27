@@ -26,6 +26,5 @@ fun init() {
     Registry.register(Registries.ENCHANTMENT_EFFECT_COMPONENT_TYPE, Identifier.of("clickmanaita", "block_right_click"), EnchantRightClickEffectComponent.BLOCK_RIGHT_CLICK_EFFECT_COMPONENT)
     // イベント登録
     ClickManaitaEnchantClickCallback.registerClickManaitaEnchantCallback()
-    ClickManaitaTooltipEventCallback.registerTooltipEventCallback()
 }
 

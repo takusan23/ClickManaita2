@@ -20,6 +20,12 @@
         "adapter": "kotlin",
         "value": "io.github.takusan23.clickmanaita.ClickManaitaKt::init"
       }
+    ],
+    "client": [
+      {
+        "adapter": "kotlin",
+        "value": "io.github.takusan23.clickmanaita.ClickManaitaClientKt::initClient"
+      }
     ]
   },
   "mixins": [
