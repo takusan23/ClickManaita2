@@ -17,7 +17,7 @@ Fabric / Forge / NeoForge で使いたい MOD があればそれに合わせて�
 - Java 21 を入れます！！！
 - NeoForge 1.21.7 を入れます
   - https://neoforged.net/
-    - NeoForge は`21.6.5-beta`以上が必要です。
+    - NeoForge は`21.7.1-beta`以上が必要です。
 - 入れたら、ランチャーから NeoForge を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
