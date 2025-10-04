@@ -3,6 +3,11 @@
 .gradle/
 build/
 out/
+classes/
+
+# eclipse
+
+*.launch
 
 # idea
 
@@ -10,10 +15,6 @@ out/
 *.iml
 *.ipr
 *.iws
-
-# eclipse
-
-*.launch
 
 # vscode
 
@@ -25,8 +26,15 @@ bin/
 
 # macos
 
-*.DS_STORE
+*.DS_Store
 
 # fabric
 
 run/
+
+# java
+
+hs_err_*.log
+replay_*.log
+*.hprof
+*.jfr
