@@ -1,5 +1,7 @@
-package io.github.takusan23.clickmanaita.item
+package io.github.takusan23.clickmanaita
 
+import io.github.takusan23.clickmanaita.item.ClickManaitaBaseItem
+import io.github.takusan23.clickmanaita.item.ClickManaitaCustomItem
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback
 
 /** ツールチップイベントを拾う */

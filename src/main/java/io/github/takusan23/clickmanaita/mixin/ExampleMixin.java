@@ -1,16 +1,15 @@
 package io.github.takusan23.clickmanaita.mixin;
 
-import net.minecraft.client.gui.screen.TitleScreen;
+import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(TitleScreen.class)
-// Mixins HAVE to be written in java due to constraints in the mixin system.
+@Mixin(MinecraftServer.class)
 public class ExampleMixin {
-    @Inject(at = @At("HEAD"), method = "init()V")
+    @Inject(at = @At("HEAD"), method = "loadWorld")
     private void init(CallbackInfo info) {
-        System.out.println("This line is printed by an example mod mixin!");
+        // This code is injected into the start of MinecraftServer.loadWorld()V
     }
 }
