@@ -1,5 +1,5 @@
 # クリックまな板
-Forge 1.21.8 がリリースされていたので対応しました。
+Forge 1.21.9 がリリースされていたので対応しました。
 
 ![Imgur](https://imgur.com/r07CH9j.png)
 
@@ -15,12 +15,12 @@ Fabric / NeoForge / Forge で使いたいMODがあればそれに合わせてダ
 
 # 導入方法
 - Java 21 を入れます！！！
-- バニラの 1.21.8 を起動します
+- バニラの 1.21.9 を起動します
     - バニラアイスって喉乾くから抹茶のほうが好き
-- Forge 1.21.8 を入れます
+- Forge 1.21.9 を入れます
   - https://files.minecraftforge.net/net/minecraftforge/forge/
-    - Forgeは`1.21.8 - 58.0.0`以上が必要です。
-- 入れたら、ランチャーから Forge 1.21.8 を選んで起動します。
+    - Forgeは`1.21.9 - 59.0.5`以上が必要です。
+- 入れたら、ランチャーから Forge 1.21.9 を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
 - modsフォルダが出来ていると思うのでその中に上記のリンクからダウンロードしたクリックまな板のMODファイルを入れます
@@ -64,7 +64,7 @@ Fabric版はKotlinで書かれてますが、Forge版はJavaです。
 - 環境変数の設定から、システム環境変数の`JAVA_HOME`が入れた`Eclipse Adoptium`のパスになっているか確認する。
 - ついでに`javac -version`して 21 が返ってくるか確認
 - このリポジトリをクローンするなり、zipをDLするなりしてソースコードを手に入れます。
-    - git cloneした場合はブランチ`1.21.8-forge`に切り替えてください。
+    - git cloneした場合はブランチ`1.21.10-forge`に切り替えてください。
 - IDEAでこのリポジトリを開いてください
 - しばらく待ちます
     - ここで Java 21 が指定できてないとコケると思う
@@ -111,6 +111,7 @@ dependencies {
 # トラブルシューティング
 - `runClient`が押せない（なんかバツマーク）
     - `gradlew genIntellijRuns`を再度実行
+    - `.idea`フォルダを消す
 - `java.lang.module.FindException: Module cpw.mods.securejarhandler not found, required by cpw.mods.bootstraplauncher`
     - `genIntellijRuns`を再度実行
 - `FMLClientLaunchHandler has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 60.0`
