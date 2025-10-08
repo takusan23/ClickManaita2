@@ -1,5 +1,5 @@
 # クリックまな板
-NeoForge 1.21.9 版クリックまな板です。  
+NeoForge 1.21.10 版クリックまな板です。  
 
 ![Imgur](https://imgur.com/I7llaQs.png)
 
@@ -15,9 +15,9 @@ Fabric / Forge / NeoForge で使いたい MOD があればそれに合わせて�
 
 # 導入方法
 - Java 21 を入れます！！！
-- NeoForge 1.21.9 を入れます
+- NeoForge 1.21.10 を入れます
   - https://neoforged.net/
-    - NeoForge は`21.9.16-beta`以上が必要です。
+    - NeoForge は`21.10.1-beta`以上が必要です。
 - 入れたら、ランチャーから NeoForge を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
@@ -63,7 +63,7 @@ Fabric版はKotlinで書かれてますが、Forge / NeoForge 版はJavaです�
 - 環境変数の設定から、システム環境変数の`JAVA_HOME`が入れた`Eclipse Adoptium`のパスになっているか確認する。
 - ついでに`javac -version`して 21 が返ってくるか確認
 - このリポジトリをクローンするなり、zipをDLするなりしてソースコードを手に入れます。
-    - git cloneした場合はブランチ`1.21.9-neoforge`に切り替えてください。
+    - git cloneした場合はブランチ`1.21.10-neoforge`に切り替えてください。
 - IDEAでこのリポジトリを開いてください
 - しばらく待ちます
     - ここで Java 21 が指定できてないとコケると思う
