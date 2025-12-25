@@ -1,9 +1,9 @@
 package io.github.takusan23.clickmanaita.enchant
 
-import net.minecraft.component.ComponentType
-import net.minecraft.enchantment.effect.EnchantmentEffectEntry
-import net.minecraft.enchantment.effect.EnchantmentEntityEffect
-import net.minecraft.loot.context.LootContextTypes
+import net.minecraft.core.component.DataComponentType
+import net.minecraft.world.item.enchantment.ConditionalEffect
+import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets
 
 /**
  * minecraft:hit_block が右クリックじゃ動作しないので、右クリックで発動する hit_block 。
@@ -27,8 +27,8 @@ import net.minecraft.loot.context.LootContextTypes
 object EnchantRightClickEffectComponent {
 
     /** [net.minecraft.enchantment.Enchantment.getEffect]の引数としてこれを使う */
-    val BLOCK_RIGHT_CLICK_EFFECT_COMPONENT: ComponentType<List<EnchantmentEffectEntry<EnchantmentEntityEffect>>> = ComponentType.builder<List<EnchantmentEffectEntry<EnchantmentEntityEffect>>>().apply {
-        codec(EnchantmentEffectEntry.createCodec(EnchantmentEntityEffect.CODEC, LootContextTypes.HIT_BLOCK).listOf())
+    val BLOCK_RIGHT_CLICK_EFFECT_COMPONENT: DataComponentType<List<ConditionalEffect<EnchantmentEntityEffect>>> = DataComponentType.builder<List<ConditionalEffect<EnchantmentEntityEffect>>>().apply {
+        persistent(ConditionalEffect.codec(EnchantmentEntityEffect.CODEC, LootContextParamSets.HIT_BLOCK).listOf())
     }.build()
 
 }

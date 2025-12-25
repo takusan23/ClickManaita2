@@ -1,13 +1,13 @@
 package io.github.takusan23.clickmanaita.item
 
 import io.github.takusan23.clickmanaita.ClickManaitaItemTool
-import net.minecraft.item.Item
-import net.minecraft.item.ItemUsageContext
-import net.minecraft.text.MutableText
-import net.minecraft.text.PlainTextContent
-import net.minecraft.text.Style
-import net.minecraft.util.ActionResult
-import net.minecraft.util.Formatting
+import net.minecraft.world.item.Item
+import net.minecraft.world.item.context.UseOnContext
+import net.minecraft.network.chat.MutableComponent
+import net.minecraft.network.chat.contents.PlainTextContents
+import net.minecraft.network.chat.Style
+import net.minecraft.world.InteractionResult
+import net.minecraft.ChatFormatting
 
 /**
  * 右クリックしたらアイテムが増えるアイテムを追加する
@@ -15,28 +15,26 @@ import net.minecraft.util.Formatting
  * @param settings クリエタブとか
  * @param dropSize 増える数
  * */
-class ClickManaitaBaseItem(settings: Settings?, private val dropSize: Int = 2) : Item(settings) {
+class ClickManaitaBaseItem(settings: Properties, private val dropSize: Int = 2) : Item(settings) {
 
     /** ツールチップの文言を返す */
-    fun getTooltipText(): MutableText {
-        return MutableText.of(PlainTextContent.of("x$dropSize")).setStyle(Style.EMPTY.withColor(Formatting.AQUA))
+    fun getTooltipText(): MutableComponent {
+        return MutableComponent.create(PlainTextContents.create("x$dropSize")).setStyle(Style.EMPTY.withColor(ChatFormatting.AQUA))
     }
 
     /**
      * ブロックを右クリックしたときに呼ばれる関数
      */
-    override fun useOnBlock(context: ItemUsageContext?): ActionResult {
-
-        context ?: return ActionResult.PASS
+    override fun useOn(context: UseOnContext): InteractionResult {
 
         // 共通処理を呼び出す
         ClickManaitaItemTool.manaita(
             dropSize = dropSize,
-            world = context.world,
-            blockPos = context.blockPos,
-            playerEntity = context.player
+            world = context.level,
+            blockPos = context.clickedPos,
+            playerEntity = context.player ?: return InteractionResult.PASS
         )
 
-        return ActionResult.SUCCESS
+        return InteractionResult.SUCCESS
     }
 }

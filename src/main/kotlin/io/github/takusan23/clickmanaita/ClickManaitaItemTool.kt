@@ -1,11 +1,11 @@
 package io.github.takusan23.clickmanaita
 
-import net.minecraft.block.Block
-import net.minecraft.entity.player.PlayerEntity
-import net.minecraft.inventory.Inventory
-import net.minecraft.server.world.ServerWorld
-import net.minecraft.util.math.BlockPos
-import net.minecraft.world.World
+import net.minecraft.world.level.block.Block
+import net.minecraft.world.entity.player.Player
+import net.minecraft.world.Container
+import net.minecraft.server.level.ServerLevel
+import net.minecraft.core.BlockPos
+import net.minecraft.world.level.Level
 
 /** ユーティリティクラス */
 object ClickManaitaItemTool {
@@ -23,11 +23,11 @@ object ClickManaitaItemTool {
      */
     fun manaita(
         dropSize: Int,
-        world: World?,
-        blockPos: BlockPos?,
-        playerEntity: PlayerEntity?
+        world: Level,
+        blockPos: BlockPos,
+        playerEntity: Player
     ) {
-        if (world !is ServerWorld) return
+        if (world !is ServerLevel) return
 
         val blockState = world.getBlockState(blockPos)
         val copyBlock = blockState?.block ?: return
@@ -36,14 +36,14 @@ object ClickManaitaItemTool {
         repeat(dropSize) {
 
             // チェストの中身も増やす
-            if (blockEntity is Inventory) {
-                repeat(blockEntity.size()) { invIndex ->
-                    Block.dropStack(world, blockPos, blockEntity.getStack(invIndex).copy())
+            if (blockEntity is Container) {
+                repeat(blockEntity.containerSize) { invIndex ->
+                    Block.popResource(world, blockPos, blockEntity.getItem(invIndex).copy())
                 }
             }
 
             // ブロックを増やす
-            copyBlock.afterBreak(world, playerEntity, blockPos, blockState, blockEntity, playerEntity?.mainHandStack)
+            copyBlock.playerDestroy(world, playerEntity, blockPos, blockState, blockEntity, playerEntity.mainHandItem)
         }
     }
 

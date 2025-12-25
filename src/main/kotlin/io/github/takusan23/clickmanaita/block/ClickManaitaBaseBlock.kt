@@ -1,12 +1,12 @@
 package io.github.takusan23.clickmanaita.block
 
-import net.minecraft.block.Block
-import net.minecraft.block.BlockState
-import net.minecraft.entity.player.PlayerEntity
-import net.minecraft.util.ActionResult
-import net.minecraft.util.hit.BlockHitResult
-import net.minecraft.util.math.BlockPos
-import net.minecraft.world.World
+import net.minecraft.core.BlockPos
+import net.minecraft.world.InteractionResult
+import net.minecraft.world.entity.player.Player
+import net.minecraft.world.level.Level
+import net.minecraft.world.level.block.Block
+import net.minecraft.world.level.block.state.BlockState
+import net.minecraft.world.phys.BlockHitResult
 
 /**
  * ブロックをクリックしたら持ってるアイテムが増える
@@ -14,21 +14,22 @@ import net.minecraft.world.World
  * @param settings マテリアルの指定とか
  * @param dropSize 増やす数など
  * */
-class ClickManaitaBaseBlock(settings: Settings?, private val dropSize: Int = 2) : Block(settings) {
+class ClickManaitaBaseBlock(settings: Properties, private val dropSize: Int = 2) : Block(settings) {
 
     /** ブロックを右クリックしたら呼ばれる */
-    override fun onUse(state: BlockState?, world: World?, pos: BlockPos?, player: PlayerEntity?, hit: BlockHitResult?): ActionResult {
-        return if (world!!.isClient) {
-            ActionResult.CONSUME
+    override fun useWithoutItem(blockState: BlockState, level: Level, blockPos: BlockPos, player: Player, blockHitResult: BlockHitResult): InteractionResult {
+        return if (level.isClientSide) {
+            InteractionResult.CONSUME
         } else {
             repeat(dropSize) {
                 // 今持ってるアイテム
-                val currentItem = player?.mainHandStack?.copy()
+                val currentItem = player.mainHandItem.copy()
                 currentItem?.count = 1
                 // アイテムを落とす
-                dropStack(world, pos, currentItem)
+                popResource(level, blockPos, currentItem)
             }
-            ActionResult.SUCCESS
+            InteractionResult.SUCCESS
         }
     }
+
 }

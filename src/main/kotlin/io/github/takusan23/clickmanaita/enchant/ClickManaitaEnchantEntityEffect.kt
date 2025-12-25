@@ -3,14 +3,16 @@ package io.github.takusan23.clickmanaita.enchant
 import com.mojang.serialization.MapCodec
 import com.mojang.serialization.codecs.RecordCodecBuilder
 import io.github.takusan23.clickmanaita.ClickManaitaItemTool
-import net.minecraft.enchantment.EnchantmentEffectContext
-import net.minecraft.enchantment.EnchantmentLevelBasedValue
-import net.minecraft.enchantment.effect.EnchantmentEntityEffect
-import net.minecraft.entity.Entity
-import net.minecraft.entity.player.PlayerEntity
-import net.minecraft.server.world.ServerWorld
-import net.minecraft.util.math.BlockPos
-import net.minecraft.util.math.Vec3d
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup.world
+import net.minecraft.world.item.enchantment.EnchantedItemInUse
+import net.minecraft.world.item.enchantment.LevelBasedValue
+import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect
+import net.minecraft.world.entity.Entity
+import net.minecraft.world.entity.player.Player
+import net.minecraft.server.level.ServerLevel
+import net.minecraft.core.BlockPos
+import net.minecraft.world.entity.ai.behavior.SetWalkTargetAwayFrom.pos
+import net.minecraft.world.phys.Vec3
 
 /**
  * エンチャントのカスタムエフェクト
@@ -44,25 +46,26 @@ import net.minecraft.util.math.Vec3d
  * 発動するエフェクトとして、このクラスが指定されている。clickmanaita:clickmanaita_enchant_effect ですね。
  */
 data class ClickManaitaEnchantEntityEffect(
-    private val lookupDropSize: EnchantmentLevelBasedValue
+    private val lookupDropSize: LevelBasedValue
 ) : EnchantmentEntityEffect {
 
-    override fun apply(world: ServerWorld?, level: Int, context: EnchantmentEffectContext?, user: Entity?, pos: Vec3d?) {
-        val dropSize = lookupDropSize.getValue(level).toInt()
-        val blockPos = BlockPos.ofFloored(pos)
-        val player = user as? PlayerEntity ?: return
 
-        ClickManaitaItemTool.manaita(dropSize, world, blockPos, player)
+    override fun apply(serverLevel: ServerLevel, i: Int, enchantedItemInUse: EnchantedItemInUse, entity: Entity, vec3: Vec3) {
+        val dropSize = lookupDropSize.calculate(i).toInt()
+        val blockPos = BlockPos.containing(vec3)
+        val player = entity as? Player ?: return
+
+        ClickManaitaItemTool.manaita(dropSize, serverLevel, blockPos, player)
     }
 
-    override fun getCodec(): MapCodec<out EnchantmentEntityEffect> = CODEC
+    override fun codec(): MapCodec<out EnchantmentEntityEffect> = CODEC
 
     companion object {
 
         /** JSON で書かれたエンチャントの effect: { } 項目のシリアライズ、デシリアライズをする */
         val CODEC: MapCodec<ClickManaitaEnchantEntityEffect> = RecordCodecBuilder.mapCodec { instance ->
             instance.group(
-                EnchantmentLevelBasedValue.CODEC.fieldOf("drop_size").forGetter { it.lookupDropSize }
+                LevelBasedValue.CODEC.fieldOf("drop_size").forGetter { it.lookupDropSize }
             ).apply(instance) { p1 -> ClickManaitaEnchantEntityEffect(p1) }
         }
     }
