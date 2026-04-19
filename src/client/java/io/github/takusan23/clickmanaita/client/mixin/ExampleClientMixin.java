@@ -1,4 +1,4 @@
-package io.github.takusan23.clickmanaita.mixin.client;
+package io.github.takusan23.clickmanaita.client.mixin;
 
 import net.minecraft.client.gui.screens.TitleScreen;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,15 +1,15 @@
 package io.github.takusan23.clickmanaita
 
 import io.github.takusan23.clickmanaita.item.ClickManaitaItem
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup
-import net.minecraft.world.item.ItemStack
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab
 import net.minecraft.network.chat.Component
+import net.minecraft.world.item.ItemStack
 
 /** クリックまな板クリエイティブタブ */
 object ClickManaitaItemGroup {
 
     /** クリックまな板のクリエイティブタブ */
-    val CLICKMANAITA_ITEMGROUP = FabricItemGroup.builder()
+    val CLICKMANAITA_ITEMGROUP = FabricCreativeModeTab.builder()
         .icon { ItemStack(ClickManaitaItem.CLICKMANAITA_WOOD) }
         .title(Component.translatable("itemGroup.clickmanaita.clickmanaita_creative_tab")) // displayName は明示的に呼び出す必要がある
         .displayItems { _, entries ->

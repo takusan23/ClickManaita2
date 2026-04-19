@@ -1,14 +1,12 @@
 # クリックまな板
-1.21.11 のFabricがリリースされたのでクリックまな板対応しました。  
+26.1 のFabricがリリースされたのでクリックまな板対応しました。  
 
 ![Imgur](https://imgur.com/YHFDbjG.png)
 
 # Mod導入方法 （遊ぶ側、エンドユーザー向け）
-- Java 21 以降が必要です！！！
-- 多分 1.21.11 のバニラを一回起動しておく必要があると思います。
 - Fabricを導入します。
     - https://fabricmc.net/use/
-      - FabricLoaderのバージョンは`0.17.2`以降にしてください。
+      - FabricLoaderのバージョンは`0.19.2`以降にしてください。
     - Windowsならexeの方でいいんじゃね？
     - exeを起動するとWindows SmartScreenが警戒してきますがそのまま実行
 - modsフォルダに以下のファイルを入れます
@@ -16,12 +14,12 @@
         - https://www.curseforge.com/minecraft/mc-mods/clickmanaita/files
     - Fabric API
         - https://www.curseforge.com/minecraft/mc-mods/fabric-api/files
-          - `fabric-api-0.140.2+1.21.11` 以降
-    - Fabric Language Kotlin 1.21.11 版
+          - `fabric-api-0.145.1+26.1` 以降
+    - Fabric Language Kotlin 26.1 版
         - このMODはKotlinという言語で書かれているためこのファイルが他のFabric製MODとは違い必要になります。
         - https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin/files
-          - `fabric-language-kotlin-1.13.8+kotlin.2.3.0` 以降
-- Minecarft Lancher で起動構成を fabric-loader-1.21.11 に変更します
+          - `fabric-language-kotlin-1.13.10+kotlin.2.3.20` 以降
+- Minecarft Lancher で起動構成を fabric-loader-26.1 に変更します
 - あとは楽しんで
 
 ## 開発者向け
@@ -45,7 +43,7 @@ IDEA と Kotlin でできている。
   - JDK のディストリビューションにこだわりがある場合は別にこれじゃなくてもいいです
 
 ### 実行方法
-- このリポジトリをクローンして、ブランチ：1.21.11-fabricをチェックアウトします。
+- このリポジトリをクローンして、ブランチ：26.1-fabricをチェックアウトします。
 - IDEA右上のFileからProject Structureを選択して、JDKのバージョンを 21 にします。
    - これでできるはずなんだけど、できない場合は下も試して
 - IDEAの設定を開き、Build,Execution,Deployment > Build Tools > Gradle へ進み、Gradle JVM を 21 にします。
@@ -80,24 +78,15 @@ IDEA と Kotlin でできている。
 - README も更新する
 
 ### Minecraft のソース生成
-https://fabricmc.net/wiki/tutorial:setup
-
-基本的には既存のブロックの処理とにらめっこすることになるので。  
-`gradle`タスクの`genSources`を押すことで生成できます。  
-生成後、適当な`Minecraft`のクラスを開いて（例えば`Blocks.java`）、上の`Choose sources`を押して、`-sources.jar`の方を押せばよいです。
-
-![Imgur](https://imgur.com/Ld1IN4p.png)  
-
-![Imgur](https://imgur.com/yWMzbkH.png)
-
-これで検索機能とかが開放されるはず。
-
-![Imgur](https://imgur.com/kC1SQtx.png)
+Minecraft バニラが難読化されなくなったため不要になりました。
 
 ### Jar生成（配布するMODのファイル生成）
 MinecraftのMOD利用者/開発者？を狙ったウィルスから身を守るため、このMODでは配布するMODファイル（jarファイル）を`GitHub Actions (CI/CD)`で作っています。  
 が、今のところMODファイルの生成までしかしないので、ローカルに落として配布サイトへアップロードするとあんまり意味がないかもしれないです・・・。  
 また、MODファイルのハッシュ値を出すようにしたので、これで改ざんされていない事を確認できます。
+
+`GitHub Actions`を使う前に、利用している`アクション`のバージョン指定がコミットハッシュになっていることを確認してください。  
+バージョン指定である場合はコミットハッシュを使うように書き直してください。
 
 #### GitHub Actions で作成
 `1.20-fabric`、`1.20-forge`以降は`GitHub Actions`でMODファイルを作成できます。  

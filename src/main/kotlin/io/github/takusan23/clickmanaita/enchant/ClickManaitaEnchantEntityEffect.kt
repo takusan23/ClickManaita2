@@ -3,15 +3,13 @@ package io.github.takusan23.clickmanaita.enchant
 import com.mojang.serialization.MapCodec
 import com.mojang.serialization.codecs.RecordCodecBuilder
 import io.github.takusan23.clickmanaita.ClickManaitaItemTool
-import net.fabricmc.fabric.api.networking.v1.PlayerLookup.world
+import net.minecraft.core.BlockPos
+import net.minecraft.server.level.ServerLevel
+import net.minecraft.world.entity.Entity
+import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.enchantment.EnchantedItemInUse
 import net.minecraft.world.item.enchantment.LevelBasedValue
 import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect
-import net.minecraft.world.entity.Entity
-import net.minecraft.world.entity.player.Player
-import net.minecraft.server.level.ServerLevel
-import net.minecraft.core.BlockPos
-import net.minecraft.world.entity.ai.behavior.SetWalkTargetAwayFrom.pos
 import net.minecraft.world.phys.Vec3
 
 /**
