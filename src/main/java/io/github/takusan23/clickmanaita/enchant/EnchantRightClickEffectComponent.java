@@ -4,7 +4,6 @@ import io.github.takusan23.clickmanaita.ClickManaitaPlayerEvent;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.world.item.enchantment.ConditionalEffect;
 import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 
 import java.util.List;
 import java.util.function.UnaryOperator;
@@ -19,7 +18,7 @@ import java.util.function.UnaryOperator;
 class EnchantRightClickEffectComponent {
 
     public static DataComponentType<List<ConditionalEffect<EnchantmentEntityEffect>>> BLOCK_RIGHT_CLICK_EFFECT_COMPONENT = newDataComponent(builder ->
-            builder.persistent(ConditionalEffect.codec(EnchantmentEntityEffect.CODEC, LootContextParamSets.HIT_BLOCK).listOf())
+            builder.persistent(ConditionalEffect.codec(EnchantmentEntityEffect.CODEC).listOf())
     );
 
     /**

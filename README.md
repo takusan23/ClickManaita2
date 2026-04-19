@@ -1,5 +1,5 @@
 # クリックまな板
-NeoForge 1.21.11 版クリックまな板です。  
+NeoForge 26.1 版クリックまな板です。  
 
 ![Imgur](https://imgur.com/I7llaQs.png)
 
@@ -14,10 +14,9 @@ Fabric / Forge / NeoForge で使いたい MOD があればそれに合わせて�
 機能的な差はなく、アイテムID等も（このMODでは）同じ値を利用しているので、Fabric・Forge・NeoForge の環境を行ったり来たり出来ると思います。
 
 # 導入方法
-- Java 21 を入れます！！！
-- NeoForge 1.21.11 を入れます
+- NeoForge 26.1 を入れます
   - https://neoforged.net/
-    - NeoForge は`21.11.13-beta`以上が必要です。
+    - NeoForge は`26.1.0.19-beta`以上が必要です。
 - 入れたら、ランチャーから NeoForge を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
@@ -52,7 +51,7 @@ Fabric版はKotlinで書かれてますが、Forge / NeoForge 版はJavaです�
 ## 開発環境構築
 
 ### 必要なもの
-- Java 21
+- Java 25
     - 私はEclipse Adoptiumを使った
     - JDKのディストリビューションにこだわりがある場合は別にこれじゃなくてもいいです
       - （NeoForge チームはマイクロソフト製 OpenJDK を推してるらしい）
@@ -63,10 +62,10 @@ Fabric版はKotlinで書かれてますが、Forge / NeoForge 版はJavaです�
 - 環境変数の設定から、システム環境変数の`JAVA_HOME`が入れた`Eclipse Adoptium`のパスになっているか確認する。
 - ついでに`javac -version`して 21 が返ってくるか確認
 - このリポジトリをクローンするなり、zipをDLするなりしてソースコードを手に入れます。
-    - git cloneした場合はブランチ`1.21.11-neoforge`に切り替えてください。
+    - git cloneした場合はブランチ`26.1-neoforge`に切り替えてください。
 - IDEAでこのリポジトリを開いてください
 - しばらく待ちます
-    - ここで Java 21 が指定できてないとコケると思う
+    - ここで Java 25 が指定できてないとコケると思う
     - 私の環境では10分ぐらいかかった。`BUILD SUCCESSFUL in 9m 33s`とかでればおｋ
 - Gradle Syncします。`IDEA`の右上？にいる`象さんマーク (Gradle)`を押して、`更新ボタンみたいなやつ (Sync)`を押します。これ
   - 失敗したら `C:\Users\ユーザー名\.gradle\caches` を消すと良いかも
