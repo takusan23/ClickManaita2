@@ -1,5 +1,5 @@
 # クリックまな板
-NeoForge 26.1 版クリックまな板です。  
+NeoForge 26.1.1 版クリックまな板です。  
 
 ![Imgur](https://imgur.com/I7llaQs.png)
 
@@ -14,9 +14,9 @@ Fabric / Forge / NeoForge で使いたい MOD があればそれに合わせて�
 機能的な差はなく、アイテムID等も（このMODでは）同じ値を利用しているので、Fabric・Forge・NeoForge の環境を行ったり来たり出来ると思います。
 
 # 導入方法
-- NeoForge 26.1 を入れます
+- NeoForge 26.1.1 を入れます
   - https://neoforged.net/
-    - NeoForge は`26.1.0.19-beta`以上が必要です。
+    - NeoForge は`26.1.1.15-beta`以上が必要です。
 - 入れたら、ランチャーから NeoForge を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
@@ -62,7 +62,7 @@ Fabric版はKotlinで書かれてますが、Forge / NeoForge 版はJavaです�
 - 環境変数の設定から、システム環境変数の`JAVA_HOME`が入れた`Eclipse Adoptium`のパスになっているか確認する。
 - ついでに`javac -version`して 21 が返ってくるか確認
 - このリポジトリをクローンするなり、zipをDLするなりしてソースコードを手に入れます。
-    - git cloneした場合はブランチ`26.1-neoforge`に切り替えてください。
+    - git cloneした場合はブランチ`26.1.1-neoforge`に切り替えてください。
 - IDEAでこのリポジトリを開いてください
 - しばらく待ちます
     - ここで Java 25 が指定できてないとコケると思う
