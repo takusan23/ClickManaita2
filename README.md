@@ -1,5 +1,5 @@
 # クリックまな板
-Forge 1.21.11 がリリースされていたので対応しました。
+Forge 26.1 がリリースされていたので対応しました。
 
 ![Imgur](https://imgur.com/r07CH9j.png)
 
@@ -14,13 +14,13 @@ Fabric / NeoForge / Forge で使いたいMODがあればそれに合わせてダ
 機能的な差はなく、アイテムID等も（このMODでは）同じ値を利用しているので、Fabric・NeoForge・Forgeの環境を行ったり来たり出来ると思います。
 
 # 導入方法
-- Java 21 を入れます！！！
-- バニラの 1.21.11 を起動します
+- バニラの 26.1 を起動します
     - バニラアイスって喉乾くから抹茶のほうが好き
-- Forge 1.21.11 を入れます
+    - たぶんこれをスキップして Forge を入れてもいい気がします
+- Forge 26.1 を入れます
   - https://files.minecraftforge.net/net/minecraftforge/forge/
-    - Forgeは`1.21.11 - 61.0.3`以上が必要です。
-- 入れたら、ランチャーから Forge 1.21.11 を選んで起動します。
+    - Forgeは`26.1 - 62.0.9`以上が必要です。
+- 入れたら、ランチャーから Forge 26.1 を選んで起動します。
   - modsフォルダ内に他のバージョンのmodが入ってないか確認してね
 - 起動します
 - modsフォルダが出来ていると思うのでその中に上記のリンクからダウンロードしたクリックまな板のMODファイルを入れます
@@ -64,7 +64,7 @@ Fabric版はKotlinで書かれてますが、Forge版はJavaです。
 - 環境変数の設定から、システム環境変数の`JAVA_HOME`が入れた`Eclipse Adoptium`のパスになっているか確認する。
 - ついでに`javac -version`して 21 が返ってくるか確認
 - このリポジトリをクローンするなり、zipをDLするなりしてソースコードを手に入れます。
-    - git cloneした場合はブランチ`1.21.11-forge`に切り替えてください。
+    - git cloneした場合はブランチ`26.1-forge`に切り替えてください。
 - IDEAでこのリポジトリを開いてください
 - しばらく待ちます
     - ここで Java 21 が指定できてないとコケると思う
@@ -75,8 +75,8 @@ Fabric版はKotlinで書かれてますが、Forge版はJavaです。
 
 ![Imgur](https://imgur.com/0ra6jbW.png)
 
-- IDEA右上にある`Gradle`から、`Tasks > forgegradle runs > genIntellijRuns`をダブルクリックしてまた待つ
-- 終わったら、再生ボタンの隣りにあるドロップダウンメニューから`runClient`が選択可能になってます。`runClient`を選択して再生ボタンを押せば起動できます。
+- IDEA右上にある`Gradle`から、`Tasks > slime launcher > runClient`をダブルクリックしてまた待つ
+  - `genIntellijRuns`が見つからないが`runClient`が直で実行できるようになっている？
 - お疲れさまでした
 
 ### Minecraft 最新版への追従方法
