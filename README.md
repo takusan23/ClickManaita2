@@ -38,8 +38,8 @@ IDEA と Kotlin でできている。
 
 ### 必要なもの
 - IDEA
-- Eclipse Adoptium 21
-  - Java 21 以降が必要です
+- Eclipse Temurin 25
+  - Java 25 以降が必要です
   - JDK のディストリビューションにこだわりがある場合は別にこれじゃなくてもいいです
 
 ### 実行方法
