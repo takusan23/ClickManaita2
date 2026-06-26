@@ -3,7 +3,7 @@
 # References: https://github.com/MinecraftForge/MDKExamples
 
 modLoader="javafml"
-loaderVersion="[64,)"
+loaderVersion="[65,)"
 license="Apache License 2.0"
 #issueTrackerURL="https://github.com/MyOrganization/MyMod/" #optional
 #clientSideOnly=true #optional, default=false
@@ -24,13 +24,13 @@ description='''CheatMOD'''
 [[dependencies.clickmanaita]] #recommended
     modId="forge"
     mandatory=true
-    versionRange="[64,)"
+    versionRange="[65,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.clickmanaita]] #recommended
     modId="minecraft"
     mandatory=true
-    versionRange="[26.1.2,26.2,)"
+    versionRange="[26.2,26.3,)"
     ordering="NONE"
     side="BOTH"

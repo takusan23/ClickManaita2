@@ -72,7 +72,7 @@ public class ClickManaitaPlayerEvent {
         BlockPos blockPos = event.getPos();
         BlockState blockState = world.getBlockState(blockPos);
         Player playerEntity = event.getEntity();
-        Vec3 blockPosVec3d = blockPos.getCenter();
+        Vec3 blockPosVec3d = Vec3.atCenterOf(blockPos);
 
         // 持ち手によって分岐
         // 最近の Java、これも出来るのか...
