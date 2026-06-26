@@ -61,11 +61,13 @@ Fabric版はKotlinで書かれてますが、Forge版はJavaです。
     - Eclipseはよくわからん
 
 ### 実行方法
-- 環境変数の設定から、システム環境変数の`JAVA_HOME`が入れた`Eclipse Adoptium`のパスになっているか確認する。
-- ついでに`javac -version`して 21 が返ってくるか確認
 - このリポジトリをクローンするなり、zipをDLするなりしてソースコードを手に入れます。
     - git cloneした場合はブランチ`26.2-forge`に切り替えてください。
 - IDEAでこのリポジトリを開いてください
+- IDEA右上のFileからProject Structureを選択して、JDKのバージョンを 25 にします。
+  - これでできるはずなんだけど、できない場合は下も試して
+  - IDEAの設定を開き、Build,Execution,Deployment > Build Tools > Gradle へ進み、Gradle JVM を 25 にします。
+  - それでもだめならJAVA_HOME？
 - しばらく待ちます
     - ここで Java 21 が指定できてないとコケると思う
     - あとインターネットが遅い？と`Tag mismatch!`でコケると思う。これ意味不明すぎで草
