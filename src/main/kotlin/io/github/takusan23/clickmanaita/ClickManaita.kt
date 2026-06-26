@@ -5,8 +5,8 @@ import io.github.takusan23.clickmanaita.enchant.ClickManaitaEnchantClickCallback
 import io.github.takusan23.clickmanaita.enchant.ClickManaitaEnchantEntityEffect
 import io.github.takusan23.clickmanaita.enchant.EnchantRightClickEffectComponent
 import io.github.takusan23.clickmanaita.item.ClickManaitaItem
-import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.core.Registry
+import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.resources.Identifier
 
 /**

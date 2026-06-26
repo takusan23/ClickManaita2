@@ -1,21 +1,21 @@
 package io.github.takusan23.clickmanaita.enchant
 
 import net.fabricmc.fabric.api.event.player.UseBlockCallback
-import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.core.component.DataComponents
-import net.minecraft.world.item.enchantment.ItemEnchantments
-import net.minecraft.world.item.enchantment.EnchantedItemInUse
-import net.minecraft.world.item.enchantment.ConditionalEffect
+import net.minecraft.server.level.ServerLevel
+import net.minecraft.world.InteractionHand
+import net.minecraft.world.InteractionResult
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.EquipmentSlot
-import net.minecraft.world.level.storage.loot.LootContext
-import net.minecraft.world.level.storage.loot.parameters.LootContextParams
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets
-import net.minecraft.world.level.storage.loot.LootParams
-import net.minecraft.server.level.ServerLevel
+import net.minecraft.world.item.enchantment.ConditionalEffect
+import net.minecraft.world.item.enchantment.EnchantedItemInUse
+import net.minecraft.world.item.enchantment.ItemEnchantments
+import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.block.state.properties.BlockStateProperties
-import net.minecraft.world.InteractionResult
-import net.minecraft.world.InteractionHand
+import net.minecraft.world.level.storage.loot.LootContext
+import net.minecraft.world.level.storage.loot.LootParams
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams
 import net.minecraft.world.phys.Vec3
 import java.util.*
 
@@ -27,7 +27,7 @@ object ClickManaitaEnchantClickCallback {
         UseBlockCallback.EVENT.register { playerEntity, world, hand, blockHitResult ->
             val blockPos = blockHitResult.blockPos
             val blockState = world.getBlockState(blockPos)
-            val blockPosVec3d = blockPos.center
+            val blockPosVec3d = Vec3.atCenterOf(blockPos)
             // 持ち手によって分岐
             val currentItem = when (hand) {
                 InteractionHand.MAIN_HAND -> playerEntity.mainHandItem

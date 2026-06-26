@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
 	id 'net.fabricmc.fabric-loom' version "${loom_version}"
 	id 'maven-publish'
-	id "org.jetbrains.kotlin.jvm" version "2.3.20"
+	id "org.jetbrains.kotlin.jvm" version "2.4.0"
 }
 
 version = project.mod_version
@@ -30,25 +30,24 @@ loom {
 			sourceSet sourceSets.client
 		}
 	}
-
 }
 
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	
 	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-	implementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
+    implementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
 }
 
 processResources {
-	inputs.property "version", project.version
+	def version = project.version
+	inputs.property "version", version
 
 	filesMatching("fabric.mod.json") {
-		expand "version": inputs.properties.version
+		expand "version": version
 	}
 }
 
@@ -73,10 +72,11 @@ java {
 }
 
 jar {
-	inputs.property "projectName", project.name
+	def projectName = project.name
+	inputs.property "projectName", projectName
 
 	from("LICENSE") {
-		rename { "${it}_${project.name}"}
+		rename { "${it}_$projectName"}
 	}
 }
 
