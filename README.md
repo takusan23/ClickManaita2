@@ -52,7 +52,7 @@ Fabric版はKotlinで書かれてますが、Forge / NeoForge 版はJavaです�
 
 ### 必要なもの
 - Java 25
-    - 私はEclipse Adoptiumを使った
+    - 私はEclipse Temurinを使った
     - JDKのディストリビューションにこだわりがある場合は別にこれじゃなくてもいいです
       - （NeoForge チームはマイクロソフト製 OpenJDK を推してるらしい）
 - IDEA
