@@ -33,12 +33,12 @@
   "item.clickmanaita.manaita_chestplate": "Manaita Chestplate",
   "item.clickmanaita.manaita_leggings": "Manaita Leggings",
   "item.clickmanaita.manaita_boots": "Manaita Boots",
-  "tooltip.clickmanaita.manaita_sword": "100 attack damage and unbreakable",
-  "tooltip.clickmanaita.manaita_god_sword": "10000 attack damage and unbreakable",
-  "tooltip.clickmanaita.manaita_bow": "Raises arrow base damage to 100 and is unbreakable",
-  "tooltip.clickmanaita.manaita_tool": "Unbreakable; sneak-mine to break a 3×3×3 area",
+  "tooltip.clickmanaita.manaita_sword": "100000 attack damage, level 255 weapon enchantments, and unbreakable",
+  "tooltip.clickmanaita.manaita_god_sword": "1000000 attack damage, level 255 weapon enchantments, and unbreakable",
+  "tooltip.clickmanaita.manaita_bow": "Raises arrow base damage to 100000, has level 255 bow enchantments, and is unbreakable",
+  "tooltip.clickmanaita.manaita_tool": "100,000 mining speed and level 255 tool enchantments; unbreakable; sneak-mine a 3×3×3 area",
   "tooltip.clickmanaita.manaita_helmet": "Refills air and hunger, and grants night vision",
   "tooltip.clickmanaita.manaita_chestplate": "Continuously removes harmful effects",
   "tooltip.clickmanaita.manaita_leggings": "Extinguishes fire; grants invisibility while sneaking",
-  "tooltip.clickmanaita.manaita_boots": "Grants Speed III; the full set enables survival flight"
+  "tooltip.clickmanaita.manaita_boots": "All applicable armor enchantments are level 255; the full set grants invulnerability and powerful combat, survival, and mobility effects"
 }

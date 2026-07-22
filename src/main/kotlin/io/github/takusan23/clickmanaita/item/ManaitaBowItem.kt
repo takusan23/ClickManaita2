@@ -18,6 +18,6 @@ class ManaitaBowItem(properties: Properties) : BowItem(properties) {
         targetOverride: LivingEntity?
     ) {
         super.shootProjectile(shooter, projectileEntity, index, power, uncertainty, angle, targetOverride)
-        (projectileEntity as? AbstractArrow)?.setBaseDamage(100.0)
+        (projectileEntity as? AbstractArrow)?.setBaseDamage(100_000.0)
     }
 }

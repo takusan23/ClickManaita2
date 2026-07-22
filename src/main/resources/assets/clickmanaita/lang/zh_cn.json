@@ -33,12 +33,12 @@
   "item.clickmanaita.manaita_chestplate": "砧板胸甲",
   "item.clickmanaita.manaita_leggings": "砧板护腿",
   "item.clickmanaita.manaita_boots": "砧板靴子",
-  "tooltip.clickmanaita.manaita_sword": "100 点攻击伤害，且不可损坏",
-  "tooltip.clickmanaita.manaita_god_sword": "10000 点攻击伤害，且不可损坏",
-  "tooltip.clickmanaita.manaita_bow": "箭矢基础伤害提升至 100，且不可损坏",
-  "tooltip.clickmanaita.manaita_tool": "不可损坏；潜行挖掘时进行 3×3×3 范围采掘",
+  "tooltip.clickmanaita.manaita_sword": "10 万点攻击伤害，255 级全武器附魔，且不可损坏",
+  "tooltip.clickmanaita.manaita_god_sword": "100 万点攻击伤害，255 级全武器附魔，且不可损坏",
+  "tooltip.clickmanaita.manaita_bow": "箭矢基础伤害提升至 10 万，255 级全弓附魔，且不可损坏",
+  "tooltip.clickmanaita.manaita_tool": "10 万采掘速度与 255 级工具附魔；不可损坏；潜行挖掘时进行 3×3×3 范围采掘",
   "tooltip.clickmanaita.manaita_helmet": "补充氧气与饱食度，并提供夜视",
   "tooltip.clickmanaita.manaita_chestplate": "持续清除负面状态",
   "tooltip.clickmanaita.manaita_leggings": "扑灭火焰；潜行时隐身",
-  "tooltip.clickmanaita.manaita_boots": "提供速度 III；穿齐整套可在生存模式飞行"
+  "tooltip.clickmanaita.manaita_boots": "全套自带可用护甲附魔 255 级；全套无敌，并提供高等级战斗、生存与机动增益"
 }

@@ -19,6 +19,9 @@ import net.minecraft.world.item.ShearsItem
 import net.minecraft.world.item.ShovelItem
 import net.minecraft.world.item.ToolMaterial
 import net.minecraft.world.item.component.Tool
+import net.minecraft.world.item.enchantment.Enchantment
+import net.minecraft.world.item.enchantment.Enchantments
+import net.minecraft.world.item.enchantment.ItemEnchantments
 import net.minecraft.world.item.equipment.ArmorMaterial
 import net.minecraft.world.item.equipment.ArmorMaterials
 import net.minecraft.world.item.equipment.ArmorType
@@ -37,19 +40,19 @@ object ManaitaEquipment {
 
     private val TOOL_MATERIAL = ToolMaterial(
         BlockTags.INCORRECT_FOR_NETHERITE_TOOL,
-        2031,
-        1024.0f,
-        96.0f,
-        100,
+        2_031_000,
+        100_000.0f,
+        99_996.0f,
+        255,
         ItemTags.NETHERITE_TOOL_MATERIALS
     )
 
     private val ARMOR_MATERIAL = ArmorMaterial(
         37,
-        ArmorMaterials.makeDefense(8, 16, 20, 8, 20),
+        ArmorMaterials.makeDefense(2000, 2000, 2000, 2000, 2000),
         100,
         SoundEvents.ARMOR_EQUIP_NETHERITE,
-        20.0f,
+        2000.0f,
         1.0f,
         ItemTags.REPAIRS_NETHERITE_ARMOR,
         EquipmentAssets.NETHERITE
@@ -69,24 +72,72 @@ object ManaitaEquipment {
     private val LEGGINGS_KEY = itemKey("manaita_leggings")
     private val BOOTS_KEY = itemKey("manaita_boots")
 
-    val SWORD = Item(properties(SWORD_KEY).sword(TOOL_MATERIAL, 3.0f, -2.0f))
-    val GOD_SWORD = Item(properties(GOD_SWORD_KEY, glowing = true).sword(TOOL_MATERIAL, 9903.0f, -2.0f))
-    val BOW: BowItem = ManaitaBowItem(properties(BOW_KEY).durability(384).enchantable(100))
-    val PICKAXE = Item(properties(PICKAXE_KEY).pickaxe(TOOL_MATERIAL, 4.0f, -2.4f))
-    val AXE = AxeItem(TOOL_MATERIAL, 8.0f, -2.4f, properties(AXE_KEY))
-    val SHOVEL = ShovelItem(TOOL_MATERIAL, 4.0f, -2.4f, properties(SHOVEL_KEY))
-    val HOE = HoeItem(TOOL_MATERIAL, 0.0f, 0.0f, properties(HOE_KEY))
-    val PAXEL = Item(properties(PAXEL_KEY).tool(TOOL_MATERIAL, PAXEL_MINEABLE, 8.0f, -2.4f, 0.0f))
+    private val ARMOR_ENCHANTMENTS = listOf(
+        Enchantments.PROTECTION,
+        Enchantments.FIRE_PROTECTION,
+        Enchantments.BLAST_PROTECTION,
+        Enchantments.PROJECTILE_PROTECTION,
+        Enchantments.THORNS,
+        Enchantments.UNBREAKING,
+        Enchantments.MENDING
+    )
+
+    private val HELMET_ENCHANTMENTS = ARMOR_ENCHANTMENTS + listOf(Enchantments.RESPIRATION, Enchantments.AQUA_AFFINITY)
+    private val LEGGINGS_ENCHANTMENTS = ARMOR_ENCHANTMENTS + Enchantments.SWIFT_SNEAK
+    private val BOOTS_ENCHANTMENTS = ARMOR_ENCHANTMENTS + listOf(
+        Enchantments.FEATHER_FALLING,
+        Enchantments.DEPTH_STRIDER,
+        Enchantments.FROST_WALKER,
+        Enchantments.SOUL_SPEED
+    )
+
+    private val WEAPON_ENCHANTMENTS = listOf(
+        Enchantments.SHARPNESS,
+        Enchantments.SMITE,
+        Enchantments.BANE_OF_ARTHROPODS,
+        Enchantments.KNOCKBACK,
+        Enchantments.FIRE_ASPECT,
+        Enchantments.LOOTING,
+        Enchantments.SWEEPING_EDGE,
+        Enchantments.UNBREAKING,
+        Enchantments.MENDING
+    )
+
+    private val TOOL_ENCHANTMENTS = listOf(
+        Enchantments.EFFICIENCY,
+        Enchantments.FORTUNE,
+        Enchantments.SILK_TOUCH,
+        Enchantments.UNBREAKING,
+        Enchantments.MENDING
+    )
+
+    private val BOW_ENCHANTMENTS = listOf(
+        Enchantments.POWER,
+        Enchantments.PUNCH,
+        Enchantments.FLAME,
+        Enchantments.INFINITY,
+        Enchantments.UNBREAKING,
+        Enchantments.MENDING
+    )
+
+    val SWORD = Item(properties(SWORD_KEY, enchantments = WEAPON_ENCHANTMENTS).sword(TOOL_MATERIAL, 3.0f, -2.0f))
+    val GOD_SWORD = Item(properties(GOD_SWORD_KEY, glowing = true, enchantments = WEAPON_ENCHANTMENTS).sword(TOOL_MATERIAL, 900_003.0f, -2.0f))
+    val BOW: BowItem = ManaitaBowItem(properties(BOW_KEY, enchantments = BOW_ENCHANTMENTS).durability(384).enchantable(255))
+    val PICKAXE = Item(properties(PICKAXE_KEY, enchantments = TOOL_ENCHANTMENTS).pickaxe(TOOL_MATERIAL, 4.0f, -2.4f))
+    val AXE = AxeItem(TOOL_MATERIAL, 8.0f, -2.4f, properties(AXE_KEY, enchantments = TOOL_ENCHANTMENTS))
+    val SHOVEL = ShovelItem(TOOL_MATERIAL, 4.0f, -2.4f, properties(SHOVEL_KEY, enchantments = TOOL_ENCHANTMENTS))
+    val HOE = HoeItem(TOOL_MATERIAL, 0.0f, 0.0f, properties(HOE_KEY, enchantments = TOOL_ENCHANTMENTS))
+    val PAXEL = Item(properties(PAXEL_KEY, enchantments = TOOL_ENCHANTMENTS).tool(TOOL_MATERIAL, PAXEL_MINEABLE, 8.0f, -2.4f, 0.0f))
     val SHEARS = ShearsItem(
-        properties(SHEARS_KEY)
-            .durability(238)
-            .enchantable(100)
+        properties(SHEARS_KEY, enchantments = TOOL_ENCHANTMENTS)
+            .durability(2_031_000)
+            .enchantable(255)
             .component(DataComponents.TOOL, manaitaShearsTool())
     )
-    val HELMET = Item(properties(HELMET_KEY).humanoidArmor(ARMOR_MATERIAL, ArmorType.HELMET))
-    val CHESTPLATE = Item(properties(CHESTPLATE_KEY).humanoidArmor(ARMOR_MATERIAL, ArmorType.CHESTPLATE))
-    val LEGGINGS = Item(properties(LEGGINGS_KEY).humanoidArmor(ARMOR_MATERIAL, ArmorType.LEGGINGS))
-    val BOOTS = Item(properties(BOOTS_KEY).humanoidArmor(ARMOR_MATERIAL, ArmorType.BOOTS))
+    val HELMET = Item(properties(HELMET_KEY, enchantments = HELMET_ENCHANTMENTS).humanoidArmor(ARMOR_MATERIAL, ArmorType.HELMET))
+    val CHESTPLATE = Item(properties(CHESTPLATE_KEY, enchantments = ARMOR_ENCHANTMENTS).humanoidArmor(ARMOR_MATERIAL, ArmorType.CHESTPLATE))
+    val LEGGINGS = Item(properties(LEGGINGS_KEY, enchantments = LEGGINGS_ENCHANTMENTS).humanoidArmor(ARMOR_MATERIAL, ArmorType.LEGGINGS))
+    val BOOTS = Item(properties(BOOTS_KEY, enchantments = BOOTS_ENCHANTMENTS).humanoidArmor(ARMOR_MATERIAL, ArmorType.BOOTS))
 
     val ALL_ITEMS: List<Item> = listOf(
         SWORD,
@@ -129,14 +180,24 @@ object ManaitaEquipment {
         Identifier.fromNamespaceAndPath(MOD_ID, path)
     )
 
-    private fun properties(key: ResourceKey<Item>, glowing: Boolean = false): Item.Properties {
+    private fun properties(
+        key: ResourceKey<Item>,
+        glowing: Boolean = false,
+        enchantments: List<ResourceKey<Enchantment>> = emptyList()
+    ): Item.Properties {
         val properties = Item.Properties()
             .setId(key)
             .stacksTo(1)
             .fireResistant()
             .rarity(Rarity.EPIC)
             .component(DataComponents.UNBREAKABLE, MinecraftUnit.INSTANCE)
-        return if (glowing) properties.component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true) else properties
+        if (glowing) properties.component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true)
+        return if (enchantments.isEmpty()) properties else properties.delayedComponent(DataComponents.ENCHANTMENTS) { context ->
+            val registry = context.lookupOrThrow(Registries.ENCHANTMENT)
+            val result = ItemEnchantments.Mutable(ItemEnchantments.EMPTY)
+            enchantments.forEach { result.set(registry.getOrThrow(it), 255) }
+            result.toImmutable()
+        }
     }
 
     private fun manaitaShearsTool(): Tool {
@@ -144,12 +205,12 @@ object ManaitaEquipment {
         return Tool(
             vanillaTool.rules().map { rule ->
                 if (rule.speed().isPresent) {
-                    Tool.Rule(rule.blocks(), java.util.Optional.of(1024.0f), rule.correctForDrops())
+                    Tool.Rule(rule.blocks(), java.util.Optional.of(100_000.0f), rule.correctForDrops())
                 } else {
                     rule
                 }
             },
-            1024.0f,
+            100_000.0f,
             vanillaTool.damagePerBlock(),
             vanillaTool.canDestroyBlocksInCreative()
         )

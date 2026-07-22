@@ -2,6 +2,7 @@ package io.github.takusan23.clickmanaita.item
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents
+import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents
 import net.minecraft.core.BlockPos
 import net.minecraft.server.level.ServerLevel
 import net.minecraft.server.level.ServerPlayer
@@ -19,6 +20,9 @@ object ManaitaEquipmentEffects {
     fun register() {
         ServerTickEvents.END_SERVER_TICK.register { server ->
             server.playerList.players.forEach(::tickArmor)
+        }
+        ServerLivingEntityEvents.ALLOW_DAMAGE.register { entity, _, _ ->
+            entity !is ServerPlayer || !wearingFullSet(entity)
         }
         PlayerBlockBreakEvents.AFTER.register { world, player, pos, _, _ ->
             val serverPlayer = player as? ServerPlayer ?: return@register
@@ -49,14 +53,35 @@ object ManaitaEquipmentEffects {
         if (hasLeggings) {
             player.extinguishFire()
         }
+        val hasFullSet = hasHelmet && hasChestplate && hasLeggings && hasBoots
         if (player.tickCount % 20 == 0) {
             if (hasHelmet) player.addEffect(hiddenEffect(MobEffects.NIGHT_VISION, 240))
             if (hasLeggings && player.isShiftKeyDown) player.addEffect(hiddenEffect(MobEffects.INVISIBILITY, 40))
             if (hasBoots) player.addEffect(hiddenEffect(MobEffects.SPEED, 40, amplifier = 2))
+            if (hasFullSet) {
+                player.addEffect(hiddenEffect(MobEffects.RESISTANCE, 40, amplifier = 3))
+                player.addEffect(hiddenEffect(MobEffects.REGENERATION, 40, amplifier = 9))
+                player.addEffect(hiddenEffect(MobEffects.STRENGTH, 40, amplifier = 9))
+                player.addEffect(hiddenEffect(MobEffects.HASTE, 40, amplifier = 9))
+                player.addEffect(hiddenEffect(MobEffects.JUMP_BOOST, 40, amplifier = 4))
+                player.addEffect(hiddenEffect(MobEffects.HEALTH_BOOST, 40, amplifier = 9))
+                player.addEffect(hiddenEffect(MobEffects.ABSORPTION, 40, amplifier = 9))
+                player.addEffect(hiddenEffect(MobEffects.FIRE_RESISTANCE, 40))
+                player.addEffect(hiddenEffect(MobEffects.WATER_BREATHING, 40))
+                player.addEffect(hiddenEffect(MobEffects.SLOW_FALLING, 40))
+                player.addEffect(hiddenEffect(MobEffects.DOLPHINS_GRACE, 40))
+                player.addEffect(hiddenEffect(MobEffects.LUCK, 40, amplifier = 9))
+            }
         }
 
-        updateFlight(player, hasHelmet && hasChestplate && hasLeggings && hasBoots)
+        updateFlight(player, hasFullSet)
     }
+
+    private fun wearingFullSet(player: ServerPlayer): Boolean =
+        player.getItemBySlot(EquipmentSlot.HEAD).`is`(ManaitaEquipment.HELMET) &&
+            player.getItemBySlot(EquipmentSlot.CHEST).`is`(ManaitaEquipment.CHESTPLATE) &&
+            player.getItemBySlot(EquipmentSlot.LEGS).`is`(ManaitaEquipment.LEGGINGS) &&
+            player.getItemBySlot(EquipmentSlot.FEET).`is`(ManaitaEquipment.BOOTS)
 
     private fun updateFlight(player: ServerPlayer, hasFullSet: Boolean) {
         val abilities = player.abilities
