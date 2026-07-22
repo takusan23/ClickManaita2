@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "clickmanaita:manaita_sword",
+    "minecraft:nether_star"
+  ],
+  "result": {
+    "id": "clickmanaita:manaita_god_sword"
+  }
+}

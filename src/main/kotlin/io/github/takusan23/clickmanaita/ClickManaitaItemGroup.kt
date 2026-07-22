@@ -1,6 +1,7 @@
 package io.github.takusan23.clickmanaita
 
 import io.github.takusan23.clickmanaita.item.ClickManaitaItem
+import io.github.takusan23.clickmanaita.item.ManaitaEquipment
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab
 import net.minecraft.network.chat.Component
 import net.minecraft.world.item.ItemStack
@@ -27,6 +28,7 @@ object ClickManaitaItemGroup {
             entries.accept(ClickManaitaItem.CLICKMANAITA_GOLD_BLOCK_ITEM)
             entries.accept(ClickManaitaItem.CLICKMANAITA_DIAMOND_BLOCK_ITEM)
             entries.accept(ClickManaitaItem.CLICKMANAITA_EMERALD_BLOCK_ITEM)
+            ManaitaEquipment.ALL_ITEMS.forEach(entries::accept)
         }
         .build()
 

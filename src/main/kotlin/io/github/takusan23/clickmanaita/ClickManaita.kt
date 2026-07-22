@@ -5,6 +5,8 @@ import io.github.takusan23.clickmanaita.enchant.ClickManaitaEnchantClickCallback
 import io.github.takusan23.clickmanaita.enchant.ClickManaitaEnchantEntityEffect
 import io.github.takusan23.clickmanaita.enchant.EnchantRightClickEffectComponent
 import io.github.takusan23.clickmanaita.item.ClickManaitaItem
+import io.github.takusan23.clickmanaita.item.ManaitaEquipment
+import io.github.takusan23.clickmanaita.item.ManaitaEquipmentEffects
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.core.Registry
 import net.minecraft.resources.Identifier
@@ -16,6 +18,7 @@ import net.minecraft.resources.Identifier
 fun init() {
     // アイテム追加
     ClickManaitaItem.register()
+    ManaitaEquipment.register()
     // ブロック追加
     ClickManaitaBlock.register()
     // クリエタブ
@@ -25,5 +28,6 @@ fun init() {
     Registry.register(BuiltInRegistries.ENCHANTMENT_EFFECT_COMPONENT_TYPE, Identifier.fromNamespaceAndPath("clickmanaita", "block_right_click"), EnchantRightClickEffectComponent.BLOCK_RIGHT_CLICK_EFFECT_COMPONENT)
     // イベント登録
     ClickManaitaEnchantClickCallback.registerClickManaitaEnchantCallback()
+    ManaitaEquipmentEffects.register()
 }
 
