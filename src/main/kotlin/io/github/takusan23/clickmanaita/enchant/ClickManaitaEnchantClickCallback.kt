@@ -27,7 +27,7 @@ object ClickManaitaEnchantClickCallback {
         UseBlockCallback.EVENT.register { playerEntity, world, hand, blockHitResult ->
             val blockPos = blockHitResult.blockPos
             val blockState = world.getBlockState(blockPos)
-            val blockPosVec3d = blockPos.center
+            val blockPosVec3d = Vec3.atCenterOf(blockPos)
             // 持ち手によって分岐
             val currentItem = when (hand) {
                 InteractionHand.MAIN_HAND -> playerEntity.mainHandItem

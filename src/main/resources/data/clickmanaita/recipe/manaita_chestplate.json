@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "clickmanaita:clickmanaita_emerald",
+    "minecraft:netherite_chestplate"
+  ],
+  "result": {
+    "id": "clickmanaita:manaita_chestplate"
+  }
+}

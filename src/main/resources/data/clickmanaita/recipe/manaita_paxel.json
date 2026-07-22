@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "clickmanaita:manaita_pickaxe",
+    "clickmanaita:manaita_axe",
+    "clickmanaita:manaita_shovel",
+    "clickmanaita:manaita_hoe"
+  ],
+  "result": {
+    "id": "clickmanaita:manaita_paxel"
+  }
+}
