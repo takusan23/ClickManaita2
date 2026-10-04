@@ -63,7 +63,7 @@ public class ClickManaitaCustomItem extends ClickManaitaBaseItem {
                 p_41427_.getPlayer()
         );
 
-        return InteractionResult.SUCCESS;
+        return InteractionResult.SUCCESS.heldItemTransformedTo(p_41427_.getItemInHand());
     }
 
     /**

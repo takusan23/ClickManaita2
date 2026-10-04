@@ -2,6 +2,7 @@ package io.github.takusan23.clickmanaita;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -34,6 +35,10 @@ public class ClickManaitaItemTool {
             return;
         }
 
+        if (!(player instanceof ServerPlayer)) {
+            return;
+        }
+
         BlockState blockState = world.getBlockState(blockPos);
         Block copyBlock = blockState.getBlock();
         BlockEntity blockEntity = world.getBlockEntity(blockPos);
@@ -48,7 +53,7 @@ public class ClickManaitaItemTool {
             }
 
             // ブロック複製
-            copyBlock.playerDestroy(world, player, blockPos, blockState, blockEntity, player.getMainHandItem());
+            copyBlock.playerDestroy((ServerLevel) world, (ServerPlayer) player, blockPos, blockState, blockEntity, player.getMainHandItem());
 
             // なんか経験値を吐き出す実装がなくなった？ので自前で用意
             int exp = blockState.getExpDrop(world, blockPos, blockEntity, player, player.getMainHandItem());
