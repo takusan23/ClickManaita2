@@ -1,14 +1,14 @@
 {
-  "required": true,
-  "package": "io.github.takusan23.clickmanaita.client.mixin",
-  "compatibilityLevel": "JAVA_25",
-  "client": [
-    "ExampleClientMixin"
-  ],
-  "injectors": {
-    "defaultRequire": 1
-  },
-  "overwrites": {
-    "requireAnnotations": true
-  }
+	"required": true,
+	"package": "io.github.takusan23.clickmanaita.client.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"ExampleClientMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
 }

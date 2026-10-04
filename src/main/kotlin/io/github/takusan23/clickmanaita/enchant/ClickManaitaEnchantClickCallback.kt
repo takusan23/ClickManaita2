@@ -32,7 +32,6 @@ object ClickManaitaEnchantClickCallback {
             val currentItem = when (hand) {
                 InteractionHand.MAIN_HAND -> playerEntity.mainHandItem
                 InteractionHand.OFF_HAND -> playerEntity.offhandItem
-                else -> return@register InteractionResult.PASS
             }
 
             // サーバー側

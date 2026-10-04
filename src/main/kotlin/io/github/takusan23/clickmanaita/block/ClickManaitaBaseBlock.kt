@@ -24,7 +24,7 @@ class ClickManaitaBaseBlock(settings: Properties, private val dropSize: Int = 2)
             repeat(dropSize) {
                 // 今持ってるアイテム
                 val currentItem = player.mainHandItem.copy()
-                currentItem?.count = 1
+                currentItem.count = 1
                 // アイテムを落とす
                 popResource(level, blockPos, currentItem)
             }

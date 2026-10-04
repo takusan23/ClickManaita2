@@ -1,13 +1,13 @@
 package io.github.takusan23.clickmanaita.item
 
 import io.github.takusan23.clickmanaita.ClickManaitaItemTool
+import net.minecraft.ChatFormatting
+import net.minecraft.network.chat.MutableComponent
+import net.minecraft.network.chat.Style
+import net.minecraft.network.chat.contents.PlainTextContents
+import net.minecraft.world.InteractionResult
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.context.UseOnContext
-import net.minecraft.network.chat.MutableComponent
-import net.minecraft.network.chat.contents.PlainTextContents
-import net.minecraft.network.chat.Style
-import net.minecraft.world.InteractionResult
-import net.minecraft.ChatFormatting
 
 /**
  * 右クリックしたらアイテムが増えるアイテムを追加する
@@ -35,6 +35,6 @@ class ClickManaitaBaseItem(settings: Properties, private val dropSize: Int = 2) 
             playerEntity = context.player ?: return InteractionResult.PASS
         )
 
-        return InteractionResult.SUCCESS
+        return InteractionResult.SUCCESS.heldItemTransformedTo(context.itemInHand)
     }
 }

@@ -1,14 +1,14 @@
 package io.github.takusan23.clickmanaita.item
 
 import io.github.takusan23.clickmanaita.ClickManaitaItemTool
+import net.minecraft.ChatFormatting
+import net.minecraft.network.chat.MutableComponent
+import net.minecraft.network.chat.Style
+import net.minecraft.network.chat.contents.PlainTextContents
+import net.minecraft.world.InteractionResult
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.context.UseOnContext
-import net.minecraft.network.chat.MutableComponent
-import net.minecraft.network.chat.contents.PlainTextContents
-import net.minecraft.network.chat.Style
-import net.minecraft.world.InteractionResult
-import net.minecraft.ChatFormatting
 
 /**
  * 金床で変えた値だけ増えるまな板
@@ -33,7 +33,7 @@ class ClickManaitaCustomItem(settings: Properties) : Item(settings) {
             playerEntity = context.player ?: return InteractionResult.PASS
         )
 
-        return InteractionResult.SUCCESS
+        return InteractionResult.SUCCESS.heldItemTransformedTo(context.itemInHand)
     }
 
     /**

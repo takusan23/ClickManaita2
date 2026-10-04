@@ -1,11 +1,12 @@
 package io.github.takusan23.clickmanaita
 
-import net.minecraft.world.level.block.Block
-import net.minecraft.world.entity.player.Player
-import net.minecraft.world.Container
-import net.minecraft.server.level.ServerLevel
 import net.minecraft.core.BlockPos
+import net.minecraft.server.level.ServerLevel
+import net.minecraft.server.level.ServerPlayer
+import net.minecraft.world.Container
+import net.minecraft.world.entity.player.Player
 import net.minecraft.world.level.Level
+import net.minecraft.world.level.block.Block
 
 /** ユーティリティクラス */
 object ClickManaitaItemTool {
@@ -28,9 +29,10 @@ object ClickManaitaItemTool {
         playerEntity: Player
     ) {
         if (world !is ServerLevel) return
+        if (playerEntity !is ServerPlayer) return
 
         val blockState = world.getBlockState(blockPos)
-        val copyBlock = blockState?.block ?: return
+        val copyBlock = blockState.block
         val blockEntity = world.getBlockEntity(blockPos)
 
         repeat(dropSize) {

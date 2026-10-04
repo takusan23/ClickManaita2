@@ -1,5 +1,5 @@
 # クリックまな板
-26.2 のFabricがリリースされたのでクリックまな板対応しました。  
+26.3 のFabricがリリースされたのでクリックまな板対応しました。  
 
 ![Imgur](https://imgur.com/YHFDbjG.png)
 
@@ -14,12 +14,12 @@
         - https://www.curseforge.com/minecraft/mc-mods/clickmanaita/files
     - Fabric API
         - https://www.curseforge.com/minecraft/mc-mods/fabric-api/files
-          - `fabric-api-0.153.0+26.2` 以降
-    - Fabric Language Kotlin 26.2 版
+          - `fabric-api-0.161.0+26.3` 以降
+    - Fabric Language Kotlin 26.3 版
         - このMODはKotlinという言語で書かれているためこのファイルが他のFabric製MODとは違い必要になります。
         - https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin/files
-          - `fabric-language-kotlin-1.13.12+kotlin.2.4.0` 以降
-- Minecarft Lancher で起動構成を fabric-loader-26.2 に変更します
+          - `fabric-language-kotlin-1.14.1+kotlin.2.4.20` 以降
+- Minecarft Lancher で起動構成を fabric-loader-26.3 に変更します
 - あとは楽しんで
 
 ## 開発者向け
@@ -43,7 +43,7 @@ IDEA と Kotlin でできている。
   - JDK のディストリビューションにこだわりがある場合は別にこれじゃなくてもいいです
 
 ### 実行方法
-- このリポジトリをクローンして、ブランチ：26.2-fabricをチェックアウトします。
+- このリポジトリをクローンして、ブランチ：26.3-fabricをチェックアウトします。
 - IDEA右上のFileからProject Structureを選択して、JDKのバージョンを 21 にします。
    - これでできるはずなんだけど、できない場合は下も試して
 - IDEAの設定を開き、Build,Execution,Deployment > Build Tools > Gradle へ進み、Gradle JVM を 21 にします。
